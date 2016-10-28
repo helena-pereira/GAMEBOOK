@@ -59,7 +59,21 @@ public class FeedReaderContract {
 
     private static final String TEXT_TYPE =" TEXT";
     private static final String COMMA_SEP = ",";
-    private static final String SQL_CREATE_ENTRIES = "";
+    private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " +
+            FeedEntryGAME.TABLE_NAME + " (" +
+                FeedEntryGAME.COLUMN_DATE + TEXT_TYPE + COMMA_SEP +
+                FeedEntryGAME.COLUMM_HEURE + " DATETIME" + COMMA_SEP +
+                FeedEntryGAME.COLUMN_ATTRIBUTE1 + TEXT_TYPE + COMMA_SEP +
+                FeedEntryGAME.COLUMN_TEAM_RESIDENT + TEXT_TYPE + COMMA_SEP +
+                FeedEntryGAME.COLUMN_TEAM_EXTERIEUR + TEXT_TYPE + COMMA_SEP +
+                FeedEntryGAME.COLUMN_QUANTITE + TEXT_TYPE + COMMA_SEP +
+                FeedEntryGAME.COLUMN_STATUT + TEXT_TYPE + COMMA_SEP +
+                FeedEntryGAME.COLUMN_NB_PLACES_DISPO + " INTEGER" + COMMA_SEP +
+                FeedEntryGAME.COLUMN_FK_STADE + " INTEGER REFERENCES" + FeedEntrySTADE.TABLE_NAME
+            + " )";
+
+
+
 }
 
 
