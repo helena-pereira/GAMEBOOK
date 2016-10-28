@@ -72,6 +72,8 @@ public class FeedReaderContract {
                 FeedEntryGAME.COLUMN_FK_STADE + " INTEGER REFERENCES" + FeedEntrySTADE.TABLE_NAME
             + " )";
 
+    https://github.com/codepath/android_guides/wiki/Local-Databases-with-SQLiteOpenHelper
+
 
 
 }
