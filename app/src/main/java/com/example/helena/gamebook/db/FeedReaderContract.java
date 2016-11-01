@@ -7,76 +7,130 @@ import android.provider.BaseColumns;
  */
 
 public class FeedReaderContract {
+    public static final String TEXT_TYPE = " TEXT";
+    public static final String COMMA_SEP = ",";
 
-    public FeedReaderContract(){}
+    public FeedReaderContract() {
+    }
 
-    //table GAME
-    public static abstract class FeedEntryGAME implements BaseColumns {
+    // GAME
+    public static abstract class tableGAME implements BaseColumns {
+
         public static final String TABLE_NAME = "GAME";
-        public static final String COLUMN_DATE ="date";
-        public static final String COLUMM_HEURE = "heure";
-        public static final String COLUMN_ATTRIBUTE1 ="attribute1";
-        public static final String COLUMN_TEAM_RESIDENT ="team_resident";
-        public static final String COLUMN_TEAM_EXTERIEUR ="team_exterieur";
-        public static final String COLUMN_QUANTITE ="quantite";
-        public static final String COLUMN_STATUT ="statut";
-        public static final String COLUMN_NB_PLACES_DISPO ="nb_places dispos";
-        public static final String COLUMN_FK_STADE ="fk_stade";
+
+        public static final String GAME_ID = "id";
+        public static final String GAME_DATE = "date";
+        public static final String GAME_HEURE = "heure";
+        public static final String GAME_ATTRIBUTE1 = "attribute1";
+        public static final String GAME_TEAM_RESIDENT = "team_resident";
+        public static final String GAME_TEAM_EXTERIEUR = "team_exterieur";
+        public static final String GAME_QUANTITE = "quantite";
+        public static final String GAME_STATUT = "statut";
+        public static final String GAME_NB_PLACES_DISPO = "nb_places dispos";
+        public static final String GAME_FK_STADE = "fk_stade";
+
+
+        public static final String CREATE_TABLE_GAME = "CREATE TABLE " +
+                tableGAME.TABLE_NAME + " (" +
+                tableGAME.GAME_ID + " INTEGER PRIMARY KEY AUTOINCREMENT" + COMMA_SEP +
+                tableGAME.GAME_DATE + TEXT_TYPE + COMMA_SEP +
+                tableGAME.GAME_HEURE + " DATETIME" + COMMA_SEP +
+                tableGAME.GAME_ATTRIBUTE1 + TEXT_TYPE + COMMA_SEP +
+                tableGAME.GAME_TEAM_RESIDENT + TEXT_TYPE + COMMA_SEP +
+                tableGAME.GAME_TEAM_EXTERIEUR + TEXT_TYPE + COMMA_SEP +
+                tableGAME.GAME_QUANTITE + " INTEGER" + COMMA_SEP +
+                tableGAME.GAME_STATUT + TEXT_TYPE + COMMA_SEP +
+                tableGAME.GAME_NB_PLACES_DISPO + " INTEGER" + COMMA_SEP +
+                tableGAME.GAME_FK_STADE + " INTEGER,"
+                + " FOREIGN KEY (" + tableGAME.GAME_FK_STADE + ") REFERENCES " + tableSTADE.TABLE_NAME + " (" + tableSTADE.STADE_ID + ") "
+                + ");";
+
     }
 
-    //table BOOKING
-    public static abstract class FeedEntryBOOKING implements BaseColumns {
+    // BOOKING
+    public static abstract class tableBOOKING implements BaseColumns {
         public static final String TABLE_NAME = "BOOKING";
-        public static final String COLUMN_FK_IDGAME ="fk_idGame";
-        public static final String COLUMM_FK_IDCUSTOMER = "fk_idCustomer";
-        public static final String COLUMN_NUM_SEAT ="num_seat";
+        public static final String BOOKING_ID = "id";
+        public static final String BOOKING_FK_IDGAME = "fk_idGame";
+        public static final String BOOKING_FK_IDCUSTOMER = "fk_idCustomer";
+        public static final String BOOKING_NUM_SEAT = "num_seat";
+
+        public static final String CREATE_TABLE_BOOKING = "CREATE TABLE " +
+                tableBOOKING.TABLE_NAME + " (" +
+                tableBOOKING.BOOKING_ID + " INTEGER PRIMARY KEY AUTOINCREMENT" + COMMA_SEP +
+                tableBOOKING.BOOKING_NUM_SEAT + " INTEGER" + COMMA_SEP +
+
+                tableBOOKING.BOOKING_FK_IDGAME+ " INTEGER,"
+                + " FOREIGN KEY (" + tableBOOKING.BOOKING_FK_IDGAME + ") REFERENCES " + tableGAME.TABLE_NAME + " (" + tableGAME.GAME_ID + ") " +
+
+                tableBOOKING.BOOKING_FK_IDCUSTOMER+ " INTEGER,"
+                + " FOREIGN KEY (" + tableBOOKING.BOOKING_FK_IDCUSTOMER + ") REFERENCES " + tableCUSTOMER.TABLE_NAME + " (" + tableCUSTOMER.CUSTOMER_ID + ") "
+
+                + " )";
     }
 
-    //table CUSTOMER
-    public static abstract class FeedEntryCUSTOMER implements BaseColumns {
+    // CUSTOMER
+    public static abstract class tableCUSTOMER implements BaseColumns {
         public static final String TABLE_NAME = "CUSTOMER";
-        public static final String COLUMN_NOM ="nom";
-        public static final String COLUMM_PRENOM = "prenom";
-        public static final String COLUMN_EMAIL ="email";
-        public static final String COLUMN_MDP ="mdp";
-        public static final String COLUMN_FK_IDLIEU ="fk_idLieu";
+        public static final String CUSTOMER_ID = "id";
+        public static final String CUSTOMER_NOM = "nom";
+        public static final String CUSTOMER_PRENOM = "prenom";
+        public static final String CUSTOMER_EMAIL = "email";
+        public static final String CUSTOMER_MDP = "mdp";
+
+
+        public static final String CREATE_TABLE_CUSTOMER = "CREATE TABLE " +
+                tableCUSTOMER.TABLE_NAME + " (" +
+                tableCUSTOMER.CUSTOMER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT" + COMMA_SEP +
+                tableCUSTOMER.CUSTOMER_NOM + TEXT_TYPE + COMMA_SEP +
+                tableCUSTOMER.CUSTOMER_PRENOM + TEXT_TYPE + COMMA_SEP +
+                tableCUSTOMER.CUSTOMER_EMAIL + TEXT_TYPE + COMMA_SEP +
+                tableCUSTOMER.CUSTOMER_MDP + TEXT_TYPE + COMMA_SEP +
+                ")" ;
+
 
     }
 
-    //table STADE
-    public static abstract class FeedEntrySTADE implements BaseColumns {
+    // STADE
+    public static abstract class tableSTADE implements BaseColumns {
         public static final String TABLE_NAME = "STADE";
-        public static final String COLUMN_NOM ="nom";
-        public static final String COLUMM_NB_PLACES_TOTALES = "nb_places_totales";
-        public static final String COLUMN_ADRESSE ="adresse";
-        public static final String COLUMN_NPA ="npa";
-        public static final String COLUMN_VILLE ="ville";
-        public static final String COLUMN_FK_IDLIEU ="fk_idLieu";
+        public static final String STADE_ID = "id";
+        public static final String STADE_NOM = "nom";
+        public static final String STADE_NB_PLACES_TOTALES = "nb_places_totales";
+        public static final String STADE_ADRESSE = "adresse";
+        public static final String STADE_NPA = "npa";
+        public static final String STADE_VILLE = "ville";
 
+        public static final String CREATE_TABLE_STADE = "CREATE TABLE " +
+                tableSTADE.TABLE_NAME + " (" +
+                tableSTADE.STADE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT" + COMMA_SEP +
+                tableSTADE.STADE_NOM + TEXT_TYPE + COMMA_SEP +
+                tableSTADE.STADE_NB_PLACES_TOTALES + " INTEGER" + COMMA_SEP +
+                tableSTADE.STADE_ADRESSE + TEXT_TYPE + COMMA_SEP +
+                tableSTADE.STADE_NPA + TEXT_TYPE + COMMA_SEP +
+                tableSTADE.STADE_VILLE + TEXT_TYPE + COMMA_SEP +
+                ")";
     }
 
 
+    //création des FK_id
+    //https://github.com/codepath/android_guides/wiki/Local-Databases-with-SQLiteOpenHelper
 
-    private static final String TEXT_TYPE =" TEXT";
-    private static final String COMMA_SEP = ",";
-    private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " +
-            FeedEntryGAME.TABLE_NAME + " (" +
-                FeedEntryGAME.COLUMN_DATE + TEXT_TYPE + COMMA_SEP +
-                FeedEntryGAME.COLUMM_HEURE + " DATETIME" + COMMA_SEP +
-                FeedEntryGAME.COLUMN_ATTRIBUTE1 + TEXT_TYPE + COMMA_SEP +
-                FeedEntryGAME.COLUMN_TEAM_RESIDENT + TEXT_TYPE + COMMA_SEP +
-                FeedEntryGAME.COLUMN_TEAM_EXTERIEUR + TEXT_TYPE + COMMA_SEP +
-                FeedEntryGAME.COLUMN_QUANTITE + TEXT_TYPE + COMMA_SEP +
-                FeedEntryGAME.COLUMN_STATUT + TEXT_TYPE + COMMA_SEP +
-                FeedEntryGAME.COLUMN_NB_PLACES_DISPO + " INTEGER" + COMMA_SEP +
-                FeedEntryGAME.COLUMN_FK_STADE + " INTEGER REFERENCES" + FeedEntrySTADE.TABLE_NAME
-            + " )";
+    //création table GAME
 
-    https://github.com/codepath/android_guides/wiki/Local-Databases-with-SQLiteOpenHelper
+
+
+
+
+
+
+
 
 
 
 }
+
+
 
 
 
