@@ -21,7 +21,6 @@ public class FeedReaderContract {
         public static final String GAME_ID = "id";
         public static final String GAME_DATE = "date";
         public static final String GAME_HEURE = "heure";
-        public static final String GAME_ATTRIBUTE1 = "attribute1";
         public static final String GAME_TEAM_RESIDENT = "team_resident";
         public static final String GAME_TEAM_EXTERIEUR = "team_exterieur";
         public static final String GAME_QUANTITE = "quantite";
@@ -35,7 +34,6 @@ public class FeedReaderContract {
                 tableGAME.GAME_ID + " INTEGER PRIMARY KEY AUTOINCREMENT" + COMMA_SEP +
                 tableGAME.GAME_DATE + TEXT_TYPE + COMMA_SEP +
                 tableGAME.GAME_HEURE + " DATETIME" + COMMA_SEP +
-                tableGAME.GAME_ATTRIBUTE1 + TEXT_TYPE + COMMA_SEP +
                 tableGAME.GAME_TEAM_RESIDENT + TEXT_TYPE + COMMA_SEP +
                 tableGAME.GAME_TEAM_EXTERIEUR + TEXT_TYPE + COMMA_SEP +
                 tableGAME.GAME_QUANTITE + " INTEGER" + COMMA_SEP +

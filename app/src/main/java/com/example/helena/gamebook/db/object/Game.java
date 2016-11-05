@@ -16,12 +16,12 @@ public class Game {
     private int id ;
     private String date ;
     private String heure ;
-    private String attribute1 ;
     private String team_res ;
     private String team_ext ;
     private int quantity ;
     private String statut;
     private int nb_places_dispo;
+    private Stade stade;
 
     public int getId() {
         return id;
@@ -49,14 +49,6 @@ public class Game {
 
     public void setHeure(String heure) {
         this.heure = heure;
-    }
-
-    public String getAttribute1() {
-        return attribute1;
-    }
-
-    public void setAttribute1(String attribute1) {
-        this.attribute1 = attribute1;
     }
 
     public String getTeam_res() {
@@ -97,6 +89,14 @@ public class Game {
 
     public void setNb_places_dispo(int nb_places_dispo) {
         this.nb_places_dispo = nb_places_dispo;
+    }
+
+    public Stade getStade() {
+        return stade;
+    }
+
+    public void setStade(Stade stade) {
+        this.stade = stade;
     }
 }
 

@@ -21,16 +21,16 @@ import com.example.helena.gamebook.db.object.Customer;
 public class CustomerDataSource {
 
     private SQLiteDatabase db;
-    private Context context ;
+    private Context context;
 
-    public CustomerDataSource(Context context){
+    public CustomerDataSource(Context context) {
         SQLiteHelper sqLiteHelper = SQLiteHelper.getInstance(context);
         db = sqLiteHelper.getWritableDatabase();
         this.context = context;
     }
 
     //Insert Customer
-    public long createCustomer(Customer customer){
+    public long createCustomer(Customer customer) {
 
         long id;
         ContentValues values = new ContentValues();
@@ -46,15 +46,14 @@ public class CustomerDataSource {
     /*********************************************************************************************/
 
 
-
     //find customer by id
-    public Customer getPersonById(long id){
+    public Customer getPersonById(long id) {
         String sql = "SELECT * FROM " + FeedReaderContract.tableCUSTOMER.TABLE_NAME + " WHERE"
-                + FeedReaderContract.tableCUSTOMER.CUSTOMER_ID + " = " + id ;
+                + FeedReaderContract.tableCUSTOMER.CUSTOMER_ID + " = " + id;
 
-        Cursor cursor = this.db.rawQuery(sql,null);
+        Cursor cursor = this.db.rawQuery(sql, null);
 
-        if(cursor != null){
+        if (cursor != null) {
             cursor.moveToFirst();
         }
 
@@ -67,15 +66,48 @@ public class CustomerDataSource {
         return customer;
 
     }
+
     /*********************************************************************************************/
 
 
-
-
     //modification d'un customer
-    public int updateCustomer(Customer customer){
+    public int updateCustomer(Customer customer) {
         ContentValues values = new ContentValues();
-        values.put(FeedReaderContract.tableCUSTOMER.CUSTOMER_NOM, customer.setNom());
+        values.put(FeedReaderContract.tableCUSTOMER.CUSTOMER_NOM, customer.getNom());
+        values.put(FeedReaderContract.tableCUSTOMER.CUSTOMER_PRENOM, customer.getPrenom());
+        values.put(FeedReaderContract.tableCUSTOMER.CUSTOMER_EMAIL, customer.getEmail());
+        values.put(FeedReaderContract.tableCUSTOMER.CUSTOMER_MDP, customer.getMdp());
+
+
+        return this.db.update(FeedReaderContract.tableCUSTOMER.TABLE_NAME, values, FeedReaderContract.tableCUSTOMER.CUSTOMER_ID + " = ?",
+                new String[] {String.valueOf(customer.getId())} );
     }
+    /*********************************************************************************************/
+
+
+    //suppression d'un customer
+
+    public void deleteCustomer (long id){
+        //le prof a supprimé tous les enregistrements
+        //mais nous cela nous est pas utile
+
+        /*
+        RecordDataSource pra = new RecordDataSource(context);
+        //get all records of the user
+        List<Record> records = pra.getAllRecordsByPerson(id);
+
+        for(Record record : records){
+            pra.deleteRecord(record.getId());
+        }
+
+        */
+
+
+        this.db.delete(FeedReaderContract.tableCUSTOMER.TABLE_NAME, FeedReaderContract.tableCUSTOMER.CUSTOMER_ID + " = ?",
+               new String [] {String.valueOf(id)} );
+
+
+    }
+
 
 }
