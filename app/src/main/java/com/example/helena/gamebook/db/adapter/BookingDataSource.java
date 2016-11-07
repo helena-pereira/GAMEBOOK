@@ -11,6 +11,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.helena.gamebook.db.FeedReaderContract;
 import com.example.helena.gamebook.db.SQLiteHelper;
 import com.example.helena.gamebook.db.object.Booking;
+import com.example.helena.gamebook.db.object.Customer;
 import com.example.helena.gamebook.db.object.Game;
 import com.example.helena.gamebook.db.object.Stade;
 
@@ -42,6 +43,24 @@ public class BookingDataSource {
 
         return id;
 
+    }
+
+    //GET 1 BOOKING
+    public Booking getBookingById(long id){
+        String sql = "SELECT * FROM " + tableBOOKING.TABLE_NAME +
+                " WHERE " + tableBOOKING.BOOKING_ID + " = " + id;
+
+        Cursor cursor = this.db.rawQuery(sql,null);
+        if(cursor != null){
+            cursor.moveToFirst();
+        }
+
+        Booking booking = new Booking();
+        booking.setId(cursor.getInt(cursor.getColumnIndex(tableBOOKING.BOOKING_ID)));
+        Customer customer = new Customer();
+        customer = CustomerDataSource.getCustomerById(cursor.getClass(cursor.getColumnIndex(tableBOOKING.BOOKING_FK_IDCUSTOMER));
+        customer.setCustomer(stade);
+        booking.setCustomer(cursor.getInt(cursor.getColumnIndex(tableBOOKING.BOOKING_FK_IDCUSTOMER)));
     }
 
 }
