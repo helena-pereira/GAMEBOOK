@@ -12,7 +12,7 @@ import com.example.helena.gamebook.db.FeedReaderContract;
 import com.example.helena.gamebook.db.SQLiteHelper;
 import com.example.helena.gamebook.db.object.Game;
 import com.example.helena.gamebook.db.object.Stade;
-import com.example.helena.gamebook.db.FeedReaderContract;
+import com.example.helena.gamebook.db.adapter.StadeDataSource;
 
 import android.database.sqlite.SQLiteDatabase;
 
@@ -66,8 +66,8 @@ public class GameDataSource {
         game.setId(cursor.getInt(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_ID)));
         game.setDate(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_DATE)));
         game.setHeure(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_HEURE)));
-        //Stade stade = StadeDateSource.getStadeById(cursor.getClass(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_FK_STADE));
-        //game.setStade(stade);
+        Stade stade = StadeDateSource.getStadeById(cursor.getClass(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_FK_STADE));
+        game.setStade(stade);
         game.setTeam_res(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_TEAM_RESIDENT)));
         game.setTeam_ext(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_TEAM_EXTERIEUR)));
         game.setQuantity(cursor.getInt(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_QUANTITE)));
