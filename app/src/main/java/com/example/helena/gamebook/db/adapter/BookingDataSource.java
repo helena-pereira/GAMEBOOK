@@ -25,14 +25,14 @@ public class BookingDataSource {
     private SQLiteDatabase db;
     private Context context;
 
-    public BookingDataSource(Context context){
+    public BookingDataSource(Context context) {
         SQLiteHelper sqliteHelper = SQLiteHelper.getInstance(context);
         db = sqliteHelper.getWritableDatabase();
         this.context = context;
     }
 
     //INSER BOOKING
-    public long createBooking(Booking booking){
+    public long createBooking(Booking booking) {
         long id;
         ContentValues values = new ContentValues();
         values.put(tableBOOKING.BOOKING_FK_IDGAME, booking.getGame().getId());
@@ -46,21 +46,28 @@ public class BookingDataSource {
     }
 
     //GET 1 BOOKING
-    public Booking getBookingById(long id){
+    public Booking getBookingById(long id) {
         String sql = "SELECT * FROM " + tableBOOKING.TABLE_NAME +
                 " WHERE " + tableBOOKING.BOOKING_ID + " = " + id;
 
-        Cursor cursor = this.db.rawQuery(sql,null);
-        if(cursor != null){
+        Cursor cursor = this.db.rawQuery(sql, null);
+        if (cursor != null) {
             cursor.moveToFirst();
         }
 
         Booking booking = new Booking();
         booking.setId(cursor.getInt(cursor.getColumnIndex(tableBOOKING.BOOKING_ID)));
-        Customer customer = new Customer();
-        customer = CustomerDataSource.getCustomerById(cursor.getClass(cursor.getColumnIndex(tableBOOKING.BOOKING_FK_IDCUSTOMER));
-        customer.setCustomer(stade);
-        booking.setCustomer(cursor.getInt(cursor.getColumnIndex(tableBOOKING.BOOKING_FK_IDCUSTOMER)));
+
+        CustomerDataSource cds = new CustomerDataSource(this.context);
+        Customer customer = cds.getCustomerById(cursor.getLong(cursor.getColumnIndex(tableBOOKING.BOOKING_FK_IDCUSTOMER)));
+        booking.setCustomer(customer);
+
+        GameDataSource gds = new GameDataSource(this.context);
+        Game game = gds.getGameById(cursor.getLong(cursor.getColumnIndex(tableBOOKING.BOOKING_FK_IDGAME)));
+        booking.setGame(game);
+
+        return booking;
     }
+
 
 }

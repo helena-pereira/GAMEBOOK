@@ -47,7 +47,7 @@ public class CustomerDataSource {
 
 
     //find customer by id
-    public Customer getPersonById(long id) {
+    public Customer getCustomerById(long id) {
         String sql = "SELECT * FROM " + FeedReaderContract.tableCUSTOMER.TABLE_NAME + " WHERE"
                 + FeedReaderContract.tableCUSTOMER.CUSTOMER_ID + " = " + id;
 

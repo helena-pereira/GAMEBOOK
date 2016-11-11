@@ -66,7 +66,8 @@ public class GameDataSource {
         game.setId(cursor.getInt(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_ID)));
         game.setDate(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_DATE)));
         game.setHeure(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_HEURE)));
-        Stade stade = StadeDateSource.getStadeById(cursor.getClass(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_FK_STADE));
+        StadeDataSource sds = new StadeDataSource(this.context);
+        Stade stade = sds.getStadeById(cursor.getLong(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_FK_STADE)));
         game.setStade(stade);
         game.setTeam_res(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_TEAM_RESIDENT)));
         game.setTeam_ext(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_TEAM_EXTERIEUR)));
@@ -92,7 +93,9 @@ public class GameDataSource {
                 game.setId(cursor.getInt(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_ID)));
                 game.setDate(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_DATE)));
                 game.setHeure(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_HEURE)));
-                game.setStade(cursor.getClass(cursor.getColumnIndex(FeedReaderContract.tableSTADE.STADE_ID)));
+                StadeDataSource sds = new StadeDataSource(this.context);
+                Stade stade = sds.getStadeById(cursor.getLong(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_FK_STADE)));
+                game.setStade(stade);
                 game.setTeam_res(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_TEAM_RESIDENT)));
                 game.setTeam_ext(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_TEAM_EXTERIEUR)));
                 game.setQuantity(cursor.getInt(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_QUANTITE)));
