@@ -17,4 +17,21 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <!--String related to Home-->
+    <string name="idfootball">Football</string>
+    <string name="idUser">Mon Compte</string>
+
+    <!--String related to User-->
+    <string name="idClient">Id Client</string>
+    <string name="name">Nom</string>
+    <string name="firstName">Prénom</string>
+    <string name="email">Email</string>
+    <string name="password">Mot-de-passe</string>
+    <string name="logout">Déconnexion</string>
+    <string name="edit">Modifier</string>
+    <string name="delete">Supprimer</string>
+
+    <!--Autres-->
+    <string name="search">Rechercher</string>
 </resources>
