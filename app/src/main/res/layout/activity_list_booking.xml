@@ -1,36 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_match_list"
+    android:id="@+id/activity_list_booking"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.helena.gamebook.MatchList">
+    tools:context="com.example.helena.gamebook.ListBooking">
+
 
     <TextView
-        android:text="@string/idUser"
+        android:text="@string/idListBooking"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/idUser"
+        android:id="@+id/idListBooking"
         android:textSize="36sp"
         tools:textAlignment="center" />
-
-    <Button
-        android:text="@string/addNewMatch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonNewMatch"
-        android:layout_weight="1"
-        android:background="@android:color/holo_blue_light"
-        android:onClick="ToNewMatch"/>
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/ListMatch"
-        android:onClick="toTheMatch"/>
+        android:id="@+id/ListBooking"
+        android:onClick="toTheBooking"/>
 
 </RelativeLayout>

@@ -9,20 +9,18 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
 
 /**
  * Created by Stéphanie Pinto
- * Classe accueil qui permet d'aller soit voir la liste des matchs
- * soit la liste des réservations ou encore la page Mon Compte
+ * Cette classe affiche le match selectionné dans la liste des matchs
  */
 
-public class home extends AppCompatActivity {
+public class TheMatch extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_the_match);
 
         getSupportActionBar().setHomeButtonEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -56,33 +54,26 @@ public class home extends AppCompatActivity {
         return true;
     }
 
-    public void toMatch(View view) {
-        Intent toMatch = new Intent(this,MatchList.class);
-        startActivity(toMatch);
-
+    public void toNewBooking(View view) {
+        Intent toNewBooking = new Intent(this,NewBooking.class);
+        startActivity(toNewBooking);
     }
 
-    public void toListBooking(View view) {
-        Intent toListBooking = new Intent(this,ListBooking.class);
-        startActivity(toListBooking);
-
+    public void toEditMatch(View view) {
+        Intent toEditMatch = new Intent(this,EditMatch.class);
+        startActivity(toEditMatch);
     }
 
-    public void toMonCompte(View view) {
-        Intent toMonCompte = new Intent(this,user.class);
-        startActivity(toMonCompte);
-
+    //suppression de la base de donnée
+    public void toListMatch(View view) {
+        Intent toListMatch = new Intent(this,MatchList.class);
+        startActivity(toListMatch);
     }
 
     private void updateViews() {
         Resources resources = getResources();
 
-        ImageButton football = (ImageButton)findViewById(R.id.imageButtonFootball);
-        ImageButton booking = (ImageButton)findViewById(R.id.imageButtonBooking);
-        ImageButton user = (ImageButton)findViewById(R.id.imageButtonUser);
-
-        football.setContentDescription(resources.getString(R.string.idfootball));
-        booking.setContentDescription(resources.getString(R.string.idBooking));
-        user.setContentDescription(resources.getString(R.string.idUser));
     }
+
+
 }

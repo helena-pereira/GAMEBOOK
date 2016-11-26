@@ -33,7 +33,7 @@
         android:background="@android:color/background_light"
         android:contentDescription="@string/idBooking"
         android:layout_marginTop="40dp"
-        android:onClick="toBooking"/>
+        android:onClick="toListBooking"/>
 
     <ImageButton
         android:layout_width="match_parent"

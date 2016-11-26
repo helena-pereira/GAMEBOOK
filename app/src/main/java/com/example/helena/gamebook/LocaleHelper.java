@@ -10,6 +10,8 @@ import java.util.Locale;
 
 /**
  * Created by Stéphanie Pinto on 26.11.2016.
+ * Classe qui sert à changer le language de l'application
+ * Nous avons choisi français ou anglais
  */
 
 public class LocaleHelper {

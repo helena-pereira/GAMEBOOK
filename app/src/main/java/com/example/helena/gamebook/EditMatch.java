@@ -9,20 +9,18 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
 
 /**
  * Created by Stéphanie Pinto
- * Classe accueil qui permet d'aller soit voir la liste des matchs
- * soit la liste des réservations ou encore la page Mon Compte
+ * Cette classe permet de modifier les données d'un match
  */
 
-public class home extends AppCompatActivity {
+public class EditMatch extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_edit_match);
 
         getSupportActionBar().setHomeButtonEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -56,33 +54,13 @@ public class home extends AppCompatActivity {
         return true;
     }
 
-    public void toMatch(View view) {
-        Intent toMatch = new Intent(this,MatchList.class);
-        startActivity(toMatch);
-
-    }
-
-    public void toListBooking(View view) {
-        Intent toListBooking = new Intent(this,ListBooking.class);
-        startActivity(toListBooking);
-
-    }
-
-    public void toMonCompte(View view) {
-        Intent toMonCompte = new Intent(this,user.class);
-        startActivity(toMonCompte);
-
+    public void toTheMatch(View view) {
+        Intent toTheMatch = new Intent(this,TheMatch.class);
+        startActivity(toTheMatch);
     }
 
     private void updateViews() {
         Resources resources = getResources();
 
-        ImageButton football = (ImageButton)findViewById(R.id.imageButtonFootball);
-        ImageButton booking = (ImageButton)findViewById(R.id.imageButtonBooking);
-        ImageButton user = (ImageButton)findViewById(R.id.imageButtonUser);
-
-        football.setContentDescription(resources.getString(R.string.idfootball));
-        booking.setContentDescription(resources.getString(R.string.idBooking));
-        user.setContentDescription(resources.getString(R.string.idUser));
     }
 }

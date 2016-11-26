@@ -33,6 +33,33 @@
     <string name="edit">Modifier</string>
     <string name="delete">Supprimer</string>
 
+    <!--Les Matchs-->
+    <string name="TheMatch">Le Match</string>
+    <string name="date">Date</string>
+    <string name="heure">Heure</string>
+    <string name="stade">Stade</string>
+    <string name="resident">Résident</string>
+    <string name="visiteur">Visiteur</string>
+    <string name="statut">Statut</string>
+    <string name="quantite">Quantité</string>
+    <string name="editMatch">Modifier le Match</string>
+    <string name="addNewMatch">Ajouter un nouveau match</string>
+    <string name="newMatch">Nouveau match</string>
+
+    <!--Booking-->
+    <string name="idListBooking">Tes réservations</string>
+    <string name="editBooking">Modification de la réservation</string>
+    <string name="game">Le match</string>
+    <string name="ClientName">Nom complet du client</string>
+    <string name="seat">Siège</string>
+    <string name="TheBooking">La réservation</string>
+    <string name="addNewBooking">Ajouter une réservation</string>
+    <string name="newBooking">Nouvelle réservation</string>
+
+    <!--Bouttons-->
+    <string name="cancel">Annuler</string>
+    <string name="register">Enregistrer</string>
+
     <!--Autres-->
     <string name="search">Rechercher</string>
 </resources>

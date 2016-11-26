@@ -27,7 +27,14 @@
         <activity android:name=".user" />
         <activity android:name=".edit_user" />
         <activity android:name=".MatchList" />
-        <activity android:name=".Register"></activity>
+        <activity android:name=".Register" />
+        <activity android:name=".TheMatch" />
+        <activity android:name=".EditMatch" />
+        <activity android:name=".NewMatch" />
+        <activity android:name=".ListBooking" />
+        <activity android:name=".NewBooking" />
+        <activity android:name=".EditBooking" />
+        <activity android:name=".TheBooking"></activity>
     </application>
 
 </manifest>
