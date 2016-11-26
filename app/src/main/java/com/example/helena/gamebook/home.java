@@ -30,7 +30,6 @@ public class home extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_basic,menu);
         return super.onCreateOptionsMenu(menu);
     }
-
     
     public boolean onOptionsItemSelected(MenuItem item)
     {
