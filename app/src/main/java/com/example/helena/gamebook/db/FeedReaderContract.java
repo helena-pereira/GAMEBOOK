@@ -26,7 +26,7 @@ public class FeedReaderContract {
         public static final String GAME_QUANTITE = "quantite";
         public static final String GAME_STATUT = "statut";
         public static final String GAME_NB_PLACES_DISPO = "nb_places dispos";
-        public static final String GAME_FK_STADE = "fk_stade";
+        public static final String GAME_STADE = "fk_stade";
 
 
         public static final String CREATE_TABLE_GAME = "CREATE TABLE " +
@@ -38,9 +38,12 @@ public class FeedReaderContract {
                 tableGAME.GAME_TEAM_EXTERIEUR + TEXT_TYPE + COMMA_SEP +
                 tableGAME.GAME_QUANTITE + " INTEGER" + COMMA_SEP +
                 tableGAME.GAME_STATUT + TEXT_TYPE + COMMA_SEP +
-                tableGAME.GAME_NB_PLACES_DISPO + " INTEGER" + COMMA_SEP +
-                tableGAME.GAME_FK_STADE + " INTEGER,"
+                tableGAME.GAME_NB_PLACES_DISPO + " INTEGER"
+
+              /*  tableGAME.GAME_FK_STADE + " INTEGER,"
                 + " FOREIGN KEY (" + tableGAME.GAME_FK_STADE + ") REFERENCES " + tableSTADE.TABLE_NAME + " (" + tableSTADE.STADE_ID + ") "
+                + ");"; */
+
                 + ");";
 
     }

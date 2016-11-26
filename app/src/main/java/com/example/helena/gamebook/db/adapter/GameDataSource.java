@@ -39,7 +39,9 @@ public class GameDataSource {
 
         values.put(FeedReaderContract.tableGAME.GAME_DATE, game.getDate());
         values.put(FeedReaderContract.tableGAME.GAME_HEURE, game.getHeure());
-        values.put(FeedReaderContract.tableGAME.GAME_FK_STADE, game.getStade().getId());
+        //values.put(FeedReaderContract.tableGAME.GAME_FK_STADE, game.getStade().getId());
+
+        values.put(FeedReaderContract.tableGAME.GAME_STADE, game.getStade());
         values.put(FeedReaderContract.tableGAME.GAME_TEAM_RESIDENT, game.getTeam_res());
         values.put(FeedReaderContract.tableGAME.GAME_TEAM_EXTERIEUR, game.getTeam_ext());
         values.put(FeedReaderContract.tableGAME.GAME_QUANTITE, game.getQuantity());
@@ -66,9 +68,10 @@ public class GameDataSource {
         game.setId(cursor.getInt(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_ID)));
         game.setDate(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_DATE)));
         game.setHeure(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_HEURE)));
-        StadeDataSource sds = new StadeDataSource(this.context);
-        Stade stade = sds.getStadeById(cursor.getLong(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_FK_STADE)));
-        game.setStade(stade);
+        //StadeDataSource sds = new StadeDataSource(this.context);
+        //Stade stade = sds.getStadeById(cursor.getLong(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_FK_STADE)));
+        //game.setStade(stade);
+        game.setStade(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_STADE)));
         game.setTeam_res(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_TEAM_RESIDENT)));
         game.setTeam_ext(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_TEAM_EXTERIEUR)));
         game.setQuantity(cursor.getInt(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_QUANTITE)));
@@ -93,9 +96,9 @@ public class GameDataSource {
                 game.setId(cursor.getInt(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_ID)));
                 game.setDate(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_DATE)));
                 game.setHeure(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_HEURE)));
-                StadeDataSource sds = new StadeDataSource(this.context);
-                Stade stade = sds.getStadeById(cursor.getLong(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_FK_STADE)));
-                game.setStade(stade);
+                //StadeDataSource sds = new StadeDataSource(this.context);
+                //Stade stade = sds.getStadeById(cursor.getLong(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_FK_STADE)));
+                game.setStade(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_STADE)));
                 game.setTeam_res(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_TEAM_RESIDENT)));
                 game.setTeam_ext(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_TEAM_EXTERIEUR)));
                 game.setQuantity(cursor.getInt(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_QUANTITE)));
@@ -115,7 +118,9 @@ public class GameDataSource {
         ContentValues values = new ContentValues();
         values.put(FeedReaderContract.tableGAME.GAME_DATE, game.getDate());
         values.put(FeedReaderContract.tableGAME.GAME_HEURE, game.getHeure());
-        values.put(FeedReaderContract.tableGAME.GAME_FK_STADE, game.getStade().getId());
+        //values.put(FeedReaderContract.tableGAME.GAME_FK_STADE, game.getStade().getId());
+
+        values.put(FeedReaderContract.tableGAME.GAME_STADE, game.getStade());
         values.put(FeedReaderContract.tableGAME.GAME_TEAM_RESIDENT, game.getTeam_res());
         values.put(FeedReaderContract.tableGAME.GAME_TEAM_EXTERIEUR, game.getTeam_ext());
         values.put(FeedReaderContract.tableGAME.GAME_QUANTITE, game.getQuantity());

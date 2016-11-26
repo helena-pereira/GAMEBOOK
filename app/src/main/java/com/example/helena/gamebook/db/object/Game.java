@@ -21,7 +21,8 @@ public class Game {
     private int quantity ;
     private String statut;
     private int nb_places_dispo;
-    private Stade stade;
+    //private Stade stade;
+    private String stade ;
 
     public int getId() {
         return id;
@@ -91,11 +92,17 @@ public class Game {
         this.nb_places_dispo = nb_places_dispo;
     }
 
-    public Stade getStade() {
+   /* public Stade getStade() { return stade;}
+
+    public void setStade(Stade stade) {
+        this.stade = stade;
+    }*/
+
+    public String getStade() {
         return stade;
     }
 
-    public void setStade(Stade stade) {
+    public void setStade(String stade) {
         this.stade = stade;
     }
 }

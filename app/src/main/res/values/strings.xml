@@ -31,6 +31,11 @@
     <string name="MessageRegisterIncorrecte">Le mot-de-passe ou l email ne correspond pas aux critères demandés !</string>
 
 
+    <!-- List of match -->
+    <string name="AddNewGame">Ajouter</string>
+    <string name="tv_titel">All Games</string>
+
+
     <!--String related to Home-->
     <string name="idfootball">Matchs</string>
     <string name="idBooking">Réservations</string>

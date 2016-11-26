@@ -73,7 +73,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(goToNewMatch);
     }
 
+    public void goToAllMatch(View view){
+        Intent goToAllMatch = new Intent(this,MatchList.class);
+        startActivity(goToAllMatch);
 
+    }
 
     public void signIn(View view) {
         SQLiteHelper helper = new SQLiteHelper(this);
