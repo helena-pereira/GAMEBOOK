@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -19,6 +21,7 @@ import com.example.helena.gamebook.db.object.Customer;
  * Created by Helena 26.11.2016
  * Cette classe permet l'enregistrement d'un nouveau Customer
  */
+
 public class Register extends AppCompatActivity {
     Context context;
     @Override
@@ -27,6 +30,13 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         context = this;
 
+
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_basic,menu);
+        return super.onCreateOptionsMenu(menu);
 
     }
 
