@@ -10,7 +10,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TimePicker;
+import android.widget.ToggleButton;
 
 public class NewMatch extends AppCompatActivity {
 
@@ -69,5 +75,14 @@ public class NewMatch extends AppCompatActivity {
     private void updateViews() {
         Resources resources = getResources();
 
+        DatePicker date = (DatePicker)findViewById(R.id.idDate);
+        TimePicker heure = (TimePicker)findViewById(R.id.idHeure);
+        EditText stade = (EditText) findViewById(R.id.idStade);
+        EditText residente = (EditText) findViewById((R.id.idResident));
+        EditText visiteur = (EditText) findViewById(R.id.idVisiteur);
+        ToggleButton statut = (ToggleButton) findViewById(R.id.idStatut);
+        EditText quantite = (EditText) findViewById(R.id.idQuantite);
+        Button cancel = (Button) findViewById(R.id.buttonCancel);
+        Button register = (Button) findViewById(R.id.buttonDelete);
     }
 }
