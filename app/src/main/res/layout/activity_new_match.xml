@@ -48,7 +48,7 @@
                 android:id="@+id/LabelHeure"
                 android:layout_weight="1" />
 
-            <Spinner
+            <TimePicker
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"

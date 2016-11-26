@@ -65,6 +65,12 @@
     <string name="addNewBooking">Ajouter une réservation</string>
     <string name="newBooking">Nouvelle réservation</string>
 
+    <!--Alerts-->
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    <string name="deleteMatchTitle">Supression d un match</string>
+    <string name="deleteMatchMessage">Etes-vous sûre de vouloir supprimer le match ?</string>
+
     <!--Bouttons-->
     <string name="cancel">Annuler</string>
     <string name="register">Enregistrer</string>

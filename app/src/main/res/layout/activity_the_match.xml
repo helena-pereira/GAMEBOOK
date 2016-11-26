@@ -158,8 +158,8 @@
                 android:id="@+id/buttonDelete"
                 android:layout_weight="1"
                 android:background="@android:color/holo_red_dark"
+                android:onClick="alertDeleteMatch"
                 />
-            <!--Etes vous sûre de vouloir supprimer le match? si oui toListMatch-->
 
             <Button
                 android:text="@string/edit"
