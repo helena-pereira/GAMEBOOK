@@ -26,7 +26,8 @@
         <activity android:name=".home" />
         <activity android:name=".user" />
         <activity android:name=".edit_user" />
-        <activity android:name=".MatchList"></activity>
+        <activity android:name=".MatchList" />
+        <activity android:name=".Register"></activity>
     </application>
 
 </manifest>
