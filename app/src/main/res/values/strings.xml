@@ -19,7 +19,8 @@
     </string>
 
     <!--String related to Home-->
-    <string name="idfootball">Football</string>
+    <string name="idfootball">Matchs</string>
+    <string name="idBooking">Réservations</string>
     <string name="idUser">Mon Compte</string>
 
     <!--String related to User-->

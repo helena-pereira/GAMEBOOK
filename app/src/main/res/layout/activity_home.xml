@@ -27,8 +27,19 @@
     <ImageButton
         android:layout_width="match_parent"
         android:layout_height="141dp"
+        app:srcCompat="@mipmap/booking"
+        android:id="@+id/imageButtonBooking"
+        android:scaleType="fitCenter"
+        android:background="@android:color/background_light"
+        android:contentDescription="@string/idBooking"
+        android:layout_marginTop="40dp"
+        android:onClick="toBooking"/>
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="141dp"
         app:srcCompat="@mipmap/user"
-        android:id="@+id/imageButtonDelivery"
+        android:id="@+id/imageButtonUser"
         android:scaleType="fitCenter"
         android:background="@android:color/background_light"
         android:contentDescription="@string/idUser"
