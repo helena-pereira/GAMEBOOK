@@ -9,10 +9,10 @@
         android:icon="@mipmap/fr_icon"
         gamebook:showAsAction="never"></item>
 
-<item
-    android:id="@+id/id_enFlag"
-    android:title="English"
-    android:icon="@mipmap/en_icon"
-    gamebook:showAsAction="never"></item>
+    <item
+        android:id="@+id/id_enFlag"
+        android:title="English"
+        android:icon="@mipmap/en_icon"
+        gamebook:showAsAction="never"></item>
 
 </menu>

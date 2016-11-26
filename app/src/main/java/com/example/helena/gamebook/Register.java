@@ -1,5 +1,6 @@
 package com.example.helena.gamebook;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.IdRes;
@@ -19,10 +20,12 @@ import com.example.helena.gamebook.db.object.Customer;
  * Cette classe permet l'enregistrement d'un nouveau Customer
  */
 public class Register extends AppCompatActivity {
-
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register);
+        context = this;
 
 
     }

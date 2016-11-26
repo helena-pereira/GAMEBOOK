@@ -82,6 +82,16 @@
                 android:text="@string/register_button"
                 android:textStyle="bold"
                 android:onClick="toRegister"/>
+
+            <Button
+                android:id="@+id/match"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/register_button"
+                android:textStyle="bold"
+                android:onClick="goToNewMatch"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
