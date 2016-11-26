@@ -26,17 +26,7 @@
                 android:textSize="36sp" />
         </TableRow>
 
-        <TableRow>
-            <TextView
-                android:text="@string/id_err_mdp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/id_err_mdp"
-                android:textSize="12sp"
-                android:textColor="@color/colorAccent"
-                android:enabled="false"
-                />
-        </TableRow>
+
 
 
 

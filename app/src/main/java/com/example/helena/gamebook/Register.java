@@ -24,9 +24,7 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_register);
-        TextView err = (TextView)findViewById(R.id.id_err_mdp);
-        err.setEnabled(true);
+
     }
 
     public void returnMainActivity(View view) {
@@ -65,6 +63,17 @@ public class Register extends AppCompatActivity {
             startActivity(intent);
         }
         else{
+
+
+            /*STEPHANIE ici il faut mettre une boite de dialog qui à l'utilisaqteur
+            que son mdp ne correspond pas aux critère..blablalbla
+
+            Votre mot de passe ou email ne correspond pas aux critères
+
+            Merci
+            **/
+
+
             Intent refresh = new Intent(Register.this, Register.class);
             startActivity(refresh);
             this.finish();
