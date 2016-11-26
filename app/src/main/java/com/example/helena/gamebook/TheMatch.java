@@ -12,7 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-/**
+/***
  * Created by Stéphanie Pinto
  * Cette classe affiche le match selectionné dans la liste des matchs
  */
