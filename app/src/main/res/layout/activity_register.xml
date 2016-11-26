@@ -23,11 +23,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/id_new_user"
-                android:textSize="36sp" />
+                android:textSize="24sp" />
         </TableRow>
+        <TableRow>
 
+        </TableRow>
+        <TableRow>
 
-
+        </TableRow>
 
 
         <TableRow>
@@ -118,6 +121,14 @@
         </TableRow>
 
         <TableRow>
+           <Button
+                android:text="@string/retour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonReturn"
+                android:layout_weight="1"
+                android:background="@android:color/holo_blue_light"
+                android:onClick="returnMainActivity"/>
             <Button
                 android:text="@string/enregistrer"
                 android:layout_width="wrap_content"
@@ -126,15 +137,6 @@
                 android:layout_weight="1"
                 android:background="@android:color/holo_green_light"
                 android:onClick="onClickRegister"/>
-
-            <Button
-                android:text="@string/retour"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/buttonReturn"
-                android:layout_weight="1"
-                android:background="@android:color/holo_red_dark"
-                android:onClick="returnMainActivity"/>
         </TableRow>
 
     </TableLayout>

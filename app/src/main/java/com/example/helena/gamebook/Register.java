@@ -61,7 +61,7 @@ public class Register extends AppCompatActivity {
         Mdp = (EditText)findViewById(R.id.EditPassword);
         ConfirmMdp = (EditText)findViewById(R.id.EditPasswordConfirm);
 
-        if(Mdp.equals(ConfirmMdp) || Mdp == null){
+        if(Mdp.equals(ConfirmMdp) || Mdp != null){
             Customer customer = new Customer();
 
             customer.setNom(Nom.getText().toString());
@@ -69,7 +69,7 @@ public class Register extends AppCompatActivity {
             customer.setEmail(Email.getText().toString());
             customer.setMdp(Mdp.getText().toString());
 
-            CustomerDataSource cds = new CustomerDataSource(getApplicationContext());
+            CustomerDataSource cds = new CustomerDataSource(context);
             cds.createCustomer(customer);
 
             Intent intent = new Intent(Register.this, MainActivity.class);

@@ -69,6 +69,31 @@ public class CustomerDataSource {
 
     /*********************************************************************************************/
 
+    //find customer by email
+    public Customer getCustomerByEmail(String email) {
+        String sql = "SELECT * FROM " + FeedReaderContract.tableCUSTOMER.TABLE_NAME + " WHERE "
+                + FeedReaderContract.tableCUSTOMER.CUSTOMER_EMAIL + " LIKE '" + email +"'";
+
+        Cursor cursor = this.db.rawQuery(sql, null);
+        Customer customer = new Customer();
+        customer = null;
+
+        if ((cursor != null) && (cursor.getCount() > 0)) {
+            cursor.moveToFirst();
+            //customer.setNom(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableCUSTOMER.CUSTOMER_NOM)));
+            //customer.setPrenom(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableCUSTOMER.CUSTOMER_PRENOM)));
+            customer.setEmail(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableCUSTOMER.CUSTOMER_EMAIL)));
+            customer.setMdp(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableCUSTOMER.CUSTOMER_MDP)));
+
+        }
+
+
+        return customer;
+
+    }
+
+    /*********************************************************************************************/
+
 
     //modification d'un customer
     public int updateCustomer(Customer customer) {

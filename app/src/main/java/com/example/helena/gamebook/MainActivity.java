@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+
     /**Create by Helena 26.11.2016
      * Faire le login
      * @param view
@@ -54,57 +56,38 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
     public void signIn(View view){
-        /*SQLiteHelper helper = new SQLiteHelper(this);
+        SQLiteHelper helper = new SQLiteHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
 
         TextView email = (TextView)findViewById(R.id.email) ;
         TextView mdp = (TextView)findViewById(R.id.password);
 
-        Customer customer = new Customer();
-        customer.setId(1);
-        customer.setEmail(email.getText().toString());
-        customer.setMdp(mdp.getText().toString());
+        CustomerDataSource cds = new CustomerDataSource(context);
+        Customer customer = null;
+        customer = cds.getCustomerByEmail(email.getText().toString());
 
-        CustomerDataSource cds = new CustomerDataSource(getApplicationContext());
-
-        cds.getCustomerById(1);*/
-
-
-    }
-
-
-    //marcus
-    public void login(View view) {
-        String admin1="helder";
-        String admin2="marc";
-        String driver="driver";
-        EditText login  =(EditText)findViewById(R.id.ListMatch);
-        String log = login.getText().toString();
-
-        if(log.equals(admin1)||log.equals(admin2)){
-            Intent intentAdmin = new Intent(this,home.class);
-            startActivity(intentAdmin);
-            if(LocaleHelper.getLanguage(context)!="fr"){
-                Toast.makeText(getApplicationContext(),"Welcome "+log+" to the Admin Page.",Toast.LENGTH_SHORT).show();}
-            else{Toast.makeText(getApplicationContext(),"Bienvenue "+log+" a la page administrative.",Toast.LENGTH_SHORT).show();}
-        }else if(log.equals(driver)){
-            Intent intentDriver = new Intent(this,home.class);
-            startActivity(intentDriver);
-            if(LocaleHelper.getLanguage(context)!="fr"){
-                Toast.makeText(getApplicationContext(),"Welcome "+log+" to your Driver Page.",Toast.LENGTH_SHORT).show();
-            }
-            else{Toast.makeText(getApplicationContext(),"Bienvenue "+log+" a votre page chauffeur.",Toast.LENGTH_SHORT).show();}
-        }else{
-            if(LocaleHelper.getLanguage(context)!="fr"){
-                Toast.makeText(getApplicationContext(), "Your Username or Password is not correct!", Toast.LENGTH_SHORT).show();
-
-            }else{Toast.makeText(getApplicationContext(), "Votre nom et/ou votre mot de passe n'est pas correct!", Toast.LENGTH_SHORT).show();
+        if(customer != null)
+        {
+            if(email.equals(customer.getEmail().toString()) && mdp.equals(customer.getMdp().toString()))
+            {
+                Intent intent = new Intent(MainActivity.this, Register.class);
+                startActivity(intent);
             }
         }
 
+       /* customer.setEmail(email.getText().toString());
+        customer.setMdp(mdp.getText().toString());
+
+        String theEmail = customer.setEmail(email.getText().toString());
+
+        cds.getCustomerByEmail(email)
+
+           */
+
 
     }
+
+
+
 }
