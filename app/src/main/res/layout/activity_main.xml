@@ -74,11 +74,14 @@
                 android:textStyle="bold" />
 
             <Button
-                android:text="Button"
+                android:id="@+id/register_button"
+                style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/register_button"
-                android:onClick="toMatch"/>
+                android:layout_marginTop="16dp"
+                android:text="@string/register_button"
+                android:textStyle="bold"
+                android:onClick="toRegister"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

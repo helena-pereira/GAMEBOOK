@@ -10,4 +10,142 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.helena.gamebook.Register">
 
+
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+        <TableRow>
+            <TextView
+                android:text="@string/id_new_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/id_new_user"
+                android:textSize="36sp" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="@string/id_err_mdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/id_err_mdp"
+                android:textSize="12sp"
+                android:textColor="@color/colorAccent"
+                android:enabled="false"
+                />
+        </TableRow>
+
+
+
+        <TableRow>
+            <TextView
+                android:text="@string/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/LabelName"
+                android:layout_weight="1" />
+
+            <EditText
+
+                android:layout_width="274dp"
+                android:ems="10"
+                android:layout_height="wrap_content"
+                android:id="@+id/EditLastName"
+                android:layout_weight="1" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="@string/firstName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/LabelFirstName"
+                android:layout_weight="1" />
+
+            <EditText
+
+                android:layout_width="274dp"
+                android:ems="10"
+                android:layout_height="wrap_content"
+                android:id="@+id/EditFirstName"
+                android:layout_weight="1" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="@string/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/LabelEmail"
+                android:layout_weight="1" />
+
+            <EditText
+
+                android:layout_width="274dp"
+                android:ems="10"
+                android:layout_height="wrap_content"
+                android:id="@+id/EditEmail"
+                android:layout_weight="1" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="@string/password"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:id="@+id/LabelPassword"
+                android:layout_weight="1" />
+
+            <EditText
+
+                android:layout_width="274dp"
+                android:ems="10"
+                android:layout_height="match_parent"
+                android:id="@+id/EditPassword"
+                android:inputType="textPassword"
+                android:layout_weight="1" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="@string/Confirmpassword"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:id="@+id/ConfirmPassword"
+                android:layout_weight="1" />
+
+            <EditText
+
+                android:layout_width="274dp"
+                android:ems="10"
+                android:layout_height="match_parent"
+                android:id="@+id/EditPasswordConfirm"
+                android:inputType="textPassword"
+                android:layout_weight="1" />
+        </TableRow>
+
+        <TableRow>
+            <Button
+                android:text="@string/enregistrer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonEdit"
+                android:layout_weight="1"
+                android:background="@android:color/holo_green_light"
+                android:onClick="onClickRegister"/>
+
+            <Button
+                android:text="@string/retour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonReturn"
+                android:layout_weight="1"
+                android:background="@android:color/holo_red_dark"
+                android:onClick="returnMainActivity"/>
+        </TableRow>
+
+    </TableLayout>
 </RelativeLayout>

@@ -8,7 +8,7 @@ import android.provider.BaseColumns;
 
 public class FeedReaderContract {
     public static final String TEXT_TYPE = " TEXT";
-    public static final String COMMA_SEP = ",";
+    public static final String COMMA_SEP = ", ";
 
     public FeedReaderContract() {
     }
@@ -18,7 +18,7 @@ public class FeedReaderContract {
 
         public static final String TABLE_NAME = "GAME";
 
-        public static final String GAME_ID = "id";
+        public static final String GAME_ID = "_id";
         public static final String GAME_DATE = "date";
         public static final String GAME_HEURE = "heure";
         public static final String GAME_TEAM_RESIDENT = "team_resident";
@@ -48,29 +48,26 @@ public class FeedReaderContract {
     // BOOKING
     public static abstract class tableBOOKING implements BaseColumns {
         public static final String TABLE_NAME = "BOOKING";
-        public static final String BOOKING_ID = "id";
-        public static final String BOOKING_FK_IDGAME = "fk_idGame";
-        public static final String BOOKING_FK_IDCUSTOMER = "fk_idCustomer";
+        public static final String BOOKING_ID = "_id";
+        public static final String BOOKING_FK_GAME = "fk_game";
+        public static final String BOOKING_FK_CUSTOMER = "fk_customer";
         public static final String BOOKING_NUM_SEAT = "num_seat";
 
         public static final String CREATE_TABLE_BOOKING = "CREATE TABLE " +
                 tableBOOKING.TABLE_NAME + " (" +
                 tableBOOKING.BOOKING_ID + " INTEGER PRIMARY KEY AUTOINCREMENT" + COMMA_SEP +
                 tableBOOKING.BOOKING_NUM_SEAT + " INTEGER" + COMMA_SEP +
-
-                tableBOOKING.BOOKING_FK_IDGAME+ " INTEGER,"
-                + " FOREIGN KEY (" + tableBOOKING.BOOKING_FK_IDGAME + ") REFERENCES " + tableGAME.TABLE_NAME + " (" + tableGAME.GAME_ID + ") " +
-
-                tableBOOKING.BOOKING_FK_IDCUSTOMER+ " INTEGER,"
-                + " FOREIGN KEY (" + tableBOOKING.BOOKING_FK_IDCUSTOMER + ") REFERENCES " + tableCUSTOMER.TABLE_NAME + " (" + tableCUSTOMER.CUSTOMER_ID + ") "
-
-                + " )";
+                tableBOOKING.BOOKING_FK_GAME + " INTEGER, " +
+                tableBOOKING.BOOKING_FK_CUSTOMER + " INTEGER, "
+                + " FOREIGN KEY (" + tableBOOKING.BOOKING_FK_GAME + ") REFERENCES " + tableGAME.TABLE_NAME + " (" + tableGAME.GAME_ID + "), "
+                + " FOREIGN KEY (" + tableBOOKING.BOOKING_FK_CUSTOMER + ") REFERENCES " + tableCUSTOMER.TABLE_NAME + " (" + tableCUSTOMER.CUSTOMER_ID + ")"
+                + ");";
     }
 
     // CUSTOMER
     public static abstract class tableCUSTOMER implements BaseColumns {
         public static final String TABLE_NAME = "CUSTOMER";
-        public static final String CUSTOMER_ID = "id";
+        public static final String CUSTOMER_ID = "_id";
         public static final String CUSTOMER_NOM = "nom";
         public static final String CUSTOMER_PRENOM = "prenom";
         public static final String CUSTOMER_EMAIL = "email";
@@ -83,7 +80,7 @@ public class FeedReaderContract {
                 tableCUSTOMER.CUSTOMER_NOM + TEXT_TYPE + COMMA_SEP +
                 tableCUSTOMER.CUSTOMER_PRENOM + TEXT_TYPE + COMMA_SEP +
                 tableCUSTOMER.CUSTOMER_EMAIL + TEXT_TYPE + COMMA_SEP +
-                tableCUSTOMER.CUSTOMER_MDP + TEXT_TYPE + COMMA_SEP +
+                tableCUSTOMER.CUSTOMER_MDP + TEXT_TYPE +
                 ")" ;
 
 
@@ -92,7 +89,7 @@ public class FeedReaderContract {
     // STADE
     public static abstract class tableSTADE implements BaseColumns {
         public static final String TABLE_NAME = "STADE";
-        public static final String STADE_ID = "id";
+        public static final String STADE_ID = "_id";
         public static final String STADE_NOM = "nom";
         public static final String STADE_NB_PLACES_TOTALES = "nb_places_totales";
         public static final String STADE_ADRESSE = "adresse";
@@ -106,7 +103,7 @@ public class FeedReaderContract {
                 tableSTADE.STADE_NB_PLACES_TOTALES + " INTEGER" + COMMA_SEP +
                 tableSTADE.STADE_ADRESSE + TEXT_TYPE + COMMA_SEP +
                 tableSTADE.STADE_NPA + TEXT_TYPE + COMMA_SEP +
-                tableSTADE.STADE_VILLE + TEXT_TYPE + COMMA_SEP +
+                tableSTADE.STADE_VILLE + TEXT_TYPE  +
                 ")";
     }
 

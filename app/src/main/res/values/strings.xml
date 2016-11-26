@@ -18,6 +18,16 @@
         completions."
     </string>
 
+    <!-- Pour la page login -->
+    <string name="register_button">Register</string>
+
+    <!-- Pour l'enregistrement REGISTER -->
+    <string name="id_new_user">Enregistrement</string>
+    <string name="enregistrer">Enregistrer</string>
+    <string name="Confirmpassword">Confirmer mot de passe</string>
+    <string name="retour">Retour</string>
+    <string name="id_err_mdp">Votre mot de passe ou email ne correspond pas aux critères</string>
+
     <!--String related to Home-->
     <string name="idfootball">Matchs</string>
     <string name="idBooking">Réservations</string>
