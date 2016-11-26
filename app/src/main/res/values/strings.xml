@@ -20,12 +20,16 @@
 
     <!-- Pour la page login -->
     <string name="register_button">Register</string>
+    <string name="MessageNoLogin">Il faut remplir les champs obligatoires : le login et le mot-de-passe !</string>
+    <string name="MessageLoginIncorrect">Le login ou le mot-de-passe est incorrecte !</string>
 
     <!-- Pour l'enregistrement REGISTER -->
     <string name="id_new_user">Enregistrement</string>
     <string name="enregistrer">Enregistrer</string>
     <string name="Confirmpassword">Confirmer mot de passe</string>
     <string name="retour">Retour</string>
+    <string name="MessageRegisterIncorrecte">Le mot-de-passe ou l email ne correspond pas aux critères demandés !</string>
+
 
     <!--String related to Home-->
     <string name="idfootball">Matchs</string>
@@ -70,6 +74,8 @@
     <string name="no">Non</string>
     <string name="deleteMatchTitle">Supression d un match</string>
     <string name="deleteMatchMessage">Etes-vous sûre de vouloir supprimer le match ?</string>
+    <string name="deleteBookingTitle">Suppression de la réservation</string>
+    <string name="deleteBookingMessage">Etes-vous sûre de vouloir supprimer la réservation ?</string>
 
     <!--Bouttons-->
     <string name="cancel">Annuler</string>
