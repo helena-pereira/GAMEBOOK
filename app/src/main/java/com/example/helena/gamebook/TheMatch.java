@@ -140,34 +140,35 @@ public class TheMatch extends AppCompatActivity {
 
     public void toDelete(View view){
         AlertDialog.Builder alertDeleteBooking = new AlertDialog.Builder(this);
-        // Setting Dialog Title
-        alertDeleteBooking.setTitle(R.string.deleteMatchTitle);
+        // Titre
+        alertDeleteBooking.setTitle(R.string.deleteBookingTitle);
 
-        // Setting Dialog Message
-        alertDeleteBooking.setMessage(R.string.deleteMatchMessage);
+        // Message
+        alertDeleteBooking.setMessage(R.string.deleteBookingMessage);
 
-        // Setting Icon to Dialog
+        // Icon de suppression
         alertDeleteBooking.setIcon(R.mipmap.delete);
 
-        // Setting Positive "Yes" Button
+        // Si on clique sur oui ça supprime un message
         alertDeleteBooking.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int which) {
 
-                // Write your code here to invoke YES event
+                /*
+                Helena : suppression d'un match
+                 */
                 dialog.cancel();
                 Intent toListMatch = new Intent(TheMatch.this,MatchList.class);
                 startActivity(toListMatch);
             }
         });
 
-        // Setting Negative "NO" Button
+        // Si on clique sous non ça ferme le dialog
         alertDeleteBooking.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                // Write your code here to invoke NO event
                 dialog.cancel();
             }
         });
-        // Showing Alert Message
+        // Montrer le dialog
         alertDeleteBooking.show();
     }
 
