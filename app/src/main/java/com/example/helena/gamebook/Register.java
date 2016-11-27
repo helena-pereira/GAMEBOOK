@@ -78,8 +78,8 @@ public class Register extends AppCompatActivity {
 
 
     public void onClickRegister(View view){
-        SQLiteHelper helper = new SQLiteHelper(this);
-        SQLiteDatabase db = helper.getWritableDatabase();
+        //SQLiteHelper helper = new SQLiteHelper(this);
+        //SQLiteDatabase db = helper.getWritableDatabase();
 
         EditText Nom, Prenom, Email, Mdp, ConfirmMdp;
 
@@ -89,8 +89,10 @@ public class Register extends AppCompatActivity {
         Mdp = (EditText)findViewById(R.id.EditPassword);
         ConfirmMdp = (EditText)findViewById(R.id.EditPasswordConfirm);
 
-        if(Mdp != null || Email != null){
-            if(Mdp.equals(ConfirmMdp)) {
+
+        if(Email.getText().toString().trim().length()>0 && Mdp.getText().toString().trim().length()>0 && ConfirmMdp.getText().toString().trim().length()>0){
+            if(Mdp.getText().toString().equals(ConfirmMdp.getText().toString()))
+            {
                 Customer customer = new Customer();
 
                 customer.setNom(Nom.getText().toString());
@@ -104,15 +106,17 @@ public class Register extends AppCompatActivity {
                 Intent intent = new Intent(Register.this, MainActivity.class);
                 startActivity(intent);
             }
-            else{
-            /*STEPHANIE Mdp ne correspond pas aux critère
-            Votre mot de passe ou email ne correspond pas aux critères
-            **/
-                Toast.makeText(getApplicationContext(), R.string.MessageRegisterPassword,
-                        Toast.LENGTH_SHORT).show();
+            else
+            {
+                /*STEPHANIE Mdp ne correspond pas aux critère
+                Votre mot de passe ou email ne correspond pas aux critères
+                **/
+                    Toast.makeText(getApplicationContext(), R.string.MessageRegisterPassword,
+                            Toast.LENGTH_SHORT).show();
+            }
         }
-        }
-        else{
+        else
+        {
             Toast.makeText(getApplicationContext(), R.string.MessageRegisterIncorrecte,
                     Toast.LENGTH_SHORT).show();
         }

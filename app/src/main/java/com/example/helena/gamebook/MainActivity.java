@@ -24,6 +24,9 @@ import com.example.helena.gamebook.db.object.Customer;
 
 public class MainActivity extends AppCompatActivity {
 
+    Integer idCustomer ;
+    Bundle bundle;
+
     Context context;
 
     @Override
@@ -37,6 +40,23 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.football);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
+
+
+        /*
+        if(savedInstanceState == null){
+            bundle = getIntent().getExtras();
+            if(bundle == null){
+                idCustomer = null;
+            } else {
+                idCustomer = bundle.getInt("idCustomer");
+            }
+        }else{
+            idCustomer = (int) savedInstanceState.getSerializable("idCustomer");
+        }
+*/
+
+
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
@@ -86,39 +106,42 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void signIn(View view) {
-        SQLiteHelper helper = new SQLiteHelper(this);
-        SQLiteDatabase db = helper.getWritableDatabase();
 
-        TextView email = (TextView) findViewById(R.id.email);
-        TextView mdp = (TextView) findViewById(R.id.password);
+        EditText email = (EditText) findViewById(R.id.email);
+        EditText mdp = (EditText) findViewById(R.id.password);
 
+        Customer customer1 = new Customer();
+        customer1.setEmail(email.getText().toString());
+        customer1.setMdp(mdp.getText().toString());
+
+        Customer customer2 = new Customer();
         CustomerDataSource cds = new CustomerDataSource(context);
-        Customer customer = null;
-        customer = cds.getCustomerByEmail(email.getText().toString());
+        customer2 = cds.getCustomerByEmail(email.getText().toString());
 
-        if (customer != null) {
-            if (email.equals(customer.getEmail().toString()) && mdp.equals(customer.getMdp().toString())) {
-                Intent intent = new Intent(MainActivity.this, Register.class);
-                startActivity(intent);
-            } else {
-                //Message qui dit que le login ou le mdp est incorrect
-                Toast.makeText(getApplicationContext(), R.string.MessageLoginIncorrect,
-                        Toast.LENGTH_SHORT).show();
-            }
-        } else {
+        String customer2Email = customer2.getEmail();
+        String customer2Mdp = customer2.getMdp();
+        idCustomer = customer2.getId();
+
+        if(email.getText().toString().trim().length() == 0 || mdp.getText().toString().trim().length() == 0){
             //Message qui dit qu'il faut remplir les champs obligatoires : login et mdp
             Toast.makeText(getApplicationContext(), R.string.MessageNoLogin,
                     Toast.LENGTH_SHORT).show();
         }
-
-       /* customer.setEmail(email.getText().toString());
-        customer.setMdp(mdp.getText().toString());
-
-        String theEmail = customer.setEmail(email.getText().toString());
-
-        cds.getCustomerByEmail(email)
-
-           */
+        else
+        {
+            if(customer1.getEmail().toString().equals(customer2Email)
+                    && customer1.getMdp().toString().equals(customer2Mdp)){
+                Intent toHome = new Intent(this,home.class);
+                toHome.putExtra("idCustomer", idCustomer);
+                startActivity(toHome);
+            }
+            else
+            {
+                //Message qui dit que le login ou le mdp est incorrect
+                Toast.makeText(getApplicationContext(), R.string.MessageLoginIncorrect,
+                        Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private void updateViews() {

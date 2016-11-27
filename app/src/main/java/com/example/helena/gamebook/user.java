@@ -15,10 +15,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.helena.gamebook.db.adapter.CustomerDataSource;
+import com.example.helena.gamebook.db.adapter.GameDataSource;
+import com.example.helena.gamebook.db.object.Customer;
+import com.example.helena.gamebook.db.object.Game;
+
 
 public class user extends AppCompatActivity {
-
+    Integer idCustomer ;
+    Bundle bundle;
     Context context;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +39,45 @@ public class user extends AppCompatActivity {
         getSupportActionBar().setLogo(R.mipmap.football);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
+
+        if(savedInstanceState == null){
+            bundle = getIntent().getExtras();
+            if(bundle == null){
+                idCustomer = null;
+            } else {
+                idCustomer = bundle.getInt("idCustomer");
+            }
+        }else{
+            idCustomer = (int) savedInstanceState.getSerializable("idCustomer");
+        }
+
+
+
+        loadCustomer();
+
+
+
+
+    }
+
+    private void loadCustomer() {
+
+
+        CustomerDataSource cds = new CustomerDataSource(context);
+        Customer customer = new Customer();
+
+        TextView idUser, idHeure, idStade, idResident, idVisiteur, idStatut, idQuantite, idNameMatch ;
+
+        idUser = (TextView)findViewById(R.id.idUser);
+        customer = cds.getCustomerById(idCustomer);
+
+        idUser.setText(customer.getPrenom() + " " + customer.getNom());
+
+
+
+
+
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
@@ -44,6 +91,7 @@ public class user extends AppCompatActivity {
         switch(item.getItemId()) {
             case R.id.logout:
                 Intent toMain = new Intent(this, MainActivity.class);
+                toMain.putExtra("idCustomer", idCustomer);
                 startActivity(toMain);
                 break;
             case R.id.id_enFlag:

@@ -57,18 +57,13 @@ public class EditMatch extends AppCompatActivity {
         }
 
         loadGameSelected();
-
-
-
     }
 
     private void loadGameSelected() {
-
             GameDataSource gds = new GameDataSource(context);
             Game game = new Game();
 
             EditText idDate, idHeure, idStade, idResident, idVisiteur, idStatut, idQuantite, idNameMatch ;
-
 
             idDate = (EditText)findViewById(R.id.idEditDate);
             idHeure = (EditText)findViewById(R.id.idEditHeure);
@@ -100,9 +95,7 @@ public class EditMatch extends AppCompatActivity {
     }
 
     public void save(View view){
-
         SQLiteHelper helper = new SQLiteHelper(this);
-
         SQLiteDatabase db = helper.getWritableDatabase();
 
         EditText Date, Heure, Stade, Resident, Visiteur, Quantite;

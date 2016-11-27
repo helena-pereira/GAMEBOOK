@@ -49,7 +49,7 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="logout">Log out</string>
-    <string name="edit">Modify</string>
+    <string name="edit">Save</string>
     <string name="delete">Delete</string>
 
     <!--Les Matchs-->

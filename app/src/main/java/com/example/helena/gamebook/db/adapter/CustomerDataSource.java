@@ -12,6 +12,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.helena.gamebook.db.FeedReaderContract;
 import com.example.helena.gamebook.db.SQLiteHelper;
 import com.example.helena.gamebook.db.object.Customer;
+import com.example.helena.gamebook.db.object.Game;
 
 
 /**
@@ -48,7 +49,7 @@ public class CustomerDataSource {
 
     //find customer by id
     public Customer getCustomerById(long id) {
-        String sql = "SELECT * FROM " + FeedReaderContract.tableCUSTOMER.TABLE_NAME + " WHERE"
+        String sql = "SELECT * FROM " + FeedReaderContract.tableCUSTOMER.TABLE_NAME + " WHERE "
                 + FeedReaderContract.tableCUSTOMER.CUSTOMER_ID + " = " + id;
 
         Cursor cursor = this.db.rawQuery(sql, null);
@@ -75,18 +76,32 @@ public class CustomerDataSource {
                 + FeedReaderContract.tableCUSTOMER.CUSTOMER_EMAIL + " LIKE '" + email +"'";
 
         Cursor cursor = this.db.rawQuery(sql, null);
+
+        if(cursor != null){
+            cursor.moveToFirst();
+        }
+
         Customer customer = new Customer();
-        customer = null;
+        customer.setId(cursor.getInt(cursor.getColumnIndex(FeedReaderContract.tableCUSTOMER.CUSTOMER_ID)));
+        customer.setNom(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableCUSTOMER.CUSTOMER_NOM)));
+        customer.setPrenom(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableCUSTOMER.CUSTOMER_PRENOM)));
+        customer.setEmail(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableCUSTOMER.CUSTOMER_EMAIL)));
+        customer.setMdp(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableCUSTOMER.CUSTOMER_MDP)));
+
+
+
+        /*Cursor cursor = this.db.rawQuery(sql, null);
+        Customer customer = new Customer();
 
         if ((cursor != null) && (cursor.getCount() > 0)) {
             cursor.moveToFirst();
             //customer.setNom(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableCUSTOMER.CUSTOMER_NOM)));
             //customer.setPrenom(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableCUSTOMER.CUSTOMER_PRENOM)));
-            customer.setEmail(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableCUSTOMER.CUSTOMER_EMAIL)));
+            customer.setEmail(cursor.getString(cursor.getColumnIndex(email)));
             customer.setMdp(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableCUSTOMER.CUSTOMER_MDP)));
 
         }
-
+*/
 
         return customer;
 
@@ -98,6 +113,7 @@ public class CustomerDataSource {
     //modification d'un customer
     public int updateCustomer(Customer customer) {
         ContentValues values = new ContentValues();
+        values.put(FeedReaderContract.tableCUSTOMER.CUSTOMER_NOM, customer.getId());
         values.put(FeedReaderContract.tableCUSTOMER.CUSTOMER_NOM, customer.getNom());
         values.put(FeedReaderContract.tableCUSTOMER.CUSTOMER_PRENOM, customer.getPrenom());
         values.put(FeedReaderContract.tableCUSTOMER.CUSTOMER_EMAIL, customer.getEmail());

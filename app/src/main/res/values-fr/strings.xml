@@ -50,7 +50,7 @@
     <string name="email">Email</string>
     <string name="password">Mot-de-passe</string>
     <string name="logout">Déconnexion</string>
-    <string name="edit">Modifier</string>
+    <string name="edit">Enregistrer</string>
     <string name="delete">Supprimer</string>
 
     <!--Les Matchs-->

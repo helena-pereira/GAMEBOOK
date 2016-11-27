@@ -5,18 +5,18 @@ package com.example.helena.gamebook.db.object;
  */
 
 public class Customer {
-    private int id ;
+    private int _id ;
     private String nom ;
     private String prenom ;
     private String email ;
     private String mdp ;
 
     public int getId() {
-        return id;
+        return _id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this._id = id;
     }
 
     public String getNom() {

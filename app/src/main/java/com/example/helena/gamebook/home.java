@@ -21,19 +21,35 @@ import android.widget.ImageButton;
 
 public class home extends AppCompatActivity {
 
+    Integer idCustomer ;
+    Bundle bundle;
     Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
         context = this;
+
         getSupportActionBar().setHomeButtonEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.football);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
-        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
+
+        if(savedInstanceState == null){
+            bundle = getIntent().getExtras();
+            if(bundle == null){
+                idCustomer = null;
+            } else {
+                idCustomer = bundle.getInt("idCustomer");
+            }
+        }else{
+            idCustomer = (int) savedInstanceState.getSerializable("idCustomer");
+        }
+
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
@@ -76,7 +92,8 @@ public class home extends AppCompatActivity {
     }
 
     public void toMonCompte(View view) {
-        Intent toMonCompte = new Intent(this,user.class);
+        Intent toMonCompte = new Intent(this, edit_user.class);
+        toMonCompte.putExtra("idCustomer", idCustomer);
         startActivity(toMonCompte);
 
     }

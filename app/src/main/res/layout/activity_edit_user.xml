@@ -12,33 +12,19 @@
 
     <TableLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
         <TableRow>
             <TextView
                 android:text="@string/idUser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/idUser"
-                android:textSize="36sp"
+                android:textSize="24sp"
                 tools:textAlignment="center" />
         </TableRow>
 
-        <TableRow>
-            <TextView
-                android:text="@string/idClient"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/LabelidClient"
-                android:layout_weight="1" />
-
-            <EditText
-                android:text="BDD"
-                android:layout_width="274dp"
-                android:ems="10"
-                android:layout_height="wrap_content"
-                android:id="@+id/EditidClient"
-                android:layout_weight="1" />
-        </TableRow>
 
         <TableRow>
             <TextView
@@ -49,7 +35,6 @@
                 android:layout_weight="1" />
 
             <EditText
-                android:text="BDD"
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
@@ -66,7 +51,6 @@
                 android:layout_weight="1" />
 
             <EditText
-                android:text="BDD"
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
@@ -83,7 +67,6 @@
                 android:layout_weight="1" />
 
             <EditText
-                android:text="BDD"
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
@@ -103,7 +86,6 @@
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="match_parent"
-                android:text="BDD"
                 android:id="@+id/EditPassword"
                 android:layout_weight="1" />
         </TableRow>
@@ -115,7 +97,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/buttonEdit"
                 android:layout_weight="1"
-                android:background="@android:color/holo_green_light" />
+                android:background="@android:color/holo_green_light"
+                android:onClick="save"/>
 
             <Button
                 android:text="@string/delete"
@@ -127,5 +110,16 @@
         </TableRow>
 
     </TableLayout>
+
+    <Button
+        android:text="Annuler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="87dp"
+        android:layout_marginBottom="155dp"
+        android:id="@+id/back"
+        android:onClick="goHome"/>
 
 </RelativeLayout>
