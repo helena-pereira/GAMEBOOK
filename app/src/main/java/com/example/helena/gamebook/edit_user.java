@@ -187,6 +187,9 @@ public class edit_user extends AppCompatActivity {
                 Si on clique sur oui on supprime de la base de données
                 et on retourne dans le main
                  */
+                CustomerDataSource cds = new CustomerDataSource(context);
+                cds.deleteCustomer(idCustomer);
+
                 dialog.cancel();
                 Intent toMain = new Intent(edit_user.this,MainActivity.class);
                 startActivity(toMain);
