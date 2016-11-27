@@ -25,20 +25,21 @@ public class FeedReaderContract {
         public static final String GAME_TEAM_EXTERIEUR = "team_exterieur";
         public static final String GAME_QUANTITE = "quantite";
         public static final String GAME_STATUT = "statut";
-        public static final String GAME_NB_PLACES_DISPO = "nb_places dispos";
-        public static final String GAME_STADE = "fk_stade";
+        //public static final String GAME_NB_PLACES_DISPO = "nb_places dispos";
+        public static final String GAME_STADE = "stade";
 
 
         public static final String CREATE_TABLE_GAME = "CREATE TABLE " +
                 tableGAME.TABLE_NAME + " (" +
                 tableGAME.GAME_ID + " INTEGER PRIMARY KEY AUTOINCREMENT" + COMMA_SEP +
                 tableGAME.GAME_DATE + TEXT_TYPE + COMMA_SEP +
-                tableGAME.GAME_HEURE + " DATETIME" + COMMA_SEP +
+                tableGAME.GAME_HEURE + TEXT_TYPE + COMMA_SEP +
                 tableGAME.GAME_TEAM_RESIDENT + TEXT_TYPE + COMMA_SEP +
                 tableGAME.GAME_TEAM_EXTERIEUR + TEXT_TYPE + COMMA_SEP +
-                tableGAME.GAME_QUANTITE + " INTEGER" + COMMA_SEP +
-                tableGAME.GAME_STATUT + TEXT_TYPE + COMMA_SEP +
-                tableGAME.GAME_NB_PLACES_DISPO + " INTEGER"
+                //tableGAME.GAME_STADE + TEXT_TYPE + COMMA_SEP +
+                tableGAME.GAME_QUANTITE + TEXT_TYPE + COMMA_SEP +
+                tableGAME.GAME_STATUT + TEXT_TYPE // + COMMA_SEP +
+                //tableGAME.GAME_NB_PLACES_DISPO + " INTEGER"
 
               /*  tableGAME.GAME_FK_STADE + " INTEGER,"
                 + " FOREIGN KEY (" + tableGAME.GAME_FK_STADE + ") REFERENCES " + tableSTADE.TABLE_NAME + " (" + tableSTADE.STADE_ID + ") "

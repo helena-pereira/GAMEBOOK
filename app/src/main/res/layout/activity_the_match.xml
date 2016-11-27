@@ -15,12 +15,12 @@
         android:layout_height="fill_parent">
         <TableRow>
             <TextView
-                android:text="@string/TheMatch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/idNameMatch"
-                android:textSize="36sp"
-                tools:textAlignment="center" />
+                android:textSize="24sp"
+                android:layout_marginBottom="50px"
+                />
         </TableRow>
 
         <TableRow>
@@ -32,7 +32,6 @@
                 android:layout_weight="1" />
 
             <TextView
-                android:text="BDD"
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
@@ -49,7 +48,6 @@
                 android:layout_weight="1" />
 
             <TextView
-                android:text="BDD"
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
@@ -66,7 +64,6 @@
                 android:layout_weight="1" />
 
             <TextView
-                android:text="BDD"
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
@@ -83,7 +80,6 @@
                 android:layout_weight="1" />
 
             <TextView
-                android:text="BDD"
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
@@ -103,7 +99,6 @@
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="match_parent"
-                android:text="BDD"
                 android:id="@+id/idVisiteur"
                 android:layout_weight="1" />
         </TableRow>
@@ -126,14 +121,12 @@
 
         <TableRow>
             <TextView
-                android:text="BDD"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:id="@+id/idStatut"
                 android:layout_weight="1" />
 
             <TextView
-                android:text="BDD"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:id="@+id/idQuantite"

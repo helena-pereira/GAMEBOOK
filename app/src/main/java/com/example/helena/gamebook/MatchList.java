@@ -45,7 +45,6 @@ public class MatchList extends AppCompatActivity {
         context = this;
 
 
-
         /********************************************/
         getSupportActionBar().setHomeButtonEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -71,7 +70,8 @@ public class MatchList extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 game = (Game) parent.getItemAtPosition(position);
                 int gameSelectedId = game.getId();
-                Intent intent = new Intent(MatchList.this, EditMatch.class);
+
+                Intent intent = new Intent(MatchList.this, TheMatch.class);
                 intent.putExtra("idGame", gameSelectedId);
                 startActivity(intent);
             }

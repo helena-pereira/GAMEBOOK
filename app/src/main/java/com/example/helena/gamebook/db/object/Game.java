@@ -13,30 +13,35 @@ import java.util.Locale;
 public class Game {
 
 
-    private int id ;
+    private int _id ;
     private String date ;
     private String heure ;
     private String team_res ;
     private String team_ext ;
-    private int quantity ;
+    private String quantity ;
     private String statut;
-    private int nb_places_dispo;
+    //private String nb_places_dispo;
     //private Stade stade;
-    private String stade ;
+    //private String stade ;
+
+
+
+
 
     public int getId() {
-        return id;
+        return _id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this._id = id;
     }
 
     public String getDate() {
-		SimpleDateFormat dateFormat = new SimpleDateFormat(
+		/*SimpleDateFormat dateFormat = new SimpleDateFormat(
 				"yyyy-MM-dd HH:mm:ss", Locale.getDefault());
 		Date date = new Date();
-		return dateFormat.format(date);
+		return dateFormat.format(date);*/
+        return date;
     }
 
     public void setDate(String date) {
@@ -68,11 +73,11 @@ public class Game {
         this.team_ext = team_ext;
     }
 
-    public int getQuantity() {
+    public String getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
 
@@ -83,20 +88,20 @@ public class Game {
     public void setStatut(String statut) {
         this.statut = statut;
     }
-
-    public int getNb_places_dispo() {
+/*
+    public String getNb_places_dispo() {
         return nb_places_dispo;
     }
 
-    public void setNb_places_dispo(int nb_places_dispo) {
+    public void setNb_places_dispo(String nb_places_dispo) {
         this.nb_places_dispo = nb_places_dispo;
     }
 
-   /* public Stade getStade() { return stade;}
+    public Stade getStade() { return stade;}
 
     public void setStade(Stade stade) {
         this.stade = stade;
-    }*/
+    }
 
     public String getStade() {
         return stade;
@@ -105,6 +110,8 @@ public class Game {
     public void setStade(String stade) {
         this.stade = stade;
     }
+*/
+
 }
 
 

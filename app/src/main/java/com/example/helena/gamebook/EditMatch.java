@@ -1,5 +1,6 @@
 package com.example.helena.gamebook;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -18,17 +19,38 @@ import android.view.View;
 
 public class EditMatch extends AppCompatActivity {
 
+    Integer idGame ;
+    Context context;
+    Bundle bundle;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_match);
+
+        context = this;
 
         getSupportActionBar().setHomeButtonEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.football);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
+
+
+        if(savedInstanceState == null){
+            bundle = getIntent().getExtras();
+            if(bundle == null){
+                idGame = null;
+            } else {
+                idGame = bundle.getInt("idGame");
+            }
+        }else{
+            idGame = (int) savedInstanceState.getSerializable("idGame");
+        }
+
+
+
     }
 
 

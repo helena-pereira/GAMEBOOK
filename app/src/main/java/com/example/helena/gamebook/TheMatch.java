@@ -1,5 +1,6 @@
 package com.example.helena.gamebook;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -14,6 +15,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.helena.gamebook.db.adapter.GameDataSource;
+import com.example.helena.gamebook.db.object.Game;
+
 /***
  * Created by Stéphanie Pinto
  * Cette classe affiche le match selectionné dans la liste des matchs
@@ -21,10 +25,16 @@ import android.widget.TextView;
 
 public class TheMatch extends AppCompatActivity {
 
+    Integer idGame ;
+    Context context;
+    Bundle bundle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_the_match);
+
+        context = this;
 
         getSupportActionBar().setHomeButtonEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -32,6 +42,56 @@ public class TheMatch extends AppCompatActivity {
         getSupportActionBar().setLogo(R.mipmap.football);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
+
+
+        if(savedInstanceState == null){
+            bundle = getIntent().getExtras();
+            if(bundle == null){
+                idGame = null;
+            } else {
+                idGame = bundle.getInt("idGame");
+            }
+        }else{
+            idGame = (int) savedInstanceState.getSerializable("idGame");
+        }
+
+        loadGameSelected();
+
+
+
+    }
+
+    private void loadGameSelected() {
+
+        GameDataSource gds = new GameDataSource(context);
+        Game game = new Game();
+
+        TextView idDate, idHeure, idStade, idResident, idVisiteur, idStatut, idQuantite, idNameMatch ;
+
+        idDate = (TextView)findViewById(R.id.idDate);
+        idHeure = (TextView)findViewById(R.id.idHeure);
+        //idStade = (TextView)findViewById(R.id.idStade);
+        idResident = (TextView)findViewById(R.id.idResident);
+        idVisiteur = (TextView)findViewById(R.id.idVisiteur);
+        idStatut = (TextView)findViewById(R.id.idStatut);
+        idQuantite = (TextView)findViewById(R.id.idQuantite);
+        idNameMatch = (TextView)findViewById(R.id.idNameMatch);
+
+        game = gds.getGameById(idGame);
+
+
+        idDate.setText(game.getDate());
+        idHeure.setText(game.getHeure());
+        //idStade.setText(tst);
+        idResident.setText(game.getTeam_res());
+        idVisiteur.setText(game.getTeam_ext());
+        idStatut.setText(game.getStatut());
+        idQuantite.setText(game.getQuantity());
+        idNameMatch.setText(game.getTeam_res() + " vs. "+ game.getTeam_ext());
+
+
+
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
@@ -65,6 +125,7 @@ public class TheMatch extends AppCompatActivity {
 
     public void toEditMatch(View view) {
         Intent toEditMatch = new Intent(this,EditMatch.class);
+        toEditMatch.putExtra("idGame", idGame);
         startActivity(toEditMatch);
     }
 
@@ -108,6 +169,8 @@ public class TheMatch extends AppCompatActivity {
         alertDeleteBooking.show();
     }
 
+
+    //STEPH CONTROLE CECI
     private void updateViews() {
         Resources resources = getResources();
 

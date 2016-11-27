@@ -82,44 +82,52 @@ public class NewMatch extends AppCompatActivity {
         startActivity(toListMatch);
     }
 
-
-    public void onClickRegister(View view) {
-        SQLiteHelper helper = new SQLiteHelper(this);
-        SQLiteDatabase db = helper.getWritableDatabase();
-
-        EditText Date, Heure, Stade, Resident, Visiteur, Quantite;
-        ToggleButton Statut;
-
-        Date = (EditText) findViewById(R.id.idDate);
-        Heure = (EditText) findViewById(R.id.idHeure);
-        Stade = (EditText) findViewById(R.id.idStade);
-        Resident = (EditText) findViewById(R.id.idResident);
-        Visiteur = (EditText) findViewById(R.id.idVisiteur);
-        Statut = (ToggleButton) findViewById(R.id.idStatut);
-        Quantite = (EditText) findViewById(R.id.idQuantite);
-
-        Game game = new Game();
-        //Stade stade = new Stade();
-
-        game.setDate(Date.getText().toString());
-        game.setHeure(Heure.getText().toString());
-        game.setStade(Stade.getText().toString());
-        game.setTeam_res(Resident.getText().toString());
-        game.setTeam_ext(Visiteur.getText().toString());
-        game.setStatut(Statut.getText().toString());
-
-
-        //faire les quantités
-        //game.setQuantity();
-
-        GameDataSource gds = new GameDataSource(context);
-
-        /*Intent intent = new Intent(NewMatch.this, MainActivity.class);
-        startActivity(intent);
-*/
+    public void onClickRegisterR(View view) {
 
         Intent toListMatch = new Intent(this,MatchList.class);
         startActivity(toListMatch);
+
+    }
+
+
+        public void onClickRegister(View view) {
+
+            SQLiteHelper helper = new SQLiteHelper(this);
+
+            SQLiteDatabase db = helper.getWritableDatabase();
+
+            EditText Date, Heure, Stade, Resident, Visiteur, Quantite;
+            //ToggleButton Statut;
+
+            Date = (EditText) findViewById(R.id.idDate);
+            Heure = (EditText) findViewById(R.id.idHeure);
+            Stade = (EditText) findViewById(R.id.idStade);
+            Resident = (EditText) findViewById(R.id.idResident);
+            Visiteur = (EditText) findViewById(R.id.idVisiteur);
+            //Statut = (ToggleButton) findViewById(R.id.idStatut);
+            Quantite = (EditText) findViewById(R.id.idQuantite);
+
+            Game game = new Game();
+            //Stade stade = new Stade();
+
+            game.setDate(Date.getText().toString());
+            game.setHeure(Heure.getText().toString());
+            //game.setStade(Stade.getText().toString());
+            game.setTeam_res(Resident.getText().toString());
+            game.setTeam_ext(Visiteur.getText().toString());
+            //game.setStatut(Statut.getText().toString());
+
+            game.setQuantity(Quantite.getText().toString());
+
+            GameDataSource gds = new GameDataSource(context);
+            gds.createGame(game);
+
+            /*Intent intent = new Intent(NewMatch.this, MainActivity.class);
+            startActivity(intent);
+    */
+
+            Intent toListMatch = new Intent(this,MatchList.class);
+            startActivity(toListMatch);
 
     }
 
