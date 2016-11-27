@@ -1,8 +1,10 @@
 package com.example.helena.gamebook;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.view.CollapsibleActionView;
@@ -23,7 +25,7 @@ public class user extends AppCompatActivity {
         setContentView(R.layout.activity_user);
         context = this;
 
-        getSupportActionBar().setHomeButtonEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.football);
@@ -31,66 +33,121 @@ public class user extends AppCompatActivity {
         //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
     }
 
-
-
-    public void returnMainActivity(View view){
-        Intent returnMainActivity = new Intent(this,MainActivity.class);
-        startActivity(returnMainActivity);
-
-    }
-
-
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_basic,menu);
         return super.onCreateOptionsMenu(menu);
-
-
-
     }
 
-
-
-
-    //Merci de faire le nécessaire steph
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch(item.getItemId()) {
+            case R.id.logout:
+                Intent toMain = new Intent(this, MainActivity.class);
+                startActivity(toMain);
+                break;
             case R.id.id_enFlag:
-                LocaleHelper.setLocale(this,"en");
+                LocaleHelper.setLocale(this, "en");
                 updateViews();
                 break;
             case R.id.id_frFlag:
-                LocaleHelper.setLocale(this,"fr");
-                updateViews();
-                break;
-            default:
-                LocaleHelper.setLocale(this,"en");
+                LocaleHelper.setLocale(this, "fr");
                 updateViews();
                 break;
         }
-        return true;
+        return false;
+    }
+
+
+    //déconnexion
+    public void toLogOut(View view){
+        AlertDialog.Builder alertDeleteBooking = new AlertDialog.Builder(this);
+        // Le titre du Dialog Alert
+        alertDeleteBooking.setTitle(R.string.LogOutUserTitle);
+
+        // Message du Dialog Alert
+        alertDeleteBooking.setMessage(R.string.LogOutUserMessage);
+
+        // Icon de suppression
+        alertDeleteBooking.setIcon(R.mipmap.delete);
+
+        // Si on clique sur oui
+        alertDeleteBooking.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog,int which) {
+
+                //On se déconnecte et retourne au main
+                dialog.cancel();
+                Intent toMain = new Intent(user.this,MainActivity.class);
+                startActivity(toMain);
+            }
+        });
+
+        // Si on clique sur non
+        alertDeleteBooking.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                // ça ferme tout simplement le dialog
+                dialog.cancel();
+            }
+        });
+        // On montre l'alerte
+        alertDeleteBooking.show();
+    }
+
+    //suppression du compte utilisateur
+    public void toDelete(View view){
+        AlertDialog.Builder alertDeleteBooking = new AlertDialog.Builder(this);
+        // Le titre du Dialog Alert
+        alertDeleteBooking.setTitle(R.string.deleteUserTitle);
+
+        // Message du Dialog Alert
+        alertDeleteBooking.setMessage(R.string.deleteUserMessage);
+
+        // Icon de suppression
+        alertDeleteBooking.setIcon(R.mipmap.delete);
+
+        // Si on clique sur oui
+        alertDeleteBooking.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog,int which) {
+
+                /*
+                Helena : suppression de la base de données
+                Si on clique sur oui on supprime de la base de données
+                et on retourne dans le main
+                 */
+                dialog.cancel();
+                Intent toMain = new Intent(user.this,MainActivity.class);
+                startActivity(toMain);
+            }
+        });
+
+        // Si on clique sur non
+        alertDeleteBooking.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                // ça ferme tout simplement le dialog
+                dialog.cancel();
+            }
+        });
+        // On montre l'alerte
+        alertDeleteBooking.show();
     }
 
     private void updateViews() {
         Resources resources = getResources();
 
-        TextView id_new_user = (TextView)findViewById(R.id.id_new_user);
+        TextView idUser = (TextView)findViewById(R.id.idUser);
         TextView LabelName = (TextView) findViewById(R.id.LabelName);
-        TextView LabelPrenom = (TextView) findViewById(R.id.EditFirstName);
+        TextView LabelFirstName = (TextView) findViewById(R.id.LabelFirstName);
         TextView LabelEmail = (TextView) findViewById(R.id.LabelEmail);
         TextView LabelPassword = (TextView) findViewById(R.id.LabelPassword);
-        TextView EditPasswordConfirm = (TextView) findViewById(R.id.EditPasswordConfirm);
-        Button buttonReturn = (Button) findViewById(R.id.buttonReturn);
         Button buttonEdit = (Button) findViewById(R.id.buttonEdit);
+        Button buttonDelete = (Button) findViewById(R.id.buttonDelete);
 
-        id_new_user.setContentDescription(resources.getString(R.string.id_new_user));
+        idUser.setContentDescription(resources.getString(R.string.idUser));
         LabelName.setContentDescription(resources.getString(R.string.name));
-        LabelPrenom.setContentDescription(resources.getString(R.string.firstName));
+        LabelFirstName.setContentDescription(resources.getString(R.string.firstName));
         LabelEmail.setContentDescription(resources.getString(R.string.email));
         LabelPassword.setContentDescription(resources.getString((R.string.password)));
-        EditPasswordConfirm.setContentDescription(resources.getString((R.string.Confirmpassword)));
-        buttonReturn.setContentDescription(resources.getString((R.string.retour)));
-        buttonEdit.setContentDescription(resources.getString((R.string.enregistrer)));
+        buttonEdit.setContentDescription(resources.getString((R.string.edit)));
+        buttonDelete.setContentDescription(resources.getString((R.string.delete)));
     }
 }

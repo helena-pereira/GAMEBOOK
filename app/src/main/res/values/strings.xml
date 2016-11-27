@@ -81,6 +81,10 @@
     <string name="deleteMatchMessage">Etes-vous sûre de vouloir supprimer le match ?</string>
     <string name="deleteBookingTitle">Suppression de la réservation</string>
     <string name="deleteBookingMessage">Etes-vous sûre de vouloir supprimer la réservation ?</string>
+    <string name="deleteUserTitle">Suppression de votre compte utilisateur</string>
+    <string name="deleteUserMessage">Etes-vous sûre de vouloir supprimer votre compte ?</string>
+    <string name="LogOutUserTitle">Déconnexion</string>
+    <string name="LogOutUserMessage">Etes-vous sûre de vouloir vous déconnecter ?</string>
 
     <!--Bouttons-->
     <string name="cancel">Annuler</string>

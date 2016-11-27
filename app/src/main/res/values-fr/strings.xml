@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--String related to User-->
+    <string name="idClient">Id Client</string>
+    <string name="name">Nom</string>
+    <string name="firstName">Prénom</string>
+    <string name="email">Email</string>
+    <string name="password">Mot-de-passe</string>
+    <string name="logout">Déconnexion</string>
+    <string name="edit">Modifier</string>
+    <string name="delete">Supprimer</string>
+
+
+    <string name="deleteUserTitle">Suppression de votre compte utilisateur</string>
+    <string name="deleteUserMessage">Etes-vous sûre de vouloir supprimer votre compte ?</string>
+    <string name="LogOutUserTitle">Déconnexion</string>
+    <string name="LogOutUserMessage">Etes-vous sûre de vouloir vous déconnecter ?</string>
+
+
+</resources>
