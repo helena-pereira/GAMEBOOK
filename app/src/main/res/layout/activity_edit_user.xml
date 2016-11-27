@@ -98,7 +98,7 @@
                 android:id="@+id/buttonEdit"
                 android:layout_weight="1"
                 android:background="@android:color/holo_green_light"
-                android:onClick="save"/>
+                android:onClick="toSave"/>
 
             <Button
                 android:text="@string/delete"

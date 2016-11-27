@@ -131,31 +131,28 @@ public class EditMatch extends AppCompatActivity  {
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch(item.getItemId()) {
+            case R.id.logout:
+                Intent toMain = new Intent(this, MainActivity.class);
+                startActivity(toMain);
+                break;
             case R.id.id_enFlag:
-                LocaleHelper.setLocale(this,"en");
-                updateViews();
+                LocaleHelper.setLocale(this, "en");
+                Intent toTheSame = new Intent(this, MatchList.class);
+                startActivity(toTheSame);
                 break;
             case R.id.id_frFlag:
-                LocaleHelper.setLocale(this,"fr");
-                updateViews();
-                break;
-            default:
-                LocaleHelper.setLocale(this,"en");
-                updateViews();
+                LocaleHelper.setLocale(this, "fr");
+                toTheSame = new Intent(this, MatchList.class);
+                startActivity(toTheSame);
                 break;
         }
-        return true;
+        return false;
     }
 
     public void toTheMatch(View view) {
         Intent toTheMatch = new Intent(this,TheMatch.class);
         toTheMatch.putExtra("idGame", idGame);
         startActivity(toTheMatch);
-    }
-
-    private void updateViews() {
-        Resources resources = getResources();
-
     }
 
     // pour la date

@@ -57,20 +57,22 @@ public class NewMatch extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch(item.getItemId()) {
+            case R.id.logout:
+                Intent toMain = new Intent(this, MainActivity.class);
+                startActivity(toMain);
+                break;
             case R.id.id_enFlag:
-                LocaleHelper.setLocale(this,"en");
-                updateViews();
+                LocaleHelper.setLocale(this, "en");
+                Intent toTheSame = new Intent(this, MatchList.class);
+                startActivity(toTheSame);
                 break;
             case R.id.id_frFlag:
-                LocaleHelper.setLocale(this,"fr");
-                updateViews();
-                break;
-            default:
-                LocaleHelper.setLocale(this,"en");
-                updateViews();
+                LocaleHelper.setLocale(this, "fr");
+                toTheSame = new Intent(this, MatchList.class);
+                startActivity(toTheSame);
                 break;
         }
-        return true;
+        return false;
     }
 
     public void toTheMatch(View view) {
@@ -130,19 +132,6 @@ public class NewMatch extends AppCompatActivity {
             Intent toListMatch = new Intent(this,MatchList.class);
             startActivity(toListMatch);
 
-    }
-
-    private void updateViews() {
-        Resources resources = getResources();
-
-        EditText date = (EditText) findViewById(R.id.idEditDate);
-        EditText stade = (EditText) findViewById(R.id.idStade);
-        EditText residente = (EditText) findViewById((R.id.idResident));
-        EditText visiteur = (EditText) findViewById(R.id.idVisiteur);
-        ToggleButton statut = (ToggleButton) findViewById(R.id.idStatut);
-        EditText quantite = (EditText) findViewById(R.id.idQuantite);
-        Button cancel = (Button) findViewById(R.id.buttonCancel);
-        Button register = (Button) findViewById(R.id.buttonDelete);
     }
 /*
     // pour la date

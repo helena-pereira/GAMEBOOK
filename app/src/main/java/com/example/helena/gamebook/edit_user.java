@@ -59,31 +59,6 @@ public class edit_user extends AppCompatActivity {
     }
 
 
-    //STEPH : Cette fonction il faut la mettre dans la boite de dialogue merci
-    public void save(View view){
-
-        editName = (EditText)findViewById(R.id.EditName);
-        editFirstname = (EditText)findViewById(R.id.EditFirstName);
-        editEmail = (EditText)findViewById(R.id.EditEmail);
-        editPassword = (EditText)findViewById(R.id.EditPassword);
-
-        Customer customer = new Customer();
-
-        customer.setId(idCustomer);
-        customer.setNom(editName.getText().toString());
-        customer.setPrenom(editFirstname.getText().toString());
-        customer.setEmail(editEmail.getText().toString());
-        customer.setMdp(editPassword.getText().toString());
-
-        CustomerDataSource cds = new CustomerDataSource(context);
-        cds.updateCustomer(customer);
-
-        Intent back = new Intent(this,home.class);
-        back.putExtra("idCustomer", idCustomer);
-        startActivity(back);
-    }
-
-
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_basic,menu);
@@ -132,26 +107,47 @@ public class edit_user extends AppCompatActivity {
     }
 
 
-    //déconnexion
-    public void toLogOut(View view){
+    // Enregistrement des modifications
+    public void toSave(View view){
         AlertDialog.Builder alertDeleteBooking = new AlertDialog.Builder(this);
         // Le titre du Dialog Alert
-        alertDeleteBooking.setTitle(R.string.LogOutUserTitle);
+        alertDeleteBooking.setTitle(R.string.RegisterUserTitle);
 
         // Message du Dialog Alert
-        alertDeleteBooking.setMessage(R.string.LogOutUserMessage);
+        alertDeleteBooking.setMessage(R.string.RegisterUserMessage);
 
         // Icon de suppression
-        alertDeleteBooking.setIcon(R.mipmap.delete);
+        alertDeleteBooking.setIcon(R.mipmap.update);
 
         // Si on clique sur oui
         alertDeleteBooking.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int which) {
 
-                //On se déconnecte et retourne au main
+                //On modifie
+                editName = (EditText)findViewById(R.id.EditName);
+                editFirstname = (EditText)findViewById(R.id.EditFirstName);
+                editEmail = (EditText)findViewById(R.id.EditEmail);
+                editPassword = (EditText)findViewById(R.id.EditPassword);
+
+                Customer customer = new Customer();
+
+                customer.setId(idCustomer);
+                customer.setNom(editName.getText().toString());
+                customer.setPrenom(editFirstname.getText().toString());
+                customer.setEmail(editEmail.getText().toString());
+                customer.setMdp(editPassword.getText().toString());
+
+                CustomerDataSource cds = new CustomerDataSource(context);
+                cds.updateCustomer(customer);
+
+                Intent back = new Intent(edit_user.this,home.class);
+                back.putExtra("idCustomer", idCustomer);
+                startActivity(back);
+
+                //et on retourne au home
                 dialog.cancel();
-                Intent toMain = new Intent(edit_user.this,MainActivity.class);
-                startActivity(toMain);
+                Intent toHome = new Intent(edit_user.this,home.class);
+                startActivity(toHome);
             }
         });
 

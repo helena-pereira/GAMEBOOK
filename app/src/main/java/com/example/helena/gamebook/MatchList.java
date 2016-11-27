@@ -111,34 +111,16 @@ public class MatchList extends AppCompatActivity {
                 break;
             case R.id.id_enFlag:
                 LocaleHelper.setLocale(this, "en");
-                updateViews();
                 Intent toTheSame = new Intent(this, MatchList.class);
                 startActivity(toTheSame);
                 break;
             case R.id.id_frFlag:
                 LocaleHelper.setLocale(this, "fr");
-                updateViews();
                 toTheSame = new Intent(this, MatchList.class);
                 startActivity(toTheSame);
                 break;
         }
         return false;
     }
-
-    public void toTheMatch(View view) {
-        Intent toTheMatch = new Intent(this,TheMatch.class);
-        startActivity(toTheMatch);
-    }
-
-    public void toNewMatch(View view) {
-        Intent toNewMatch = new Intent(this,NewMatch.class);
-        startActivity(toNewMatch);
-    }
-
-    private void updateViews() {
-        Resources resources = getResources();
-
-    }
-
 
 }
