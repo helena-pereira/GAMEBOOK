@@ -15,12 +15,13 @@
         android:layout_height="fill_parent">
         <TableRow>
             <TextView
-                android:text="@string/editMatch"
+                android:text="Modifier le match"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/idNameMatch"
                 android:textSize="24sp"
                 tools:textAlignment="center" />
+
         </TableRow>
 
         <TableRow>
@@ -84,7 +85,7 @@
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
-                android:id="@+id/idStade"
+                android:id="@+id/idEditStade"
                 android:layout_weight="1" />
         </TableRow>
 
@@ -100,7 +101,7 @@
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
-                android:id="@+id/idResident"
+                android:id="@+id/idEditResident"
                 android:layout_weight="1" />
         </TableRow>
 
@@ -116,7 +117,7 @@
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="match_parent"
-                android:id="@+id/idVisiteur"
+                android:id="@+id/idEditVisiteur"
                 android:layout_weight="1" />
         </TableRow>
 
@@ -140,13 +141,13 @@
             <ToggleButton
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:id="@+id/idStatut"
+                android:id="@+id/idEditStatut"
                 android:layout_weight="1" />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:id="@+id/idQuantite"
+                android:id="@+id/idEditQuantite"
                 android:layout_weight="1" />
         </TableRow>
 
@@ -168,7 +169,7 @@
                 android:id="@+id/buttonEdit"
                 android:layout_weight="1"
                 android:background="@android:color/holo_green_light"
-                android:onClick="toTheMatch"/>
+                android:onClick="save"/>
         </TableRow>
 
     </TableLayout>

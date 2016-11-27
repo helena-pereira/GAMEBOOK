@@ -89,9 +89,6 @@ public class TheMatch extends AppCompatActivity {
         idQuantite.setText(game.getQuantity());
         idNameMatch.setText(game.getTeam_res() + " vs. "+ game.getTeam_ext());
 
-
-
-
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
@@ -116,6 +113,11 @@ public class TheMatch extends AppCompatActivity {
                 break;
         }
         return true;
+    }
+
+    public void goToAllMatch(View view){
+        Intent goToAllMatch = new Intent(this,MatchList.class);
+        startActivity(goToAllMatch);
     }
 
     public void toNewBooking(View view) {
