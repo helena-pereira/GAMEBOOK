@@ -62,7 +62,7 @@ public class NewBooking extends AppCompatActivity {
 
         idEditGame = (EditText)findViewById(R.id.idGame);
 
-        //customer.setNom(editName.getText().toString());
+        /////customer.setNom(editName.getText().toString());
 
     }
 
