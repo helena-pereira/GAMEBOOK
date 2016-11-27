@@ -1,5 +1,6 @@
 package com.example.helena.gamebook;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -20,17 +21,19 @@ import android.widget.ImageButton;
 
 public class home extends AppCompatActivity {
 
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        context = this;
         getSupportActionBar().setHomeButtonEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.football);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
+        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
@@ -67,7 +70,7 @@ public class home extends AppCompatActivity {
     }
 
     public void toListBooking(View view) {
-        Intent toListBooking = new Intent(this,ListBooking.class);
+        Intent toListBooking = new Intent(this,ListOfBooking.class);
         startActivity(toListBooking);
 
     }

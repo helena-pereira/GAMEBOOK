@@ -82,7 +82,7 @@ public class MatchList extends AppCompatActivity {
 
     //onClick to go back to the SelectAction Layout
     public void onClickBackToSelectAction(View w) {
-        Intent intent = new Intent(MatchList.this, MainActivity.class);
+        Intent intent = new Intent(MatchList.this, home.class);
         startActivity(intent);
     }
 

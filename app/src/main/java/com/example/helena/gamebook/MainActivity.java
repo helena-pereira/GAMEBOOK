@@ -79,6 +79,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void goHome(View view){
+        Intent goHome = new Intent(this,home.class);
+        startActivity(goHome);
+    }
+
     public void signIn(View view) {
         SQLiteHelper helper = new SQLiteHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();

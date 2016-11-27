@@ -2,16 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.helena.gamebook">
 
-
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="19" />
-
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -36,10 +38,10 @@
         <activity android:name=".TheMatch" />
         <activity android:name=".EditMatch" />
         <activity android:name=".NewMatch" />
-        <activity android:name=".ListBooking" />
         <activity android:name=".NewBooking" />
         <activity android:name=".EditBooking" />
-        <activity android:name=".TheBooking"></activity>
+        <activity android:name=".TheBooking" />
+        <activity android:name=".ListOfBooking"></activity>
     </application>
 
 </manifest>

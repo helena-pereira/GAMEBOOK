@@ -10,8 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.helena.gamebook.MatchList">
 
-    android:orientation="vertical"
-    android:weightSum="1">
 
     <Button
         android:text="@string/retour"

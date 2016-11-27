@@ -9,6 +9,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
@@ -29,11 +30,12 @@ public class TheBooking extends AppCompatActivity {
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.football);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
+        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.menu_basic,menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_basic,menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -63,7 +65,7 @@ public class TheBooking extends AppCompatActivity {
 
     //suppression de la base de donnée
     public void toListBooking(View view) {
-        Intent toListBooking = new Intent(this,ListBooking.class);
+        Intent toListBooking = new Intent(this,ListOfBooking.class);
         startActivity(toListBooking);
     }
 
@@ -84,7 +86,7 @@ public class TheBooking extends AppCompatActivity {
 
                 // Write your code here to invoke YES event
                 dialog.cancel();
-                Intent toListBooking = new Intent(TheBooking.this,ListBooking.class);
+                Intent toListBooking = new Intent(TheBooking.this,ListOfBooking.class);
                 startActivity(toListBooking);
             }
         });
