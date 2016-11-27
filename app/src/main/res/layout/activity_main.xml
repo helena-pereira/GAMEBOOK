@@ -85,26 +85,6 @@
                 android:onClick="toRegister"/>
 
             <Button
-                android:id="@+id/match"
-                style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Matchs"
-                android:textStyle="bold"
-                android:onClick="goToNewMatch"/>
-
-            <Button
-                android:id="@+id/allMatch"
-                style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="All Matchs"
-                android:textStyle="bold"
-                android:onClick="goToAllMatch"/>
-
-            <Button
                 android:id="@+id/idHome"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
@@ -113,16 +93,6 @@
                 android:text="Home"
                 android:textStyle="bold"
                 android:onClick="goHome"/>
-
-            <Button
-                android:id="@+id/idTest"
-                style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Test"
-                android:textStyle="bold"
-                android:onClick="goTest"/>
 
         </LinearLayout>
     </ScrollView>

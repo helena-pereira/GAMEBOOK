@@ -24,7 +24,6 @@ import com.example.helena.gamebook.db.object.Customer;
 
 public class MainActivity extends AppCompatActivity {
 
-
     Context context;
 
     @Override
@@ -44,8 +43,12 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main,menu);
         return super.onCreateOptionsMenu(menu);
+
     }
 
+
+
+    /********************************************************/
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch(item.getItemId()) {
@@ -74,26 +77,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(toRegister);
     }
 
-    public void goToNewMatch(View view){
-        Intent goToNewMatch = new Intent(this,NewMatch.class);
-        startActivity(goToNewMatch);
-    }
-
-    public void goToAllMatch(View view){
-        Intent goToAllMatch = new Intent(this,MatchList.class);
-        startActivity(goToAllMatch);
-
-    }
 
     public void goHome(View view){
         Intent goHome = new Intent(this,home.class);
         startActivity(goHome);
     }
 
-    public void goTest(View view){
-        Intent goTest = new Intent(this,TheBooking.class);
-        startActivity(goTest);
-    }
+
 
     public void signIn(View view) {
         SQLiteHelper helper = new SQLiteHelper(this);

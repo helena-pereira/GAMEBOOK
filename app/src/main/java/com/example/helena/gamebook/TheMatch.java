@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AlertDialog;
@@ -13,8 +14,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.helena.gamebook.db.SQLiteHelper;
 import com.example.helena.gamebook.db.adapter.GameDataSource;
 import com.example.helena.gamebook.db.object.Game;
 
@@ -156,6 +159,9 @@ public class TheMatch extends AppCompatActivity {
                 /*
                 Helena : suppression d'un match
                  */
+                GameDataSource gds = new GameDataSource(context);
+                gds.deleteGame(idGame);
+
                 dialog.cancel();
                 Intent toListMatch = new Intent(TheMatch.this,MatchList.class);
                 startActivity(toListMatch);
