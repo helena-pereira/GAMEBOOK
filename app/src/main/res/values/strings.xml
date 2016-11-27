@@ -28,7 +28,8 @@
     <string name="enregistrer">Enregistrer</string>
     <string name="Confirmpassword">Confirmer mot de passe</string>
     <string name="retour">Retour</string>
-    <string name="MessageRegisterIncorrecte">Le mot-de-passe ou l email ne correspond pas aux critères demandés !</string>
+    <string name="MessageRegisterIncorrecte">Il faut remplir au minimum les champs obligatoires !</string>
+    <string name="MessageRegisterPassword">Le mot-de-passe n est pas égal à la confirmation de mot-de-passe !</string>
 
 
     <!-- List of match -->

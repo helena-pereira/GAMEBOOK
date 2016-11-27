@@ -89,33 +89,32 @@ public class Register extends AppCompatActivity {
         Mdp = (EditText)findViewById(R.id.EditPassword);
         ConfirmMdp = (EditText)findViewById(R.id.EditPasswordConfirm);
 
-        if(Mdp.equals(ConfirmMdp) || Mdp != null){
-            Customer customer = new Customer();
+        if(Mdp != null || Email != null){
+            if(Mdp.equals(ConfirmMdp)) {
+                Customer customer = new Customer();
 
-            customer.setNom(Nom.getText().toString());
-            customer.setPrenom(Prenom.getText().toString());
-            customer.setEmail(Email.getText().toString());
-            customer.setMdp(Mdp.getText().toString());
+                customer.setNom(Nom.getText().toString());
+                customer.setPrenom(Prenom.getText().toString());
+                customer.setEmail(Email.getText().toString());
+                customer.setMdp(Mdp.getText().toString());
 
-            CustomerDataSource cds = new CustomerDataSource(context);
-            cds.createCustomer(customer);
+                CustomerDataSource cds = new CustomerDataSource(context);
+                cds.createCustomer(customer);
 
-            Intent intent = new Intent(Register.this, MainActivity.class);
-            startActivity(intent);
-        }
-        else{
-
-
+                Intent intent = new Intent(Register.this, MainActivity.class);
+                startActivity(intent);
+            }
+            else{
             /*STEPHANIE Mdp ne correspond pas aux critère
             Votre mot de passe ou email ne correspond pas aux critères
             **/
+                Toast.makeText(getApplicationContext(), R.string.MessageRegisterPassword,
+                        Toast.LENGTH_SHORT).show();
+        }
+        }
+        else{
             Toast.makeText(getApplicationContext(), R.string.MessageRegisterIncorrecte,
                     Toast.LENGTH_SHORT).show();
-
-
-            Intent refresh = new Intent(Register.this, Register.class);
-            startActivity(refresh);
-            this.finish();
         }
     }
 

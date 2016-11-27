@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="title_activity_login">Sign in</string>
+
+    <string name="action_favorite">Favorites</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Log in</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."</string>
+
+    <!-- Pour la page login -->
+    <string name="register_button">Register</string>
+    <string name="MessageNoLogin">We have to fill in the required fields : the login and the password !</string>
+    <string name="MessageLoginIncorrect">The login or the password is incorrect !</string>
+
+    <!-- Pour l'enregistrement REGISTER -->
+    <string name="id_new_user">Registering</string>
+    <string name="enregistrer">Register</string>
+    <string name="Confirmpassword">Confirm the Password</string>
+    <string name="retour">Back</string>
+    <string name="MessageRegisterIncorrecte">You have to fill in the required fields !</string>
+    <string name="MessageRegisterPassword">The password is not equals to the password s confirmation !</string>
+
+
+    <!-- List of match -->
+    <string name="AddNewGame">Add</string>
+    <string name="tv_titel">All Games</string>
+
+
+    <!--String related to Home-->
+    <string name="idfootball">Games</string>
+    <string name="idBooking">Booking</string>
+    <string name="idUser">My account</string>
+
     <!--String related to User-->
     <string name="idClient">Id Client</string>
     <string name="name">Name</string>
@@ -11,11 +52,46 @@
     <string name="edit">Modify</string>
     <string name="delete">Delete</string>
 
+    <!--Les Matchs-->
+    <string name="TheMatch">The Game</string>
+    <string name="date">Date</string>
+    <string name="heure">Houre</string>
+    <string name="stade">Stadium</string>
+    <string name="resident">Resident</string>
+    <string name="visiteur">Visitor</string>
+    <string name="statut">Status</string>
+    <string name="quantite">Quantity</string>
+    <string name="editMatch">Modify the game</string>
+    <string name="addNewMatch">Add a new Game</string>
+    <string name="newMatch">New Game</string>
 
+    <!--Booking-->
+    <string name="idListBooking">Booking</string>
+    <string name="editBooking">Modify the booking</string>
+    <string name="game">The Game</string>
+    <string name="ClientName">The full name of the client</string>
+    <string name="seat">Seat</string>
+    <string name="TheBooking">The Booking</string>
+    <string name="addNewBooking">Add a booking</string>
+    <string name="newBooking">New booking</string>
+
+    <!--Alerts-->
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="deleteMatchTitle">Delete the game</string>
+    <string name="deleteMatchMessage">Are you sure to want delete the game ?</string>
+    <string name="deleteBookingTitle">Delete the booking</string>
+    <string name="deleteBookingMessage">Are you sure to delete the booking ?</string>
     <string name="deleteUserTitle">Deleting your user account</string>
     <string name="deleteUserMessage">Are you sure you want to delete your account ?</string>
     <string name="LogOutUserTitle">Log Out</string>
     <string name="LogOutUserMessage">Are you sure you want to log out ?</string>
 
+    <!--Bouttons-->
+    <string name="cancel">Cancel</string>
+    <string name="register">Register</string>
+
+    <!--Autres-->
+    <string name="search">Search</string>
 
 </resources>
