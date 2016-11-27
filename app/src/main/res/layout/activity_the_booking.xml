@@ -82,6 +82,7 @@
                 android:id="@+id/buttonCancel"
                 android:layout_weight="1"
                 android:background="@android:color/holo_red_dark"
+                android:onClick="toDelete"
                 />
             <!--Etes vous sûre de vouloir supprimer la réservation? si oui toListBooking-->
 

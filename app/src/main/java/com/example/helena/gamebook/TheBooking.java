@@ -71,34 +71,38 @@ public class TheBooking extends AppCompatActivity {
 
     public void toDelete(View view){
         AlertDialog.Builder alertDeleteBooking = new AlertDialog.Builder(this);
-        // Setting Dialog Title
+        // Le titre du Dialog Alert
         alertDeleteBooking.setTitle(R.string.deleteBookingTitle);
 
-        // Setting Dialog Message
+        // Message du Dialog Alert
         alertDeleteBooking.setMessage(R.string.deleteBookingMessage);
 
-        // Setting Icon to Dialog
+        // Icon de suppression
         alertDeleteBooking.setIcon(R.mipmap.delete);
 
-        // Setting Positive "Yes" Button
+        // Si on clique sur oui
         alertDeleteBooking.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int which) {
 
-                // Write your code here to invoke YES event
+                /*
+                Helena : suppression de la base de données
+                Si on clique sur oui on supprime de la base de données
+                et on retourne dans la liste des réservations
+                 */
                 dialog.cancel();
                 Intent toListBooking = new Intent(TheBooking.this,ListOfBooking.class);
                 startActivity(toListBooking);
             }
         });
 
-        // Setting Negative "NO" Button
+        // Si on clique sur non
         alertDeleteBooking.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                // Write your code here to invoke NO event
+                // ça ferme tout simplemet le dialog
                 dialog.cancel();
             }
         });
-        // Showing Alert Message
+        // On montre l'alerte
         alertDeleteBooking.show();
     }
 

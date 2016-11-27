@@ -34,11 +34,17 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         context = this;
+
+        getSupportActionBar().setHomeButtonEnabled(false);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setLogo(R.mipmap.football);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_basic,menu);
+        inflater.inflate(R.menu.menu_main,menu);
         return super.onCreateOptionsMenu(menu);
 
     }

@@ -26,7 +26,7 @@
             <Button android:id="@+id/idLogout"
                 android:text="@string/logout"
                 tools:textAlignment="center"
-                android:onClick="returnMainActivity"
+                android:onClick="toLogOut"
                 />
 
         </TableRow>
@@ -132,7 +132,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/buttonDelete"
             android:layout_weight="1"
-            android:background="@android:color/holo_red_dark" />
+            android:background="@android:color/holo_red_dark"
+            android:onClick="toDelete"/>
     </TableRow>
 
         <TableRow
