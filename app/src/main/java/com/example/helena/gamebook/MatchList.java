@@ -105,20 +105,24 @@ public class MatchList extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch(item.getItemId()) {
+            case R.id.logout:
+                Intent toMain = new Intent(this, MainActivity.class);
+                startActivity(toMain);
+                break;
             case R.id.id_enFlag:
-                LocaleHelper.setLocale(this,"en");
+                LocaleHelper.setLocale(this, "en");
                 updateViews();
+                Intent toTheSame = new Intent(this, MatchList.class);
+                startActivity(toTheSame);
                 break;
             case R.id.id_frFlag:
-                LocaleHelper.setLocale(this,"fr");
+                LocaleHelper.setLocale(this, "fr");
                 updateViews();
-                break;
-            default:
-                LocaleHelper.setLocale(this,"en");
-                updateViews();
+                toTheSame = new Intent(this, MatchList.class);
+                startActivity(toTheSame);
                 break;
         }
-        return true;
+        return false;
     }
 
     public void toTheMatch(View view) {

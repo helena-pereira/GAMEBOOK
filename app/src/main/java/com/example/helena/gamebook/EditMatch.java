@@ -1,19 +1,17 @@
 package com.example.helena.gamebook;
 
+import android.app.DialogFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.example.helena.gamebook.db.SQLiteHelper;
 import com.example.helena.gamebook.db.adapter.GameDataSource;
@@ -24,12 +22,11 @@ import com.example.helena.gamebook.db.object.Game;
  * Cette classe permet de modifier les données d'un match
  */
 
-public class EditMatch extends AppCompatActivity {
+public class EditMatch extends AppCompatActivity  {
 
     Integer idGame ;
     Context context;
     Bundle bundle;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,8 +81,6 @@ public class EditMatch extends AppCompatActivity {
             idQuantite.setText(game.getQuantity());
 
     }
-
-
 
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
@@ -162,4 +157,10 @@ public class EditMatch extends AppCompatActivity {
         Resources resources = getResources();
 
     }
+
+    // pour la date
+     /*public void showDatePickerDialog(View view){
+        DialogFragment fragment = new DatePickerFragment();
+        fragment.show(fragment.getFragmentManager(),"date");
+    }*/
 }

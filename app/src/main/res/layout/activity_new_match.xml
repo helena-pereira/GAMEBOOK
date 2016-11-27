@@ -33,18 +33,36 @@
                 android:id="@+id/LabelDate"
                 android:layout_weight="1" />
 
+            <button
+                android:id="@+id/button_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pick_date"
+                android:onClick="showDatePickerDialog"
+                android:layout_centerVertical="true"
+                android:layout_weight="1"/>
+
             <!--c'est un champ spécialement pour sélectionner les dates
             <DatePicker
+                android:text="BDD"
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
                 android:id="@+id/idDate"
                 android:layout_weight="1" />-->
+        </TableRow>
+
+        <TableRow>
             <EditText
-                android:layout_width="274dp"
-                android:ems="10"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/idDate"
+                android:id="@+id/idVide"
+                android:layout_weight="1" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/idEditDate"
                 android:layout_weight="1" />
         </TableRow>
 

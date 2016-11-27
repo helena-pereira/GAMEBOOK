@@ -1,5 +1,6 @@
 package com.example.helena.gamebook;
 
+import android.app.DialogFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -99,7 +100,7 @@ public class NewMatch extends AppCompatActivity {
             EditText Date, Heure, Stade, Resident, Visiteur, Quantite;
             //ToggleButton Statut;
 
-            Date = (EditText) findViewById(R.id.idDate);
+            Date = (EditText) findViewById(R.id.idEditDate);
             Heure = (EditText) findViewById(R.id.idHeure);
             Stade = (EditText) findViewById(R.id.idStade);
             Resident = (EditText) findViewById(R.id.idResident);
@@ -131,14 +132,10 @@ public class NewMatch extends AppCompatActivity {
 
     }
 
-
-
-
     private void updateViews() {
         Resources resources = getResources();
 
-        DatePicker date = (DatePicker)findViewById(R.id.idDate);
-        TimePicker heure = (TimePicker)findViewById(R.id.idHeure);
+        EditText date = (EditText) findViewById(R.id.idEditDate);
         EditText stade = (EditText) findViewById(R.id.idStade);
         EditText residente = (EditText) findViewById((R.id.idResident));
         EditText visiteur = (EditText) findViewById(R.id.idVisiteur);
@@ -147,4 +144,10 @@ public class NewMatch extends AppCompatActivity {
         Button cancel = (Button) findViewById(R.id.buttonCancel);
         Button register = (Button) findViewById(R.id.buttonDelete);
     }
+/*
+    // pour la date
+    public void showDatePickerDialog(View view){
+        DialogFragment fragment = new DatePickerFragment();
+        fragment.show(fragment.getFragmentManager(),"date");
+    }*/
 }

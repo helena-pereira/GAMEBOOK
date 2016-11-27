@@ -65,6 +65,7 @@
     <string name="editMatch">Modifier le Match</string>
     <string name="addNewMatch">Ajouter un nouveau match</string>
     <string name="newMatch">Nouveau match</string>
+    <string name="pick_date">Choisir la date</string>
 
     <!--Booking-->
     <string name="idListBooking">Reservations</string>

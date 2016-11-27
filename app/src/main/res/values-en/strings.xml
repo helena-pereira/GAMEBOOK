@@ -64,6 +64,8 @@
     <string name="editMatch">Modify the game</string>
     <string name="addNewMatch">Add a new Game</string>
     <string name="newMatch">New Game</string>
+    <string name="pick_date">Choose the date</string>
+
 
     <!--Booking-->
     <string name="idListBooking">Booking</string>

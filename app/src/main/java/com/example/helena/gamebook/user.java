@@ -101,6 +101,7 @@ public class user extends AppCompatActivity {
             case R.id.id_frFlag:
                 LocaleHelper.setLocale(this, "fr");
                 updateViews();
+
                 break;
         }
         return false;
