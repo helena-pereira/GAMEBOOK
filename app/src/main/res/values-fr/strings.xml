@@ -92,6 +92,9 @@
     <string name="LogOutUserMessage">Etes-vous sûre de vouloir vous déconnecter ?</string>
     <string name="RegisterUserTitle">Enregistrements de la modification</string>
     <string name="RegisterUserMessage">Etes vous sûre de vouloir enregistrer les modifications apportées ?</string>
+    <string name="deleteGameTitle">Suppression d un match</string>
+    <string name="deleteGameMessage">Etes-vous sûre de vouloir supprimer le match ?</string>
+
 
     <!--Bouttons-->
     <string name="cancel">Annuler</string>

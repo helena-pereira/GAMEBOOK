@@ -75,24 +75,20 @@ public class EditMatch extends AppCompatActivity  {
             GameDataSource gds = new GameDataSource(context);
             Game game = new Game();
 
-            EditText idDate, idHeure, idStade, idResident, idVisiteur, idStatut, idQuantite, idNameMatch ;
+            EditText idDate, idHeure, idResident, idVisiteur, idQuantite, idNameMatch ;
 
             idDate = (EditText)findViewById(R.id.idEditDate);
             idHeure = (EditText)findViewById(R.id.idEditHeure);
-            //idStade = (TextView)findViewById(R.id.idStade);
             idResident = (EditText)findViewById(R.id.idEditResident);
             idVisiteur = (EditText)findViewById(R.id.idEditVisiteur);
-            //idStatut = (EditText)findViewById(R.id.idStatut);
             idQuantite = (EditText)findViewById(R.id.idEditQuantite);
 
             game = gds.getGameById(idGame);
 
             idDate.setText(game.getDate());
             idHeure.setText(game.getHeure());
-            //idStade.setText(tst);
             idResident.setText(game.getTeam_res());
             idVisiteur.setText(game.getTeam_ext());
-            //idStatut.setText(game.getStatut());
             idQuantite.setText(game.getQuantity());
 
     }

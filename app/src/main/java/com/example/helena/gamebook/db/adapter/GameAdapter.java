@@ -32,7 +32,7 @@ public class GameAdapter extends ArrayAdapter<Game>{
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.simple_list_view, parent, false);
         TextView textView = (TextView) rowView.findViewById(R.id.tv_list);
-        textView.setText(games.get(position).getTeam_res()+ " vs. " + games.get(position).getTeam_ext() + " - " /*+ games.get(position).getStade()*/);
+        textView.setText(games.get(position).getTeam_res()+ " vs. " + games.get(position).getTeam_ext() + " - " + games.get(position).getDate());
         return rowView;
     }
 }

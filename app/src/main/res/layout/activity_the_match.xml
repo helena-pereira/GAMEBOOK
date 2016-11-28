@@ -60,24 +60,6 @@
                 style="@style/textView"/>
         </TableRow>
 
-        <TableRow>
-            <TextView
-                android:text="@string/stade"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/LabelStade"
-                android:layout_weight="1"
-                style="@style/textView"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:layout_width="274dp"
-                android:ems="10"
-                android:layout_height="wrap_content"
-                android:id="@+id/idStade"
-                android:layout_weight="1"
-                style="@style/textView"/>
-        </TableRow>
 
         <TableRow>
             <TextView

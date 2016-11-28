@@ -92,6 +92,9 @@
     <string name="LogOutUserMessage">Are you sure you want to log out ?</string>
     <string name="RegisterUserTitle">Save the modifications</string>
     <string name="RegisterUserMessage">Are you sure to want to save the last modifications ?</string>
+    <string name="deleteGameTitle">Delete a game</string>
+    <string name="deleteGameMessage">Are you sure you want to delete this game ?</string>
+
 
 
     <!--Bouttons-->

@@ -56,7 +56,7 @@ public class GameDataSource {
     //GET 1 GAME
     public Game getGameById(long id){
         String sql = "SELECT * FROM " + FeedReaderContract.tableGAME.TABLE_NAME +
-                " WHERE " + FeedReaderContract.tableGAME.GAME_ID + " = " + id ;
+                " WHERE " + FeedReaderContract.tableGAME.GAME_ID + " = " + id + " ORDER BY " + FeedReaderContract.tableGAME.GAME_DATE;
 
         Cursor cursor = this.db.rawQuery(sql, null);
 
@@ -68,11 +68,9 @@ public class GameDataSource {
         game.setId(cursor.getInt(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_ID)));
         game.setDate(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_DATE)));
         game.setHeure(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_HEURE)));
-        //game.setStade(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_STADE)));
         game.setTeam_res(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_TEAM_RESIDENT)));
         game.setTeam_ext(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_TEAM_EXTERIEUR)));
         game.setQuantity(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_QUANTITE)));
-        //game.setStatut(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_STATUT)));
 
         db.close();
         return game;
@@ -92,11 +90,9 @@ public class GameDataSource {
                 game.setId(cursor.getInt(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_ID)));
                 game.setDate(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_DATE)));
                 game.setHeure(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_HEURE)));
-//                game.setStade(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_STADE)));
                 game.setTeam_res(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_TEAM_RESIDENT)));
                 game.setTeam_ext(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_TEAM_EXTERIEUR)));
                 game.setQuantity(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_QUANTITE)));
-                //game.setStatut(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_STATUT)));
 
                 games.add(game);
             }
@@ -111,12 +107,9 @@ public class GameDataSource {
         ContentValues values = new ContentValues();
         values.put(FeedReaderContract.tableGAME.GAME_DATE, game.getDate());
         values.put(FeedReaderContract.tableGAME.GAME_HEURE, game.getHeure());
-        //values.put(FeedReaderContract.tableGAME.GAME_STADE, game.getStade());
         values.put(FeedReaderContract.tableGAME.GAME_TEAM_RESIDENT, game.getTeam_res());
         values.put(FeedReaderContract.tableGAME.GAME_TEAM_EXTERIEUR, game.getTeam_ext());
         values.put(FeedReaderContract.tableGAME.GAME_QUANTITE, game.getQuantity());
-        //values.put(FeedReaderContract.tableGAME.GAME_STATUT, game.getStatut());
-        //values.put(FeedReaderContract.tableGAME.GAME_NB_PLACES_DISPO, game.getNb_places_dispo());
 
         return this.db.update(FeedReaderContract.tableGAME.TABLE_NAME, values, FeedReaderContract.tableGAME.GAME_ID + " = ?",
                 new String[]{String.valueOf(game.getId()) });

@@ -33,7 +33,7 @@ public class BookingAdapter extends ArrayAdapter<Booking> {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.simple_list_view, parent, false);
         TextView textView = (TextView) rowView.findViewById(R.id.tv_list);
-        textView.setText(bookings.get(position).getGame().getTeam_res()+ " vs. " + bookings.get(position).getGame().getTeam_ext() + " - " /*+ games.get(position).getStade()*/);
+        textView.setText(bookings.get(position).getGame().getTeam_res()+ " vs. " + bookings.get(position).getGame().getTeam_ext());
         return rowView;
     }
 }

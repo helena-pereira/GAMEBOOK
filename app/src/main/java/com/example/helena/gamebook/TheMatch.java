@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.helena.gamebook.db.SQLiteHelper;
+import com.example.helena.gamebook.db.adapter.CustomerDataSource;
 import com.example.helena.gamebook.db.adapter.GameDataSource;
 import com.example.helena.gamebook.db.object.Game;
 
@@ -82,11 +83,10 @@ public class TheMatch extends AppCompatActivity {
         GameDataSource gds = new GameDataSource(context);
         Game game = new Game();
 
-        TextView idDate, idHeure, idStade, idResident, idVisiteur, idStatut, idQuantite, idNameMatch ;
+        TextView idDate, idHeure, idResident, idVisiteur, idQuantite, idNameMatch ;
 
         idDate = (TextView)findViewById(R.id.idDate);
         idHeure = (TextView)findViewById(R.id.idHeure);
-        //idStade = (TextView)findViewById(R.id.idStade);
         idResident = (TextView)findViewById(R.id.idResident);
         idVisiteur = (TextView)findViewById(R.id.idVisiteur);
         idQuantite = (TextView)findViewById(R.id.idQuantite);
@@ -97,7 +97,6 @@ public class TheMatch extends AppCompatActivity {
 
         idDate.setText(game.getDate());
         idHeure.setText(game.getHeure());
-        //idStade.setText(tst);
         idResident.setText(game.getTeam_res());
         idVisiteur.setText(game.getTeam_ext());
         idQuantite.setText(game.getQuantity());
@@ -136,13 +135,50 @@ public class TheMatch extends AppCompatActivity {
         startActivity(toEditMatch);
     }
 
-    //suppression de la base de donnée
-    public void toListMatch(View view) {
-        Intent toListMatch = new Intent(this,MatchList.class);
-        toListMatch.putExtra("idGame", idGame);
-        toListMatch.putExtra("idCustomer", idCustomer);
-        startActivity(toListMatch);
+
+    // Alert Dialog pour la suppression du compte utilisateur
+    public void toDelete(View view){
+        AlertDialog.Builder alertDeleteDelete = new AlertDialog.Builder(this);
+        // Le titre du Dialog Alert
+        alertDeleteDelete.setTitle(R.string.deleteGameTitle);
+
+        // Message du Dialog Alert
+        alertDeleteDelete.setMessage(R.string.deleteGameMessage);
+
+        // Icon de suppression
+        alertDeleteDelete.setIcon(R.mipmap.delete);
+
+        // Si on clique sur oui
+        alertDeleteDelete.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog,int which) {
+
+                /*
+                Helena : suppression de la base de données
+                Si on clique sur oui on supprime de la base de données
+                et on retourne dans le main
+                 */
+                GameDataSource gds = new GameDataSource(context);
+                gds.deleteGame(idGame);
+
+                dialog.cancel();
+                Intent intent = new Intent(TheMatch.this,MatchList.class);
+                intent.putExtra("idGame", idGame);
+                intent.putExtra("idCustomer", idCustomer);
+                startActivity(intent);
+            }
+        });
+
+        // Si on clique sur non
+        alertDeleteDelete.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                // ça ferme tout simplement le dialog
+                dialog.cancel();
+            }
+        });
+        // On montre l'alerte
+        alertDeleteDelete.show();
     }
+
 
 
     // refresh pour le changement de langue ou redirection pour la déconnexion

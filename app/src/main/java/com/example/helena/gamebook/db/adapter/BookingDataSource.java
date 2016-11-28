@@ -111,7 +111,7 @@ public class BookingDataSource {
     //modification d'un booking
     public int updateBooking(Booking booking) {
         ContentValues values = new ContentValues();
-        values.put(FeedReaderContract.tableBOOKING.BOOKING_ID, booking.getId());
+        //values.put(FeedReaderContract.tableBOOKING.BOOKING_ID, booking.getId());
         values.put(FeedReaderContract.tableBOOKING.BOOKING_FK_GAME, booking.getGame().getId());
         values.put(FeedReaderContract.tableBOOKING.BOOKING_FK_CUSTOMER, booking.getCustomer().getId());
         values.put(FeedReaderContract.tableBOOKING.BOOKING_NUM_SEAT, booking.getNum_seat());
@@ -119,6 +119,17 @@ public class BookingDataSource {
         return this.db.update(FeedReaderContract.tableBOOKING.TABLE_NAME, values, tableBOOKING.BOOKING_ID + " = ?",
                 new String[]{String.valueOf(booking.getId())});
     }
+
+
+
+
+
+    //DELETE A BOOKING
+    public void deleteBooking(long id){
+        this.db.delete(FeedReaderContract.tableBOOKING.TABLE_NAME, tableBOOKING.BOOKING_ID+ " = ?",
+                new String[] {String.valueOf(id)} );
+    }
+
 
 
 

@@ -152,27 +152,21 @@ public class NewMatch extends AppCompatActivity {
 
             Date = (EditText) findViewById(R.id.idEditDate);
             Heure = (EditText) findViewById(R.id.idHeure);
-            Stade = (EditText) findViewById(R.id.idStade);
             Resident = (EditText) findViewById(R.id.idResident);
             Visiteur = (EditText) findViewById(R.id.idVisiteur);
             Quantite = (EditText) findViewById(R.id.idQuantite);
 
         if(Date.getText().toString().trim().length() > 0 &&
                 Heure.getText().toString().trim().length() > 0 &&
-                Stade.getText().toString().trim().length() > 0 &&
                 Resident.getText().toString().trim().length() > 0 &&
                 Visiteur.getText().toString().trim().length() > 0 &&
                 Quantite.getText().toString().trim().length() > 0)
         {
             Game game = new Game();
-            //Stade stade = new Stade();
-
             game.setDate(Date.getText().toString());
             game.setHeure(Heure.getText().toString());
-            //game.setStade(Stade.getText().toString());
             game.setTeam_res(Resident.getText().toString());
             game.setTeam_ext(Visiteur.getText().toString());
-
             game.setQuantity(Quantite.getText().toString());
 
             GameDataSource gds = new GameDataSource(context);

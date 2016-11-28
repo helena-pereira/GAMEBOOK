@@ -90,13 +90,13 @@ public class EditBooking extends AppCompatActivity {
         Booking booking;
         BookingDataSource bds = new BookingDataSource(context);
         booking = bds.getBookingById(idBooking);
-
         booking.setNum_seat(etidSeat.getText().toString());
 
-        bds.updateBooking(booking);
+        //bds.updateBooking(booking);
 
         Intent toListMatch = new Intent(this,ListOfBooking.class);
             toListMatch.putExtra("idCustomer", idCustomer);
+            toListMatch.putExtra("idBooking", idBooking);
         startActivity(toListMatch);
     }
 
