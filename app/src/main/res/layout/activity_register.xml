@@ -133,17 +133,14 @@
                 android:id="@+id/buttonEdit"
                 android:onClick="onClickRegister"/>
         </TableRow>
-
-        <TableRow>
-            <Button
-                android:text="@string/retour"
-                style="@style/button_back"
-                android:id="@+id/buttonReturn"
-                android:onClick="returnMainActivity"
-                />
-        </TableRow>
-
     </TableLayout>
+
+    <Button
+        android:text="@string/retour"
+        style="@style/button_back"
+        android:id="@+id/buttonReturn"
+        android:onClick="returnMainActivity"
+        />
 
 
 </RelativeLayout>

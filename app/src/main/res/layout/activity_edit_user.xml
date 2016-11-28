@@ -15,14 +15,12 @@
         android:layout_height="fill_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true">
-        <TableRow>
+        <TableRow
+            android:gravity="center_horizontal">
             <TextView
                 android:text="@string/idUser"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/idUser"
-                android:textSize="24sp"
-                tools:textAlignment="center" />
+                style="@style/title"
+                android:id="@+id/idUser" />
         </TableRow>
 
 
@@ -93,20 +91,16 @@
         <TableRow>
             <Button
                 android:text="@string/edit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/button_save"
                 android:id="@+id/buttonEdit"
-                android:layout_weight="1"
-                android:background="@android:color/holo_green_light"
                 android:onClick="toSave"/>
+        </TableRow>
 
+        <TableRow>
             <Button
                 android:text="@string/delete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/button_delete"
                 android:id="@+id/buttonDelete"
-                android:layout_weight="1"
-                android:background="@android:color/holo_red_dark"
                 android:onClick="toDelete"/>
         </TableRow>
 
@@ -114,12 +108,7 @@
 
     <Button
         android:text="Annuler"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="87dp"
-        android:layout_marginBottom="155dp"
+        style="@style/button_back"
         android:id="@+id/back"
         android:onClick="goHome"/>
 

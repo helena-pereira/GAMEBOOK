@@ -33,6 +33,7 @@ public class edit_user extends AppCompatActivity {
         setContentView(R.layout.activity_edit_user);
         context = this;
 
+        // paramètres de la nav bar
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
@@ -54,45 +55,76 @@ public class edit_user extends AppCompatActivity {
         }else{
             idCustomer = (int) savedInstanceState.getSerializable("idCustomer");
         }
-
         loadCustomer();
     }
 
-
+    // sélection du menu adéquat
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_basic,menu);
         return super.onCreateOptionsMenu(menu);
     }
 
+    // refresh pour le changement de langue ou redirection pour la déconnexion
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch(item.getItemId()) {
             case R.id.logout:
-                Intent toMain = new Intent(this, MainActivity.class);
-                toMain.putExtra("idCustomer", idCustomer);
-                startActivity(toMain);
+                AlertDialog.Builder alertDeleteBooking = new AlertDialog.Builder(this);
+                // Le titre du Dialog Alert
+                alertDeleteBooking.setTitle(R.string.LogOutUserTitle);
+
+                // Message du Dialog Alert
+                alertDeleteBooking.setMessage(R.string.LogOutUserMessage);
+
+                // Icon de suppression
+                alertDeleteBooking.setIcon(R.mipmap.logout);
+
+                // si on clique oui
+                alertDeleteBooking.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int which) {
+
+                        Intent toMain = new Intent(edit_user.this, MainActivity.class);
+                        toMain.putExtra("idCustomer", idCustomer);
+                        startActivity(toMain);
+                    }
+                });
+
+                // Si on clique sur non
+                alertDeleteBooking.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // ça ferme tout simplement le dialog
+                        dialog.cancel();
+                    }
+                });
+                // On montre l'alerte
+                alertDeleteBooking.show();
                 break;
             case R.id.id_enFlag:
                 LocaleHelper.setLocale(this, "en");
-                updateViews();
+                Intent toTheSame = new Intent(edit_user.this, edit_user.class);
+                toTheSame.putExtra("idCustomer", idCustomer);
+                startActivity(toTheSame);
                 break;
             case R.id.id_frFlag:
                 LocaleHelper.setLocale(this, "fr");
-                updateViews();
+                toTheSame = new Intent(edit_user.this, edit_user.class);
+                toTheSame.putExtra("idCustomer", idCustomer);
+                startActivity(toTheSame);
                 break;
         }
         return false;
     }
 
 
+    // redirection vers l'accueil
     public void goHome(View view){
         Intent back = new Intent(this,home.class);
         back.putExtra("idCustomer", idCustomer);
         startActivity(back);
     }
 
-
+    // modification du customer
     private void loadCustomer() {
         CustomerDataSource cds = new CustomerDataSource(context);
         Customer customer = new Customer();
@@ -107,7 +139,7 @@ public class edit_user extends AppCompatActivity {
     }
 
 
-    // Enregistrement des modifications
+    // Alert Dialog pour l'enregistrement des modifications
     public void toSave(View view){
         AlertDialog.Builder alertDeleteBooking = new AlertDialog.Builder(this);
         // Le titre du Dialog Alert
@@ -163,7 +195,7 @@ public class edit_user extends AppCompatActivity {
         alertDeleteBooking.show();
     }
 
-    //suppression du compte utilisateur
+    // Alert Dialog pour la suppression du compte utilisateur
     public void toDelete(View view){
         AlertDialog.Builder alertDeleteBooking = new AlertDialog.Builder(this);
         // Le titre du Dialog Alert
@@ -203,26 +235,5 @@ public class edit_user extends AppCompatActivity {
         // On montre l'alerte
         alertDeleteBooking.show();
     }
-
-    private void updateViews() {
-        Resources resources = getResources();
-
-        TextView idUser = (TextView)findViewById(R.id.idUser);
-        TextView LabelName = (TextView) findViewById(R.id.LabelName);
-        TextView LabelFirstName = (TextView) findViewById(R.id.LabelFirstName);
-        TextView LabelEmail = (TextView) findViewById(R.id.LabelEmail);
-        TextView LabelPassword = (TextView) findViewById(R.id.LabelPassword);
-        Button buttonEdit = (Button) findViewById(R.id.buttonEdit);
-        Button buttonDelete = (Button) findViewById(R.id.buttonDelete);
-
-        idUser.setContentDescription(resources.getString(R.string.idUser));
-        LabelName.setContentDescription(resources.getString(R.string.name));
-        LabelFirstName.setContentDescription(resources.getString(R.string.firstName));
-        LabelEmail.setContentDescription(resources.getString(R.string.email));
-        LabelPassword.setContentDescription(resources.getString((R.string.password)));
-        buttonEdit.setContentDescription(resources.getString((R.string.edit)));
-        buttonDelete.setContentDescription(resources.getString((R.string.delete)));
-    }
-
 
 }
