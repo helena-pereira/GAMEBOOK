@@ -59,6 +59,7 @@ public class CustomerDataSource {
         }
 
         Customer customer = new Customer();
+        customer.setId(cursor.getInt(cursor.getColumnIndex(FeedReaderContract.tableCUSTOMER.CUSTOMER_ID)));
         customer.setNom(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableCUSTOMER.CUSTOMER_NOM)));
         customer.setPrenom(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableCUSTOMER.CUSTOMER_PRENOM)));
         customer.setEmail(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableCUSTOMER.CUSTOMER_EMAIL)));

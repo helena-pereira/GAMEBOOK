@@ -1,5 +1,6 @@
 package com.example.helena.gamebook;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -19,6 +20,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class TheBooking extends AppCompatActivity {
+    Bundle bundle;
+    Bundle bundle2;
+    Context context;
+
+    Integer idBooking ;
+    Integer idCustomer ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +38,31 @@ public class TheBooking extends AppCompatActivity {
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.football);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
-        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
+
+
+        if(savedInstanceState == null){
+            bundle = getIntent().getExtras();
+            if(bundle == null){
+                idBooking = null;
+            } else {
+                idBooking = bundle.getInt("idBooking");
+            }
+        }else{
+            idBooking = (int) savedInstanceState.getSerializable("idBooking");
+        }
+
+        if(savedInstanceState == null){
+            bundle2 = getIntent().getExtras();
+            if(bundle2 == null){
+                idCustomer = null;
+            } else {
+                idCustomer = bundle2.getInt("idCustomer");
+            }
+        }else{
+            idCustomer = (int) savedInstanceState.getSerializable("idCustomer");
+        }
+
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu){

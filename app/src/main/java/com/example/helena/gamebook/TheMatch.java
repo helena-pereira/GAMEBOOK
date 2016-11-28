@@ -11,6 +11,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -29,8 +30,10 @@ import com.example.helena.gamebook.db.object.Game;
 public class TheMatch extends AppCompatActivity {
 
     Integer idGame ;
+    Integer idCustomer ;
     Context context;
     Bundle bundle;
+    Bundle bundle2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,18 @@ public class TheMatch extends AppCompatActivity {
         }else{
             idGame = (int) savedInstanceState.getSerializable("idGame");
         }
+
+        if(savedInstanceState == null){
+            bundle2 = getIntent().getExtras();
+            if(bundle2 == null){
+                idCustomer = null;
+            } else {
+                idCustomer = bundle2.getInt("idCustomer");
+            }
+        }else{
+            idCustomer = (int) savedInstanceState.getSerializable("idCustomer");
+        }
+
 
         loadGameSelected();
 
@@ -93,8 +108,10 @@ public class TheMatch extends AppCompatActivity {
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.menu_basic,menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_basic,menu);
         return super.onCreateOptionsMenu(menu);
+
     }
 
     public boolean onOptionsItemSelected(MenuItem item)
@@ -118,23 +135,30 @@ public class TheMatch extends AppCompatActivity {
 
     public void goToAllMatch(View view){
         Intent goToAllMatch = new Intent(this,MatchList.class);
+        goToAllMatch.putExtra("idGame", idGame);
+        goToAllMatch.putExtra("idCustomer", idCustomer);
         startActivity(goToAllMatch);
     }
 
     public void toNewBooking(View view) {
-        Intent toNewBooking = new Intent(this,NewBooking.class);
+        Intent toNewBooking = new Intent(this, NewBooking.class);
+        toNewBooking.putExtra("idGame", idGame);
+        toNewBooking.putExtra("idCustomer", idCustomer);
         startActivity(toNewBooking);
     }
 
     public void toEditMatch(View view) {
         Intent toEditMatch = new Intent(this,EditMatch.class);
         toEditMatch.putExtra("idGame", idGame);
+        toEditMatch.putExtra("idCustomer", idCustomer);
         startActivity(toEditMatch);
     }
 
     //suppression de la base de donnée
     public void toListMatch(View view) {
         Intent toListMatch = new Intent(this,MatchList.class);
+        toListMatch.putExtra("idGame", idGame);
+        toListMatch.putExtra("idCustomer", idCustomer);
         startActivity(toListMatch);
     }
 
@@ -162,6 +186,8 @@ public class TheMatch extends AppCompatActivity {
 
                 dialog.cancel();
                 Intent toListMatch = new Intent(TheMatch.this,MatchList.class);
+                toListMatch.putExtra("idCustomer", idCustomer);
+                toListMatch.putExtra("idGame", idGame);
                 startActivity(toListMatch);
             }
         });

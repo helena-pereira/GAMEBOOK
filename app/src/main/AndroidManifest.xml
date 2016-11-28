@@ -31,7 +31,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".home" />
-        <activity android:name=".user" />
         <activity android:name=".edit_user" />
         <activity android:name=".MatchList" />
         <activity android:name=".Register" />

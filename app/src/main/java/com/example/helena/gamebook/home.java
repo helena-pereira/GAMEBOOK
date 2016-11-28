@@ -81,12 +81,14 @@ public class home extends AppCompatActivity {
 
     public void toMatch(View view) {
         Intent toMatch = new Intent(this,MatchList.class);
+        toMatch.putExtra("idCustomer", idCustomer);
         startActivity(toMatch);
 
     }
 
     public void toListBooking(View view) {
         Intent toListBooking = new Intent(this,ListOfBooking.class);
+        toListBooking.putExtra("idCustomer", idCustomer);
         startActivity(toListBooking);
 
     }

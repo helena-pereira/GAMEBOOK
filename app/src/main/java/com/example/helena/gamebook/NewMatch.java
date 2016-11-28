@@ -30,7 +30,12 @@ import com.example.helena.gamebook.db.object.Stade;
 
 public class NewMatch extends AppCompatActivity {
 
+    Integer idGame ;
+    Integer idCustomer ;
     Context context;
+    Bundle bundle;
+    Bundle bundle2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +48,27 @@ public class NewMatch extends AppCompatActivity {
         this.getSupportActionBar().setLogo(R.mipmap.football);
         this.getSupportActionBar().setDisplayShowTitleEnabled(true);
         //this.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
+        if(savedInstanceState == null){
+            bundle = getIntent().getExtras();
+            if(bundle == null){
+                idGame = null;
+            } else {
+                idGame = bundle.getInt("idGame");
+            }
+        }else{
+            idGame = (int) savedInstanceState.getSerializable("idGame");
+        }
 
+        if(savedInstanceState == null){
+            bundle2 = getIntent().getExtras();
+            if(bundle2 == null){
+                idCustomer = null;
+            } else {
+                idCustomer = bundle2.getInt("idCustomer");
+            }
+        }else{
+            idCustomer = (int) savedInstanceState.getSerializable("idCustomer");
+        }
 
     }
 
@@ -82,12 +107,6 @@ public class NewMatch extends AppCompatActivity {
         startActivity(toListMatch);
     }
 
-    public void onClickRegisterR(View view) {
-
-        Intent toListMatch = new Intent(this,MatchList.class);
-        startActivity(toListMatch);
-
-    }
 
 
         public void onClickRegister(View view) {
@@ -127,6 +146,8 @@ public class NewMatch extends AppCompatActivity {
     */
 
             Intent toListMatch = new Intent(this,MatchList.class);
+            toListMatch.putExtra("idGame", idGame);
+            toListMatch.putExtra("idCustomer", idCustomer);
             startActivity(toListMatch);
 
     }

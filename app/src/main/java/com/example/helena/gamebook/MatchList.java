@@ -36,6 +36,8 @@ public class MatchList extends AppCompatActivity {
     List<Game> games;
     Game game;
     SQLiteHelper helper;
+    Integer idCustomer;
+    Bundle bundle;
 
 
     @Override
@@ -44,51 +46,69 @@ public class MatchList extends AppCompatActivity {
         setContentView(R.layout.activity_match_list);
         context = this;
 
-
         /********************************************/
         getSupportActionBar().setHomeButtonEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.football);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
-        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
-        /*****************************************/
 
-        final GameDataSource gds = new GameDataSource(this);
-        helper.getInstance(context);
+        if(savedInstanceState == null){
+            bundle = getIntent().getExtras();
+            if(bundle == null){
+                idCustomer = null;
+            } else {
+                idCustomer = bundle.getInt("idCustomer");
 
-        gameList = (ListView)findViewById(R.id.Games_List);
-        games = new ArrayList<Game>();
-        games = gds.getAllGames();
+                final GameDataSource gds = new GameDataSource(this);
+                helper.getInstance(context);
 
-        GameAdapter gameAdapter = new GameAdapter(context, games);
-        gameList.setAdapter(gameAdapter);
+                gameList = (ListView)findViewById(R.id.Games_List);
+                games = new ArrayList<Game>();
+                games = gds.getAllGames();
 
-        gameList.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                game = (Game) parent.getItemAtPosition(position);
-                int gameSelectedId = game.getId();
+                GameAdapter gameAdapter = new GameAdapter(context, games);
+                gameList.setAdapter(gameAdapter);
 
-                Intent intent = new Intent(MatchList.this, TheMatch.class);
-                intent.putExtra("idGame", gameSelectedId);
-                startActivity(intent);
+                gameList.setOnItemClickListener(new AdapterView.OnItemClickListener()
+                {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        game = (Game) parent.getItemAtPosition(position);
+                        int gameSelectedId = game.getId();
+                        int a = idCustomer;
+
+                        Intent intent = new Intent(MatchList.this, TheMatch.class);
+                        intent.putExtra("idGame", gameSelectedId);
+                        intent.putExtra("idCustomer", a);
+                        startActivity(intent);
+                    }
+
+                });
+
+
             }
+        }else{
+            idCustomer = (int) savedInstanceState.getSerializable("idCustomer");
+        }
 
-        });
+
     }
 
 
     //onClick to go back to the SelectAction Layout
     public void onClickBackToSelectAction(View w) {
         Intent intent = new Intent(MatchList.this, home.class);
+        intent.putExtra("idCustomer", idCustomer);
+        //intent.putExtra("idGame", idGame);
+        //intent.putExtra("idBooking", idBooking);
         startActivity(intent);
     }
 
     //onClick to go to the layout that allow to add a new user
     public void onClickGoToAddNewGame(View w) {
         Intent intent = new Intent(MatchList.this, NewMatch.class);
+        intent.putExtra("idCustomer", idCustomer);
         startActivity(intent);
     }
 
@@ -123,6 +143,7 @@ public class MatchList extends AppCompatActivity {
 
     public void toTheMatch(View view) {
         Intent toTheMatch = new Intent(this,TheMatch.class);
+        toTheMatch.putExtra("idCustomer", idCustomer);
         startActivity(toTheMatch);
     }
 

@@ -70,4 +70,33 @@ public class BookingDataSource {
     }
 
 
+    //GET ALL Booking
+    public List<Booking> getAllBookings(){
+        List<Booking> bookings = new ArrayList<Booking>();
+        String sql = "SELECT * FROM " + tableBOOKING.TABLE_NAME + " ORDER BY " + tableBOOKING.BOOKING_ID;
+
+        Cursor cursor = this.db.rawQuery(sql, null);
+
+        if(cursor.moveToFirst()){
+            do{
+                Booking booking = new Booking();
+                booking.setId(cursor.getInt(cursor.getColumnIndex(tableBOOKING.BOOKING_ID)));
+
+                CustomerDataSource cds = new CustomerDataSource(this.context);
+                Customer customer = cds.getCustomerById(cursor.getLong(cursor.getColumnIndex(tableBOOKING.BOOKING_FK_CUSTOMER)));
+                booking.setCustomer(customer);
+
+                GameDataSource gds = new GameDataSource(this.context);
+                Game game = gds.getGameById(cursor.getLong(cursor.getColumnIndex(tableBOOKING.BOOKING_FK_GAME)));
+                booking.setGame(game);
+
+
+                bookings.add(booking);
+            }
+            while(cursor.moveToNext());
+        }
+        return bookings;
+    }
+
+
 }

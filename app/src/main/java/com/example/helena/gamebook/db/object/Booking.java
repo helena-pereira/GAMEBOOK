@@ -1,22 +1,24 @@
 package com.example.helena.gamebook.db.object;
 
+import android.widget.EditText;
+
 /**
  * Created by Helena on 01.11.2016.
  */
 
 public class Booking {
-    private  int id ;
+    private int _id ;
     private int num_seat ;
     private Game game;
     private Customer customer;
 
 
     public int getId() {
-        return id;
+        return _id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this._id = id;
     }
 
     public int getNum_seat() {
