@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.football);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setTitle(getTitleColor());
+        //getSupportActionBar().setTitle(getTitleColor());
         
         /*
         if(savedInstanceState == null){

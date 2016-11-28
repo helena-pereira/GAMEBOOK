@@ -19,7 +19,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/idNameMatch"
-                android:textSize="36sp"
+                android:textSize="24sp"
                 tools:textAlignment="center" />
         </TableRow>
 
@@ -31,8 +31,7 @@
                 android:id="@+id/LabelGame"
                 android:layout_weight="1" />
 
-            <EditText
-                android:text="BDD"
+            <TextView
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
@@ -48,8 +47,7 @@
                 android:id="@+id/LabelClientName"
                 android:layout_weight="1" />
 
-            <EditText
-                android:text="BDD"
+            <TextView
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
@@ -66,7 +64,6 @@
                 android:layout_weight="1" />
 
             <EditText
-                android:text="BDD"
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
@@ -92,7 +89,7 @@
                 android:id="@+id/buttonEdit"
                 android:layout_weight="1"
                 android:background="@android:color/holo_green_light"
-                android:onClick="toTheMatch"/>
+                android:onClick="save"/>
         </TableRow>
 
     </TableLayout>

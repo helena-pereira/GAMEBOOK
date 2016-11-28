@@ -72,7 +72,7 @@ public class ListOfBooking extends AppCompatActivity {
                         booking = (Booking) parent.getItemAtPosition(position);
                         int bookingSelectedId = booking.getId();
                         int a = idCustomer;
-                        Intent intent = new Intent(ListOfBooking.this, TheBooking.class);
+                        Intent intent = new Intent(ListOfBooking.this, EditBooking.class);
                         intent.putExtra("idBooking", bookingSelectedId);
                         intent.putExtra("idCustomer", a);
                         startActivity(intent);

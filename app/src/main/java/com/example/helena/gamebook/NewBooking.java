@@ -33,9 +33,8 @@ public class NewBooking extends AppCompatActivity {
     Bundle bundle2;
     Context context;
 
-    EditText idClientName ;
-    TextView idEditGame;
-    NumberPicker idSeat;
+    TextView idEditGame,idClientName;
+    EditText idSeat;
 
 
     @Override
@@ -83,8 +82,8 @@ public class NewBooking extends AppCompatActivity {
 
     public void load() {
 
-        idClientName = (EditText)findViewById(R.id.idClientName);
-        idSeat = (NumberPicker)findViewById(R.id.numberPicker);
+        idClientName = (TextView) findViewById(R.id.idClientName);
+        idSeat = (EditText)findViewById(R.id.idEditSeat);
         idEditGame = (TextView)findViewById(R.id.idEitTheGame);
 
 
@@ -99,8 +98,8 @@ public class NewBooking extends AppCompatActivity {
         booking.setGame(game1);
         booking.setCustomer(customer);
 
-
-        booking.setNum_seat(idSeat.getValue());
+        Integer a = idSeat.getId();
+        booking.setNum_seat(a);
 
 
         idEditGame.setText(("N° :" + game1.getId() + " - " + game1.getTeam_res() + " vs. "+ game1.getTeam_ext()));

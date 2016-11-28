@@ -36,7 +36,8 @@
         </TableRow>
 
 
-        <TableRow android:layout_width="match_parent">
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="match_parent">
             <TextView
                 android:text="@string/name"
                 android:layout_width="wrap_content"
@@ -53,7 +54,8 @@
                 android:layout_weight="1" />
         </TableRow>
 
-        <TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="match_parent">
             <TextView
                 android:text="@string/firstName"
                 android:layout_width="wrap_content"
@@ -70,7 +72,8 @@
                 android:layout_weight="1" />
         </TableRow>
 
-        <TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="match_parent">
             <TextView
                 android:text="@string/email"
                 android:layout_width="wrap_content"
@@ -87,7 +90,8 @@
                 android:layout_weight="1" />
         </TableRow>
 
-        <TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="match_parent">
             <TextView
                 android:text="@string/password"
                 android:layout_width="wrap_content"
@@ -104,7 +108,8 @@
                 android:layout_weight="1" />
         </TableRow>
 
-        <TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="match_parent">
             <TextView
                 android:text="@string/Confirmpassword"
                 android:layout_width="wrap_content"
@@ -122,7 +127,8 @@
                 android:layout_weight="1" />
         </TableRow>
 
-        <TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="match_parent">
             <Button
                 android:text="@string/enregistrer"
                 style="@style/button_save"
@@ -142,6 +148,6 @@
         android:id="@+id/buttonReturn"
         android:onClick="returnMainActivity"
         android:layout_width="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

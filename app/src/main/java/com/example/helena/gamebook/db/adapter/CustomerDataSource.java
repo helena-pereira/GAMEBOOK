@@ -54,17 +54,20 @@ public class CustomerDataSource {
 
         Cursor cursor = this.db.rawQuery(sql, null);
 
-        if (cursor != null) {
-            cursor.moveToFirst();
-        }
 
+        if (cursor != null && cursor.getCount()>0) {
+            cursor.moveToFirst();
+
+        }
         Customer customer = new Customer();
+
         customer.setId(cursor.getInt(cursor.getColumnIndex(FeedReaderContract.tableCUSTOMER.CUSTOMER_ID)));
         customer.setNom(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableCUSTOMER.CUSTOMER_NOM)));
         customer.setPrenom(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableCUSTOMER.CUSTOMER_PRENOM)));
         customer.setEmail(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableCUSTOMER.CUSTOMER_EMAIL)));
         customer.setMdp(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableCUSTOMER.CUSTOMER_MDP)));
 
+        db.close();
         return customer;
 
     }

@@ -33,15 +33,15 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/LabelDate"
                 android:layout_weight="1" />
-
-            <button
+            <!--
+            <Button
                 android:id="@+id/button_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/pick_date"
                 android:onClick="showDatePickerDialog"
                 android:layout_centerVertical="true"
-                android:layout_weight="1"/>
+                android:layout_weight="1"/> -->
 
             <!--c'est un champ spécialement pour sélectionner les dates
             <DatePicker

@@ -5,11 +5,11 @@ package com.example.helena.gamebook.db.object;
  */
 
 public class Customer {
-    private int _id ;
-    private String nom ;
-    private String prenom ;
-    private String email ;
-    private String mdp ;
+    public int _id ;
+    public String nom ;
+    public String prenom ;
+    public String email ;
+    public String mdp ;
 
     public int getId() {
         return _id;

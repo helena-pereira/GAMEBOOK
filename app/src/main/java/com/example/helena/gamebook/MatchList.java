@@ -105,7 +105,6 @@ public class MatchList extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //onClick to go to the layout that allow to add a new user
     public void onClickGoToAddNewGame(View w) {
         Intent intent = new Intent(MatchList.this, NewMatch.class);
         intent.putExtra("idCustomer", idCustomer);

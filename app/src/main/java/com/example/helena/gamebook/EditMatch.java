@@ -25,8 +25,10 @@ import com.example.helena.gamebook.db.object.Game;
 public class EditMatch extends AppCompatActivity  {
 
     Integer idGame ;
+    Integer idCustomer;
     Context context;
     Bundle bundle;
+    Bundle bundle2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,17 @@ public class EditMatch extends AppCompatActivity  {
             }
         }else{
             idGame = (int) savedInstanceState.getSerializable("idGame");
+        }
+
+        if(savedInstanceState == null){
+            bundle2 = getIntent().getExtras();
+            if(bundle2 == null){
+                idCustomer = null;
+            } else {
+                idCustomer = bundle2.getInt("idCustomer");
+            }
+        }else{
+            idCustomer = (int) savedInstanceState.getSerializable("idCustomer");
         }
 
         loadGameSelected();
@@ -90,8 +103,8 @@ public class EditMatch extends AppCompatActivity  {
     }
 
     public void save(View view){
-        SQLiteHelper helper = new SQLiteHelper(this);
-        SQLiteDatabase db = helper.getWritableDatabase();
+        //SQLiteHelper helper = new SQLiteHelper(this);
+        //SQLiteDatabase db = helper.getWritableDatabase();
 
         EditText Date, Heure, Stade, Resident, Visiteur, Quantite;
         //ToggleButton Statut;
@@ -123,6 +136,8 @@ public class EditMatch extends AppCompatActivity  {
         gds.updateGame(game);
 
         Intent toListMatch = new Intent(this,MatchList.class);
+        toListMatch.putExtra("idGame", idGame);
+        toListMatch.putExtra("idCustomer", idCustomer);
         startActivity(toListMatch);
 
     }
@@ -136,7 +151,6 @@ public class EditMatch extends AppCompatActivity  {
                 startActivity(toMain);
                 break;
             case R.id.id_enFlag:
-                LocaleHelper.setLocale(this, "en");
                 Intent toTheSame = new Intent(this, EditMatch.class);
                 startActivity(toTheSame);
                 break;

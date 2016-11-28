@@ -137,6 +137,7 @@ public class TheMatch extends AppCompatActivity {
         return false;
     }
 
+    //Revenir MatchList
     public void goToAllMatch(View view){
         Intent goToAllMatch = new Intent(this,MatchList.class);
         goToAllMatch.putExtra("idGame", idGame);
@@ -144,6 +145,7 @@ public class TheMatch extends AppCompatActivity {
         startActivity(goToAllMatch);
     }
 
+    //Nouvelle Réservation
     public void toNewBooking(View view) {
         Intent toNewBooking = new Intent(this, NewBooking.class);
         toNewBooking.putExtra("idGame", idGame);
@@ -151,6 +153,7 @@ public class TheMatch extends AppCompatActivity {
         startActivity(toNewBooking);
     }
 
+    //Modifier le match
     public void toEditMatch(View view) {
         Intent toEditMatch = new Intent(this,EditMatch.class);
         toEditMatch.putExtra("idGame", idGame);

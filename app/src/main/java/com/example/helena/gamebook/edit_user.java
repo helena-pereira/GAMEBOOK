@@ -147,6 +147,7 @@ public class edit_user extends AppCompatActivity {
                 //et on retourne au home
                 dialog.cancel();
                 Intent toHome = new Intent(edit_user.this,home.class);
+                toHome.putExtra("idCustomer", idCustomer);
                 startActivity(toHome);
             }
         });

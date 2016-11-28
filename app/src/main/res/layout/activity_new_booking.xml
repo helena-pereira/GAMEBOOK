@@ -47,7 +47,7 @@
                 android:id="@+id/LabelClientName"
                 android:layout_weight="1" />
 
-            <EditText
+            <TextView
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
@@ -94,23 +94,5 @@
         </TableRow>
 
     </TableLayout>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="57dp"
-        android:layout_marginBottom="160dp"
-        android:id="@+id/editText" />
-
-    <NumberPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="89dp"
-        android:id="@+id/numberPicker" />
 
 </RelativeLayout>

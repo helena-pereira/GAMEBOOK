@@ -76,17 +76,19 @@ public class BookingDataSource {
         String sql = "SELECT * FROM " + tableBOOKING.TABLE_NAME + " ORDER BY " + tableBOOKING.BOOKING_ID;
 
         Cursor cursor = this.db.rawQuery(sql, null);
- 
+
         if(cursor.moveToFirst()){
             do{
                 Booking booking = new Booking();
                 booking.setId(cursor.getInt(cursor.getColumnIndex(tableBOOKING.BOOKING_ID)));
 
-                CustomerDataSource cds = new CustomerDataSource(this.context);
-                Customer customer = cds.getCustomerById(cursor.getLong(cursor.getColumnIndex(tableBOOKING.BOOKING_FK_CUSTOMER)));
+                Customer customer = new Customer();
+                CustomerDataSource cds = new CustomerDataSource(context);
+                customer = cds.getCustomerById(cursor.getLong(cursor.getColumnIndex(tableBOOKING.BOOKING_FK_CUSTOMER)));
+
                 booking.setCustomer(customer);
 
-                GameDataSource gds = new GameDataSource(this.context);
+                GameDataSource gds = new GameDataSource(context);
                 Game game = gds.getGameById(cursor.getLong(cursor.getColumnIndex(tableBOOKING.BOOKING_FK_GAME)));
                 booking.setGame(game);
 
@@ -97,6 +99,22 @@ public class BookingDataSource {
         }
         return bookings;
     }
+
+
+
+
+    //modification d'un booking
+    public int updateBooking(Booking booking) {
+        ContentValues values = new ContentValues();
+        values.put(tableBOOKING.BOOKING_ID, booking.getId());
+        values.put(tableBOOKING.BOOKING_FK_GAME, booking.getGame().getId());
+        values.put(tableBOOKING.BOOKING_FK_CUSTOMER, booking.getCustomer().getId());
+        values.put(tableBOOKING.BOOKING_NUM_SEAT, booking.getNum_seat());
+
+        return this.db.update(FeedReaderContract.tableBOOKING.TABLE_NAME, values, tableBOOKING.BOOKING_ID + " = ?",
+                new String[] {String.valueOf(booking.getId())} );
+    }
+
 
 
 }

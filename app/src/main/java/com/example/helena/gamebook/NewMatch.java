@@ -107,16 +107,13 @@ public class NewMatch extends AppCompatActivity {
 
     public void toListMatch(View view) {
         Intent toListMatch = new Intent(this,MatchList.class);
+        toListMatch.putExtra("idCustomer", idCustomer);
         startActivity(toListMatch);
     }
 
 
 
-        public void onClickRegister(View view) {
-
-            SQLiteHelper helper = new SQLiteHelper(this);
-
-            SQLiteDatabase db = helper.getWritableDatabase();
+    public void onClickRegister(View view) {
 
             EditText Date, Heure, Stade, Resident, Visiteur, Quantite;
             //ToggleButton Statut;
@@ -129,6 +126,14 @@ public class NewMatch extends AppCompatActivity {
             //Statut = (ToggleButton) findViewById(R.id.idStatut);
             Quantite = (EditText) findViewById(R.id.idQuantite);
 
+        if(Date.getText().toString().trim().length() > 0 &&
+                Heure.getText().toString().trim().length() > 0 &&
+                Stade.getText().toString().trim().length() > 0 &&
+                Resident.getText().toString().trim().length() > 0 &&
+                Visiteur.getText().toString().trim().length() > 0 &&
+                Quantite.getText().toString().trim().length() > 0
+                /*Statut.getText().toString().trim().length() > 0*/)
+        {
             Game game = new Game();
             //Stade stade = new Stade();
 
@@ -144,14 +149,16 @@ public class NewMatch extends AppCompatActivity {
             GameDataSource gds = new GameDataSource(context);
             gds.createGame(game);
 
-            /*Intent intent = new Intent(NewMatch.this, MainActivity.class);
-            startActivity(intent);
-    */
-
             Intent toListMatch = new Intent(this,MatchList.class);
             toListMatch.putExtra("idGame", idGame);
             toListMatch.putExtra("idCustomer", idCustomer);
             startActivity(toListMatch);
+        }
+        else
+        {
+            //ici le toast
+        }
+
 
     }
 /*
