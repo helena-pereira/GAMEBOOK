@@ -13,11 +13,12 @@
 
 
     <TableLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true">
-        <TableRow>
+        <TableRow android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
             <TextView
                 android:text="@string/id_new_user"
                 android:layout_width="match_parent"
@@ -25,15 +26,17 @@
                 android:id="@+id/id_new_user"
                 android:textSize="24sp" />
         </TableRow>
-        <TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         </TableRow>
-        <TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         </TableRow>
 
 
-        <TableRow>
+        <TableRow android:layout_width="match_parent">
             <TextView
                 android:text="@string/name"
                 android:layout_width="wrap_content"
@@ -120,16 +123,9 @@
         </TableRow>
 
         <TableRow>
-           <Button
-                android:text="@string/retour"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/buttonReturn"
-                android:layout_weight="1"
-                android:background="@android:color/holo_blue_light"
-                android:onClick="returnMainActivity"/>
             <Button
                 android:text="@string/enregistrer"
+                style="@style/button_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/buttonEdit"
@@ -139,4 +135,13 @@
         </TableRow>
 
     </TableLayout>
+
+    <Button
+        android:text="@string/retour"
+        style="@style/button_back"
+        android:id="@+id/buttonReturn"
+        android:onClick="returnMainActivity"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

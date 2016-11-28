@@ -35,6 +35,7 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         context = this;
 
+        // paramètres de la bar d'action
         getSupportActionBar().setHomeButtonEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
@@ -42,41 +43,39 @@ public class Register extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(true);
     }
 
+    // sélection du menu adéquat
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main,menu);
         return super.onCreateOptionsMenu(menu);
-
     }
 
+    // SDP :refresh lors du changement de langue
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch(item.getItemId()) {
             case R.id.id_enFlag:
-                LocaleHelper.setLocale(this,"en");
-                updateViews();
+                LocaleHelper.setLocale(this, "en");
+                Intent toTheSame = new Intent(Register.this, Register.class);
+                startActivity(toTheSame);
                 break;
             case R.id.id_frFlag:
-                LocaleHelper.setLocale(this,"fr");
-                updateViews();
-                break;
-            default:
-                LocaleHelper.setLocale(this,"en");
-                updateViews();
+                LocaleHelper.setLocale(this, "fr");
+                toTheSame = new Intent(Register.this, Register.class);
+                startActivity(toTheSame);
                 break;
         }
-        return true;
+        return false;
     }
 
+    // retour dans le Main (page de login)
     public void returnMainActivity(View view) {
         Intent returnMainActivity = new Intent(this,MainActivity.class);
         startActivity(returnMainActivity);
 
     }
 
-
-
-
+    // enregistrement du nouvel utilisateur
     public void onClickRegister(View view){
         //SQLiteHelper helper = new SQLiteHelper(this);
         //SQLiteDatabase db = helper.getWritableDatabase();
@@ -108,8 +107,7 @@ public class Register extends AppCompatActivity {
             }
             else
             {
-                /*STEPHANIE Mdp ne correspond pas aux critère
-                Votre mot de passe ou email ne correspond pas aux critères
+                /* SDP Mdp n'est pas égal avec la confirmation de Mdp
                 **/
                     Toast.makeText(getApplicationContext(), R.string.MessageRegisterPassword,
                             Toast.LENGTH_SHORT).show();
@@ -117,31 +115,10 @@ public class Register extends AppCompatActivity {
         }
         else
         {
+            /* SDP Mdp ne correspond pas aux critères
+            Votre mot de passe ou email ne correspond pas aux critères **/
             Toast.makeText(getApplicationContext(), R.string.MessageRegisterIncorrecte,
                     Toast.LENGTH_SHORT).show();
         }
     }
-
-    private void updateViews() {
-        Resources resources = getResources();
-
-        TextView id_new_user = (TextView)findViewById(R.id.id_new_user);
-        TextView LabelName = (TextView) findViewById(R.id.LabelName);
-        TextView LabelPrenom = (TextView) findViewById(R.id.EditFirstName);
-        TextView LabelEmail = (TextView) findViewById(R.id.LabelEmail);
-        TextView LabelPassword = (TextView) findViewById(R.id.LabelPassword);
-        TextView EditPasswordConfirm = (TextView) findViewById(R.id.EditPasswordConfirm);
-        Button buttonReturn = (Button) findViewById(R.id.buttonReturn);
-        Button buttonEdit = (Button) findViewById(R.id.buttonEdit);
-
-        id_new_user.setContentDescription(resources.getString(R.string.id_new_user));
-        LabelName.setContentDescription(resources.getString(R.string.name));
-        LabelPrenom.setContentDescription(resources.getString(R.string.firstName));
-        LabelEmail.setContentDescription(resources.getString(R.string.email));
-        LabelPassword.setContentDescription(resources.getString((R.string.password)));
-        EditPasswordConfirm.setContentDescription(resources.getString((R.string.Confirmpassword)));
-        buttonReturn.setContentDescription(resources.getString((R.string.retour)));
-        buttonEdit.setContentDescription(resources.getString((R.string.enregistrer)));
-    }
-
 }

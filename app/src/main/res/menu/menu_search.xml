@@ -10,6 +10,12 @@
         android:orderInCategory="0"
         android:title="@string/search" />
 
+    <item android:id="@+id/logout"
+        android:icon="@mipmap/logout"
+        android:title="Logout"
+        android:orderInCategory="100"
+        gamebook:showAsAction="always" />
+
     <item
         android:id="@+id/id_frFlag"
         android:title="Français"

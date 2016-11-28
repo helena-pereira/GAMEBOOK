@@ -36,7 +36,7 @@
         <item name="android:layout_width" >fill_parent</item>
         <item name="android:layout_height" >wrap_content</item>
         <item name="android:textColor" >#ffffff</item>
-        <item name="android:gravity" >center</item>
+        <item name="android:gravity">center</item>
         <item name="android:layout_margin" >3dp</item>
         <item name="android:textSize" >15dp</item>
         <item name="android:textStyle" >bold</item>
@@ -47,7 +47,14 @@
         <item name="android:padding">10dp</item>
     </style>
 
-    <style name="button_back" parent="Base.Widget.AppCompat.Button.ButtonBar.AlertDialog">
+    <style name="button_back" parent="Widget.AppCompat.Button.Small">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">#000000</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_weight">50dp</item>
+        <item name="android:textSize" >15dp</item>
     </style>
 
     <style name="button_add" >

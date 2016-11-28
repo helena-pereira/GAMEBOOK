@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
     Integer idCustomer ;
     Bundle bundle;
-
     Context context;
 
     @Override
@@ -35,13 +34,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         context = this;
 
+        // paramètres de la bar d'action
         getSupportActionBar().setHomeButtonEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.football);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
-
-
+        getSupportActionBar().setTitle(getTitleColor());
+        
         /*
         if(savedInstanceState == null){
             bundle = getIntent().getExtras();
@@ -54,11 +54,9 @@ public class MainActivity extends AppCompatActivity {
             idCustomer = (int) savedInstanceState.getSerializable("idCustomer");
         }
 */
-
-
-
     }
 
+    // sélection du menu adéquat
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main,menu);
@@ -66,26 +64,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
-    /********************************************************/
+    // refresh pour le changement de langue
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch(item.getItemId()) {
             case R.id.id_enFlag:
-                LocaleHelper.setLocale(this,"en");
-                updateViews();
+                LocaleHelper.setLocale(this, "en");
+                Intent toTheSame = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(toTheSame);
                 break;
             case R.id.id_frFlag:
-                LocaleHelper.setLocale(this,"fr");
-                updateViews();
-                break;
-            default:
-                LocaleHelper.setLocale(this,"en");
-                updateViews();
+                LocaleHelper.setLocale(this, "fr");
+                toTheSame = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(toTheSame);
                 break;
         }
-        return true;
+        return false;
     }
 
     /**Create by Helena 26.11.2016
@@ -97,13 +91,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(toRegister);
     }
 
-
+    // redirection vers la page d'accueil
     public void goHome(View view){
         Intent goHome = new Intent(this,home.class);
         startActivity(goHome);
     }
-
-
 
     public void signIn(View view) {
 
@@ -123,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         idCustomer = customer2.getId();
 
         if(email.getText().toString().trim().length() == 0 || mdp.getText().toString().trim().length() == 0){
-            //Message qui dit qu'il faut remplir les champs obligatoires : login et mdp
+            // Message qui dit qu'il faut remplir les champs obligatoires : login et mdp
             Toast.makeText(getApplicationContext(), R.string.MessageNoLogin,
                     Toast.LENGTH_SHORT).show();
         }
@@ -137,25 +129,11 @@ public class MainActivity extends AppCompatActivity {
             }
             else
             {
-                //Message qui dit que le login ou le mdp est incorrect
+                // Message qui dit que le login ou le mdp est incorrect
                 Toast.makeText(getApplicationContext(), R.string.MessageLoginIncorrect,
                         Toast.LENGTH_SHORT).show();
             }
         }
-    }
-
-    private void updateViews() {
-        Resources resources = getResources();
-
-        AutoCompleteTextView email = (AutoCompleteTextView)findViewById(R.id.email);
-        EditText password = (EditText)findViewById(R.id.password);
-        Button action_sign_in = (Button) findViewById(R.id.email_sign_in_button);
-        Button register_button = (Button) findViewById(R.id.register_button);
-
-        email.setContentDescription(resources.getString(R.string.email));
-        password.setContentDescription(resources.getString(R.string.password));
-        action_sign_in.setContentDescription(resources.getString(R.string.action_sign_in));
-        register_button.setContentDescription(resources.getString(R.string.register_button));
     }
 
 }
