@@ -41,7 +41,7 @@ public class BookingDataSource {
         values.put(tableBOOKING.BOOKING_NUM_SEAT, booking.getNum_seat());
 
         id = this.db.insert(FeedReaderContract.tableBOOKING.TABLE_NAME, null, values);
-        db.close();
+        //db.close();
 
         return id;
 
@@ -69,7 +69,7 @@ public class BookingDataSource {
         booking.setGame(game);
         booking.setNum_seat(cursor.getString(cursor.getColumnIndex(tableBOOKING.BOOKING_NUM_SEAT)));
 
-        db.close();
+        //db.close();
         return booking;
     }
 
@@ -101,7 +101,7 @@ public class BookingDataSource {
             }
             while(cursor.moveToNext());
         }
-        db.close();
+        //db.close();
         return bookings;
     }
 
@@ -111,13 +111,13 @@ public class BookingDataSource {
     //modification d'un booking
     public int updateBooking(Booking booking) {
         ContentValues values = new ContentValues();
-        values.put(tableBOOKING.BOOKING_ID, booking.getId());
-        values.put(tableBOOKING.BOOKING_FK_GAME, booking.getGame().getId());
-        values.put(tableBOOKING.BOOKING_FK_CUSTOMER, booking.getCustomer().getId());
-        values.put(tableBOOKING.BOOKING_NUM_SEAT, booking.getNum_seat());
+        values.put(FeedReaderContract.tableBOOKING.BOOKING_ID, booking.getId());
+        values.put(FeedReaderContract.tableBOOKING.BOOKING_FK_GAME, booking.getGame().getId());
+        values.put(FeedReaderContract.tableBOOKING.BOOKING_FK_CUSTOMER, booking.getCustomer().getId());
+        values.put(FeedReaderContract.tableBOOKING.BOOKING_NUM_SEAT, booking.getNum_seat());
 
         return this.db.update(FeedReaderContract.tableBOOKING.TABLE_NAME, values, tableBOOKING.BOOKING_ID + " = ?",
-                new String[] {String.valueOf(booking.getId())} );
+                new String[]{String.valueOf(booking.getId())});
     }
 
 

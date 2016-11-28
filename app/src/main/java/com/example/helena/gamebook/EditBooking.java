@@ -76,7 +76,6 @@ public class EditBooking extends AppCompatActivity {
                 etidClientName.setText(booking.getCustomer().getNom() + " " + booking.getCustomer().getPrenom());
                 etidSeat.setText(booking.getNum_seat().toString());
 
-
             }
         }else{
             idBooking = (int) savedInstanceState.getSerializable("idBooking");
@@ -88,14 +87,13 @@ public class EditBooking extends AppCompatActivity {
     public void save(View view){
         etidSeat = (EditText)findViewById(R.id.idSeat);
 
-        Booking booking = new Booking();
+        Booking booking;
         BookingDataSource bds = new BookingDataSource(context);
         booking = bds.getBookingById(idBooking);
 
-
         booking.setNum_seat(etidSeat.getText().toString());
-        booking.setCustomer(booking.getCustomer());
-        booking.setGame(booking.getGame());
+        //booking.setCustomer(booking.getCustomer());
+        //booking.setGame(booking.getGame());
 
 
         bds.updateBooking(booking);
