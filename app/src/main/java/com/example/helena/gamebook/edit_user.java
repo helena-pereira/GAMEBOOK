@@ -40,11 +40,13 @@ public class edit_user extends AppCompatActivity {
         getSupportActionBar().setLogo(R.mipmap.football);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
+        // affichage du user
         editName = (EditText)findViewById(R.id.EditName);
         editFirstname = (EditText)findViewById(R.id.EditFirstName);
         editEmail = (EditText)findViewById(R.id.EditEmail);
         editPassword = (EditText)findViewById(R.id.EditPassword);
 
+        // réceptionner les valeurs sauvegardées
         if(savedInstanceState == null){
             bundle = getIntent().getExtras();
             if(bundle == null){
@@ -135,9 +137,7 @@ public class edit_user extends AppCompatActivity {
         editFirstname.setText(customer.getPrenom());
         editEmail.setText(customer.getEmail());
         editPassword.setText(customer.getMdp());
-
     }
-
 
     // Alert Dialog pour l'enregistrement des modifications
     public void toSave(View view){
@@ -162,7 +162,7 @@ public class edit_user extends AppCompatActivity {
                 editPassword = (EditText)findViewById(R.id.EditPassword);
 
                 Customer customer = new Customer();
-
+                
                 customer.setId(idCustomer);
                 customer.setNom(editName.getText().toString());
                 customer.setPrenom(editFirstname.getText().toString());

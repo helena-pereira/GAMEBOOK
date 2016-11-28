@@ -35,10 +35,8 @@ public class NewBooking extends AppCompatActivity {
     Bundle bundle;
     Bundle bundle2;
     Context context;
-
     Customer customer;
     Game game1;
-
     TextView idEditGame,idClientName;
     EditText idSeat;
 
@@ -50,12 +48,14 @@ public class NewBooking extends AppCompatActivity {
 
         context = this;
 
+        // paramètres de la nav bar
         getSupportActionBar().setHomeButtonEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.football);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
+        // affichage du jeu et du customer
         if(savedInstanceState == null){
             bundle = getIntent().getExtras();
             if(bundle == null){
@@ -67,7 +67,6 @@ public class NewBooking extends AppCompatActivity {
             idGame = (int) savedInstanceState.getSerializable("idGame");
         }
 
-
         if(savedInstanceState == null){
             bundle2 = getIntent().getExtras();
             if(bundle2 == null){
@@ -78,15 +77,11 @@ public class NewBooking extends AppCompatActivity {
         }else{
             idCustomer = (int) savedInstanceState.getSerializable("idCustomer");
         }
-
-
         load();
-
-
     }
 
+    // reprise des données Game et Customer
     public void load() {
-
         idClientName = (TextView) findViewById(R.id.idClientName);
         idSeat = (EditText)findViewById(R.id.idEditSeat);
         idEditGame = (TextView)findViewById(R.id.idEitTheGame);
@@ -99,14 +94,13 @@ public class NewBooking extends AppCompatActivity {
 
         idEditGame.setText(("N° :" + game1.getId() + " - " + game1.getTeam_res() + " vs. "+ game1.getTeam_ext()));
         idClientName.setText(customer.getNom() + " "+ customer.getPrenom());
-
     }
 
+    // sélection du menu adéquat
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_basic,menu);
         return super.onCreateOptionsMenu(menu);
-
     }
 
     // refresh pour le changement de langue ou redirection pour la déconnexion
@@ -162,6 +156,7 @@ public class NewBooking extends AppCompatActivity {
         return false;
     }
 
+    // Création d'une réservation
     public void toTheMatch(View view) {
         idSeat = (EditText)findViewById(R.id.idEditSeat);
 

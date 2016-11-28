@@ -40,7 +40,6 @@
         <activity android:name=".NewBooking" />
         <activity android:name=".EditBooking" />
         <activity android:name=".ListOfBooking" />
-        <activity android:name=".TEST_MATCHS"></activity>
     </application>
 
 </manifest>

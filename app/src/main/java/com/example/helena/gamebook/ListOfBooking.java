@@ -40,7 +40,8 @@ public class ListOfBooking extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_of_booking);
         context = this;
- 
+
+        // paramètres de la nav bar
         getSupportActionBar().setHomeButtonEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
@@ -48,13 +49,13 @@ public class ListOfBooking extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
 
+        // affichage de la liste de résarvations
         if(savedInstanceState == null){
             bundle = getIntent().getExtras();
             if(bundle == null){
                 idCustomer = null;
             } else {
                 idCustomer = bundle.getInt("idCustomer");
-
 
                 final BookingDataSource bds = new BookingDataSource(this);
                 helper.getInstance(context);
@@ -86,24 +87,26 @@ public class ListOfBooking extends AppCompatActivity {
         }
     }
 
+    // sélection du menu adéquat
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_basic,menu);
         return super.onCreateOptionsMenu(menu);
     }
 
+    // redirection vers l'accueil
     public void backToHome(View view){
         Intent backToHome = new Intent(this,home.class);
         backToHome.putExtra("idCustomer", idCustomer);
         startActivity(backToHome);
     }
 
+    // redirection vers l'ajout d'une réservation
     public void onClickGoToAddNewBooking(View view){
         Intent backToHome = new Intent(this,MatchList.class);
         backToHome.putExtra("idCustomer", idCustomer);
         startActivity(backToHome);
     }
-
 
     // refresh pour le changement de langue ou redirection pour la déconnexion
     public boolean onOptionsItemSelected(MenuItem item)

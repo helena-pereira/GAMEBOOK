@@ -72,13 +72,10 @@ public class Register extends AppCompatActivity {
     public void returnMainActivity(View view) {
         Intent returnMainActivity = new Intent(this,MainActivity.class);
         startActivity(returnMainActivity);
-
     }
 
     // enregistrement du nouvel utilisateur
     public void onClickRegister(View view){
-        //SQLiteHelper helper = new SQLiteHelper(this);
-        //SQLiteDatabase db = helper.getWritableDatabase();
 
         EditText Nom, Prenom, Email, Mdp, ConfirmMdp;
 

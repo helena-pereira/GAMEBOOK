@@ -31,6 +31,8 @@ public class LocaleHelper {
         persist(context,lang);
         updateResources(context,lang);
     }
+
+    // force la sélection de la langue
     private static void persist(Context context, String lang){
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = preferences.edit();
@@ -38,6 +40,7 @@ public class LocaleHelper {
         editor.apply();
     }
 
+    // Mise à jour des ressources avec la langue choisie
     private static void updateResources(Context context, String lang) {
         Locale locale = new Locale(lang);
         Locale.setDefault(locale);
@@ -51,6 +54,7 @@ public class LocaleHelper {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         return preferences.getString(SELECTED_LANG,language);
     }
+
     public static String getLanguage(Context context){
         return getPersistedData(context,Locale.getDefault().getLanguage());
     }

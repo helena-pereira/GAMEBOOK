@@ -34,12 +34,14 @@ public class home extends AppCompatActivity {
 
         context = this;
 
+        // paramètres de la nav bar
         getSupportActionBar().setHomeButtonEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.football);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
+        // réceptionner les valeurs sauvegardées
         if(savedInstanceState == null){
             bundle = getIntent().getExtras();
             if(bundle == null){
@@ -50,17 +52,14 @@ public class home extends AppCompatActivity {
         }else{
             idCustomer = (int) savedInstanceState.getSerializable("idCustomer");
         }
-
-
     }
 
+    // sélection du menu adéquat
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_basic,menu);
         return super.onCreateOptionsMenu(menu);
-
     }
-
 
     // refresh pour le changement de langue ou redirection pour la déconnexion
     public boolean onOptionsItemSelected(MenuItem item)
@@ -80,7 +79,6 @@ public class home extends AppCompatActivity {
                 // si on clique oui
                 alertDeleteBooking.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int which) {
-
                         Intent toMain = new Intent(home.this, MainActivity.class);
                         toMain.putExtra("idCustomer", idCustomer);
                         startActivity(toMain);
@@ -113,13 +111,14 @@ public class home extends AppCompatActivity {
         return false;
     }
 
+    // redirection vers la liste des matchs
     public void toMatch(View view) {
         Intent toMatch = new Intent(this,MatchList.class);
         toMatch.putExtra("idCustomer", idCustomer);
         startActivity(toMatch);
-
     }
 
+    // redirection vers la liste des réservations
     public void toListBooking(View view) {
         Intent toListBooking = new Intent(this,ListOfBooking.class);
         toListBooking.putExtra("idCustomer", idCustomer);
@@ -131,18 +130,5 @@ public class home extends AppCompatActivity {
         Intent toMonCompte = new Intent(this, edit_user.class);
         toMonCompte.putExtra("idCustomer", idCustomer);
         startActivity(toMonCompte);
-
-    }
-
-    private void updateViews() {
-        Resources resources = getResources();
-
-        ImageButton football = (ImageButton)findViewById(R.id.imageButtonFootball);
-        ImageButton booking = (ImageButton)findViewById(R.id.imageButtonBooking);
-        ImageButton user = (ImageButton)findViewById(R.id.imageButtonUser);
-
-        football.setContentDescription(resources.getString(R.string.idfootball));
-        booking.setContentDescription(resources.getString(R.string.idBooking));
-        user.setContentDescription(resources.getString(R.string.idUser));
     }
 }

@@ -48,13 +48,14 @@ public class MatchList extends AppCompatActivity {
         setContentView(R.layout.activity_match_list);
         context = this;
 
-        /********************************************/
+        // paramètres de la nav bar
         getSupportActionBar().setHomeButtonEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.football);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
+        // affichage de la liste des matchs
         if(savedInstanceState == null){
             bundle = getIntent().getExtras();
             if(bundle == null){
@@ -87,36 +88,31 @@ public class MatchList extends AppCompatActivity {
                     }
 
                 });
-
-
             }
         }else{
             idCustomer = (int) savedInstanceState.getSerializable("idCustomer");
         }
-
-
     }
 
+    // sélection du menu adéquat
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_basic,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
     //onClick to go back to the SelectAction Layout
     public void onClickBackToSelectAction(View w) {
         Intent intent = new Intent(MatchList.this, home.class);
         intent.putExtra("idCustomer", idCustomer);
-        //intent.putExtra("idGame", idGame);
-        //intent.putExtra("idBooking", idBooking);
         startActivity(intent);
     }
 
+    // redirection à l'ajout d'un match
     public void onClickGoToAddNewGame(View w) {
         Intent intent = new Intent(MatchList.this, NewMatch.class);
         intent.putExtra("idCustomer", idCustomer);
         startActivity(intent);
-    }
-
-    public boolean onCreateOptionsMenu(Menu menu){
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_basic,menu);
-        return super.onCreateOptionsMenu(menu);
     }
 
     // refresh pour le changement de langue ou redirection pour la déconnexion
@@ -170,14 +166,10 @@ public class MatchList extends AppCompatActivity {
         return false;
     }
 
+    // selection d'un match de la liste
     public void toTheMatch(View view) {
         Intent toTheMatch = new Intent(this,TheMatch.class);
         toTheMatch.putExtra("idCustomer", idCustomer);
         startActivity(toTheMatch);
-    }
-
-    public void toNewMatch(View view) {
-        Intent toNewMatch = new Intent(this,NewMatch.class);
-        startActivity(toNewMatch);
     }
 }

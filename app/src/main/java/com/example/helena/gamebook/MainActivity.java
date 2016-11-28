@@ -40,20 +40,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.football);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
-        //getSupportActionBar().setTitle(getTitleColor());
-        
-        /*
-        if(savedInstanceState == null){
-            bundle = getIntent().getExtras();
-            if(bundle == null){
-                idCustomer = null;
-            } else {
-                idCustomer = bundle.getInt("idCustomer");
-            }
-        }else{
-            idCustomer = (int) savedInstanceState.getSerializable("idCustomer");
-        }
-*/
     }
 
     // sélection du menu adéquat
@@ -91,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(toRegister);
     }
 
+    // connexion
     public void signIn(View view) {
 
         EditText email = (EditText) findViewById(R.id.email);
