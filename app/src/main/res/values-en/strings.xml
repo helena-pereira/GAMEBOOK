@@ -65,6 +65,8 @@
     <string name="addNewMatch">Add a new Game</string>
     <string name="newMatch">New Game</string>
     <string name="pick_date">Choose the date</string>
+    <string name="MessageNewMatch">We have to fill in the required fields !</string>
+
 
 
     <!--Booking-->
@@ -90,6 +92,7 @@
     <string name="LogOutUserMessage">Are you sure you want to log out ?</string>
     <string name="RegisterUserTitle">Save the modifications</string>
     <string name="RegisterUserMessage">Are you sure to want to save the last modifications ?</string>
+
 
     <!--Bouttons-->
     <string name="cancel">Cancel</string>

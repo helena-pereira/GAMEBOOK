@@ -101,7 +101,6 @@ public class TheMatch extends AppCompatActivity {
         //idStade.setText(tst);
         idResident.setText(game.getTeam_res());
         idVisiteur.setText(game.getTeam_ext());
-        idStatut.setText(game.getStatut());
         idQuantite.setText(game.getQuantity());
         idNameMatch.setText(game.getTeam_res() + " vs. "+ game.getTeam_ext());
 

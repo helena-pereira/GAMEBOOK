@@ -20,6 +20,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TimePicker;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.example.helena.gamebook.db.SQLiteHelper;
@@ -116,14 +117,12 @@ public class NewMatch extends AppCompatActivity {
     public void onClickRegister(View view) {
 
             EditText Date, Heure, Stade, Resident, Visiteur, Quantite;
-            //ToggleButton Statut;
 
             Date = (EditText) findViewById(R.id.idEditDate);
             Heure = (EditText) findViewById(R.id.idHeure);
             Stade = (EditText) findViewById(R.id.idStade);
             Resident = (EditText) findViewById(R.id.idResident);
             Visiteur = (EditText) findViewById(R.id.idVisiteur);
-            //Statut = (ToggleButton) findViewById(R.id.idStatut);
             Quantite = (EditText) findViewById(R.id.idQuantite);
 
         if(Date.getText().toString().trim().length() > 0 &&
@@ -131,8 +130,7 @@ public class NewMatch extends AppCompatActivity {
                 Stade.getText().toString().trim().length() > 0 &&
                 Resident.getText().toString().trim().length() > 0 &&
                 Visiteur.getText().toString().trim().length() > 0 &&
-                Quantite.getText().toString().trim().length() > 0
-                /*Statut.getText().toString().trim().length() > 0*/)
+                Quantite.getText().toString().trim().length() > 0)
         {
             Game game = new Game();
             //Stade stade = new Stade();
@@ -142,7 +140,6 @@ public class NewMatch extends AppCompatActivity {
             //game.setStade(Stade.getText().toString());
             game.setTeam_res(Resident.getText().toString());
             game.setTeam_ext(Visiteur.getText().toString());
-            //game.setStatut(Statut.getText().toString());
 
             game.setQuantity(Quantite.getText().toString());
 
@@ -156,15 +153,10 @@ public class NewMatch extends AppCompatActivity {
         }
         else
         {
-            //ici le toast
+            /* SDP Mdp n'est pas égal avec la confirmation de Mdp
+                **/
+            Toast.makeText(getApplicationContext(), R.string.MessageNewMatch,
+                    Toast.LENGTH_SHORT).show();
         }
-
-
     }
-/*
-    // pour la date
-    public void showDatePickerDialog(View view){
-        DialogFragment fragment = new DatePickerFragment();
-        fragment.show(fragment.getFragmentManager(),"date");
-    }*/
 }

@@ -116,7 +116,6 @@ public class EditMatch extends AppCompatActivity  {
         //Stade = (EditText) findViewById(R.id.idStade);
         Resident = (EditText) findViewById(R.id.idEditResident);
         Visiteur = (EditText) findViewById(R.id.idEditVisiteur);
-        //Statut = (ToggleButton) findViewById(R.id.idStatut);
         Quantite = (EditText) findViewById(R.id.idEditQuantite);
 
         Game game = new Game();
