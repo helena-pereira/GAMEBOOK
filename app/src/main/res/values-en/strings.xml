@@ -71,7 +71,7 @@
     <string name="idListBooking">Booking</string>
     <string name="editBooking">Modify the booking</string>
     <string name="game">The Game</string>
-    <string name="ClientName">The full name of the client</string>
+    <string name="ClientName">Cliente</string>
     <string name="seat">Seat</string>
     <string name="TheBooking">The Booking</string>
     <string name="addNewBooking">Add a booking</string>
