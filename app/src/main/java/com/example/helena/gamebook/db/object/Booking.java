@@ -8,7 +8,7 @@ import android.widget.EditText;
 
 public class Booking {
     private int _id ;
-    private int num_seat ;
+    private String num_seat ;
     private Game game;
     private Customer customer;
 
@@ -21,11 +21,11 @@ public class Booking {
         this._id = id;
     }
 
-    public int getNum_seat() {
+    public String getNum_seat() {
         return num_seat;
     }
 
-    public void setNum_seat(int num_seat) {
+    public void setNum_seat(String num_seat) {
         this.num_seat = num_seat;
     }
 

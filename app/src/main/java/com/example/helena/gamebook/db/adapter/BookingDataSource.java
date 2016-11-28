@@ -65,6 +65,7 @@ public class BookingDataSource {
         GameDataSource gds = new GameDataSource(this.context);
         Game game = gds.getGameById(cursor.getLong(cursor.getColumnIndex(tableBOOKING.BOOKING_FK_GAME)));
         booking.setGame(game);
+        booking.setNum_seat(cursor.getString(cursor.getColumnIndex(tableBOOKING.BOOKING_NUM_SEAT)));
 
         return booking;
     }
@@ -91,7 +92,7 @@ public class BookingDataSource {
                 GameDataSource gds = new GameDataSource(context);
                 Game game = gds.getGameById(cursor.getLong(cursor.getColumnIndex(tableBOOKING.BOOKING_FK_GAME)));
                 booking.setGame(game);
-
+                booking.setNum_seat(cursor.getString(cursor.getColumnIndex(tableBOOKING.BOOKING_NUM_SEAT)));
 
                 bookings.add(booking);
             }

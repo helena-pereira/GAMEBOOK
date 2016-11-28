@@ -20,13 +20,7 @@ public class Game {
     private String team_ext ;
     private String quantity ;
     private String statut;
-    //private String nb_places_dispo;
-    //private Stade stade;
     //private String stade ;
-
-
-
-
 
     public int getId() {
         return _id;
@@ -89,20 +83,6 @@ public class Game {
         this.statut = statut;
     }
 /*
-    public String getNb_places_dispo() {
-        return nb_places_dispo;
-    }
-
-    public void setNb_places_dispo(String nb_places_dispo) {
-        this.nb_places_dispo = nb_places_dispo;
-    }
-
-    public Stade getStade() { return stade;}
-
-    public void setStade(Stade stade) {
-        this.stade = stade;
-    }
-
     public String getStade() {
         return stade;
     }

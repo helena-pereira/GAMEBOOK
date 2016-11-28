@@ -26,7 +26,7 @@ public class FeedReaderContract {
         public static final String GAME_QUANTITE = "quantite";
         public static final String GAME_STATUT = "statut";
         //public static final String GAME_NB_PLACES_DISPO = "nb_places dispos";
-        public static final String GAME_STADE = "stade";
+        //public static final String GAME_STADE = "stade";
 
 
         public static final String CREATE_TABLE_GAME = "CREATE TABLE " +
@@ -60,7 +60,7 @@ public class FeedReaderContract {
         public static final String CREATE_TABLE_BOOKING = "CREATE TABLE " +
                 tableBOOKING.TABLE_NAME + " (" +
                 tableBOOKING.BOOKING_ID + " INTEGER PRIMARY KEY AUTOINCREMENT" + COMMA_SEP +
-                tableBOOKING.BOOKING_NUM_SEAT + " INTEGER" + COMMA_SEP +
+                tableBOOKING.BOOKING_NUM_SEAT + TEXT_TYPE + COMMA_SEP +
                 tableBOOKING.BOOKING_FK_GAME + " INTEGER, " +
                 tableBOOKING.BOOKING_FK_CUSTOMER + " INTEGER, "
                 + " FOREIGN KEY (" + tableBOOKING.BOOKING_FK_GAME + ") REFERENCES " + tableGAME.TABLE_NAME + " (" + tableGAME.GAME_ID + "), "

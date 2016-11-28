@@ -39,7 +39,6 @@
         <activity android:name=".NewMatch" />
         <activity android:name=".NewBooking" />
         <activity android:name=".EditBooking" />
-        <activity android:name=".TheBooking" />
         <activity android:name=".ListOfBooking" />
         <activity android:name=".TEST_MATCHS"></activity>
     </application>

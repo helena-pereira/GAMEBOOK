@@ -28,9 +28,10 @@ import org.w3c.dom.Text;
 public class NewBooking extends AppCompatActivity {
     Integer idGame ;
     Integer idCustomer;
+    Integer TheidBooking;
     Integer idBooking;
     Bundle bundle;
-    Bundle bundle2;
+    Bundle bundle2, bundle3;
     Context context;
 
     TextView idEditGame,idClientName;
@@ -74,6 +75,18 @@ public class NewBooking extends AppCompatActivity {
         }
 
 
+        if(savedInstanceState == null){
+            bundle3 = getIntent().getExtras();
+            if(bundle3 == null){
+                idBooking = null;
+            } else {
+                idBooking = bundle3.getInt("idBooking");
+            }
+        }else{
+            idBooking = (int) savedInstanceState.getSerializable("idBooking");
+        }
+
+
 
         load();
 
@@ -98,17 +111,16 @@ public class NewBooking extends AppCompatActivity {
         booking.setGame(game1);
         booking.setCustomer(customer);
 
-        Integer a = idSeat.getId();
-        booking.setNum_seat(a);
+        booking.setNum_seat(idSeat.getText().toString());
 
 
         idEditGame.setText(("N° :" + game1.getId() + " - " + game1.getTeam_res() + " vs. "+ game1.getTeam_ext()));
         idClientName.setText(customer.getNom() + " "+ customer.getPrenom());
-        idSeat.setId(booking.getNum_seat());
+        //idSeat.setText(booking.getNum_seat());
 
 
         bds.createBooking(booking);
-        idBooking = booking.getId();
+        TheidBooking = booking.getId();
 
 
 
@@ -141,6 +153,19 @@ public class NewBooking extends AppCompatActivity {
     }
 
     public void toTheMatch(View view) {
+        idSeat = (EditText)findViewById(R.id.idEditSeat);
+
+        Booking booking = new Booking();
+        BookingDataSource bds = new BookingDataSource(context);
+
+        booking.setNum_seat(idSeat.getText().toString());
+        //booking.setCustomer(booking.getCustomer().getId());
+        booking.setGame(booking.getGame());
+
+        bds.createBooking(booking);
+
+
+
         Intent toTheMatch = new Intent(this,MatchList.class);
         toTheMatch.putExtra("idCustomer", idCustomer);
         toTheMatch.putExtra("idBooking", idBooking);

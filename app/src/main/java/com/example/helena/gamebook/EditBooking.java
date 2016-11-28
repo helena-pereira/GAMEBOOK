@@ -70,7 +70,7 @@ public class EditBooking extends AppCompatActivity {
 
                 etidGame.setText("N°: " + booking.getGame().getId() + " - "+booking.getGame().getTeam_res() + " vs. " + booking.getGame().getTeam_ext());
                 etidClientName.setText(booking.getCustomer().getNom() + " " + booking.getCustomer().getPrenom());
-                //etidSeat.setText(booking.getNum_seat());
+                etidSeat.setText(booking.getNum_seat().toString());
 
 
             }
@@ -85,13 +85,19 @@ public class EditBooking extends AppCompatActivity {
         etidSeat = (EditText)findViewById(R.id.idSeat);
 
         Booking booking = new Booking();
-       // booking.setNum_seat(etidSeat);
-
         BookingDataSource bds = new BookingDataSource(context);
         booking = bds.getBookingById(idBooking);
 
-        BookingDataSource bds2 = new BookingDataSource(context);
-        bds2.updateBooking(booking);
+
+        booking.setNum_seat(etidSeat.toString());
+        booking.setCustomer(booking.getCustomer());
+        booking.setGame(booking.getGame());
+
+        //booking = bds.getBookingById(idBooking);
+
+        bds.createBooking(booking);
+        //BookingDataSource bds2 = new BookingDataSource(context);
+        //bds2.updateBooking(booking);
 
         Intent toListMatch = new Intent(this,ListOfBooking.class);
             toListMatch.putExtra("idCustomer", idCustomer);

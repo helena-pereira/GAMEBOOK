@@ -103,6 +103,10 @@ public class ListOfBooking extends AppCompatActivity {
         startActivity(backToHome);
     }
 
+    public void onClickGoToAddNewBooking(View view){
+        // Coder pour ajouter un Booking
+    }
+
 
     //*MErci de faire le nécessaire concernant les update et
     //les traductions
