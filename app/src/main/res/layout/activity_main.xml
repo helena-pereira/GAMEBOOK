@@ -86,16 +86,6 @@
                 android:textStyle="bold"
                 android:onClick="toRegister"/>
 
-            <Button
-                android:id="@+id/idHome"
-                style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Home"
-                android:textStyle="bold"
-                android:onClick="goHome"/>
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

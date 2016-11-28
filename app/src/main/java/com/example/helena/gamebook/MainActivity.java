@@ -91,12 +91,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(toRegister);
     }
 
-    // redirection vers la page d'accueil
-    public void goHome(View view){
-        Intent goHome = new Intent(this,home.class);
-        startActivity(goHome);
-    }
-
     public void signIn(View view) {
 
         EditText email = (EditText) findViewById(R.id.email);

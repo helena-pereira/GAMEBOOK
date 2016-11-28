@@ -49,7 +49,6 @@ public class ListOfBooking extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
 
-        
         if(savedInstanceState == null){
             bundle = getIntent().getExtras();
             if(bundle == null){

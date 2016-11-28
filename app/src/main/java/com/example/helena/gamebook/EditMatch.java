@@ -2,10 +2,12 @@ package com.example.helena.gamebook;
 
 import android.app.DialogFragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -139,24 +141,54 @@ public class EditMatch extends AppCompatActivity  {
         toListMatch.putExtra("idGame", idGame);
         toListMatch.putExtra("idCustomer", idCustomer);
         startActivity(toListMatch);
-
     }
 
 
+    // refresh pour le changement de langue ou redirection pour la déconnexion
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch(item.getItemId()) {
             case R.id.logout:
-                Intent toMain = new Intent(this, MainActivity.class);
-                startActivity(toMain);
+                AlertDialog.Builder alertDeleteBooking = new AlertDialog.Builder(this);
+                // Le titre du Dialog Alert
+                alertDeleteBooking.setTitle(R.string.LogOutUserTitle);
+
+                // Message du Dialog Alert
+                alertDeleteBooking.setMessage(R.string.LogOutUserMessage);
+
+                // Icon de suppression
+                alertDeleteBooking.setIcon(R.mipmap.logout);
+
+                // si on clique oui
+                alertDeleteBooking.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int which) {
+
+                        Intent toMain = new Intent(EditMatch.this, MainActivity.class);
+                        toMain.putExtra("idCustomer", idCustomer);
+                        startActivity(toMain);
+                    }
+                });
+
+                // Si on clique sur non
+                alertDeleteBooking.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // ça ferme tout simplement le dialog
+                        dialog.cancel();
+                    }
+                });
+                // On montre l'alerte
+                alertDeleteBooking.show();
                 break;
             case R.id.id_enFlag:
-                Intent toTheSame = new Intent(this, EditMatch.class);
+                LocaleHelper.setLocale(this, "en");
+                Intent toTheSame = new Intent(EditMatch.this, EditMatch.class);
+                toTheSame.putExtra("idGame", idGame);
                 startActivity(toTheSame);
                 break;
             case R.id.id_frFlag:
                 LocaleHelper.setLocale(this, "fr");
-                toTheSame = new Intent(this, EditMatch.class);
+                toTheSame = new Intent(EditMatch.this, EditMatch.class);
+                toTheSame.putExtra("idGame", idGame);
                 startActivity(toTheSame);
                 break;
         }
@@ -168,10 +200,4 @@ public class EditMatch extends AppCompatActivity  {
         toTheMatch.putExtra("idGame", idGame);
         startActivity(toTheMatch);
     }
-
-    // pour la date
-     /*public void showDatePickerDialog(View view){
-        DialogFragment fragment = new DatePickerFragment();
-        fragment.show(fragment.getFragmentManager(),"date");
-    }*/
 }

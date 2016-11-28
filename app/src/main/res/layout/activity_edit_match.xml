@@ -14,16 +14,12 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         style="@style/tableau">
-        <TableRow>
+        <TableRow
+            android:gravity="center_horizontal">
             <TextView
                 android:text="Modifier le match"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/idNameMatch"
-                android:textSize="24sp"
-                tools:textAlignment="center"
                 style="@style/title"/>
-
         </TableRow>
 
         <TableRow>
@@ -33,40 +29,15 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/LabelDate"
                 android:layout_weight="1"
-                />
-
-            <!--
-            <button
-                android:id="@+id/button_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pick_date"
-                android:onClick="showDatePickerDialog"
-                android:layout_centerVertical="true"
-                android:layout_weight="1"/>
-            -->
-            <!--c'est un champ spécialement pour sélectionner les dates
-            <DatePicker
-                android:text="BDD"
-                android:layout_width="274dp"
-                android:ems="10"
-                android:layout_height="wrap_content"
-                android:id="@+id/idDate"
-                android:layout_weight="1" />-->
-        </TableRow>
-
-        <TableRow>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/idVide"
-                android:layout_weight="1" />
+                style="@style/textView"
+                android:textStyle="bold"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/idEditDate"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
@@ -75,22 +46,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/LabelHeure"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"
+                android:textStyle="bold"/>
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/idEditHeure"
-                android:layout_weight="1" />
-
-            <!--
-            <TimePicker
-                android:text="BDD"
-                android:layout_width="274dp"
-                android:ems="10"
-                android:layout_height="wrap_content"
-                android:id="@+id/idHeure"
-                android:layout_weight="1" />-->
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
@@ -99,14 +64,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/LabelStade"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"
+                android:textStyle="bold"/>
 
             <EditText
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
                 android:id="@+id/idEditStade"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
@@ -115,14 +83,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/LabelResident"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"
+                android:textStyle="bold"/>
 
             <EditText
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
                 android:id="@+id/idEditResident"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
@@ -131,66 +102,52 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:id="@+id/LabelVisiteur"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"
+                android:textStyle="bold"/>
 
             <EditText
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="match_parent"
                 android:id="@+id/idEditVisiteur"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
-            <TextView
-                android:text="@string/statut"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:id="@+id/LabelStatut"
-                android:layout_weight="1" />
 
             <TextView
                 android:text="@string/quantite"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:id="@+id/LabelQuantite"
-                android:layout_weight="1" />
-        </TableRow>
-
-        <TableRow>
-            <ToggleButton
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:id="@+id/idEditStatut"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"
+                android:textStyle="bold"/>
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:id="@+id/idEditQuantite"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
             <Button
                 android:text="@string/cancel"
                 style="@style/button_cancel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/buttonCancel"
-                android:layout_weight="1"
-                android:background="@android:color/holo_red_dark"
                 android:onClick="toTheMatch"
                 />
+        </TableRow>
 
+        <TableRow>
             <Button
                 android:text="@string/register"
                 style="@style/button_save"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/buttonEdit"
-                android:layout_weight="1"
-                android:background="@android:color/holo_green_light"
                 android:onClick="save"/>
         </TableRow>
 
