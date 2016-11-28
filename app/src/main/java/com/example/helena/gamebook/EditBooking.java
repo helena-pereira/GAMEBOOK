@@ -17,8 +17,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.helena.gamebook.db.adapter.BookingDataSource;
+import com.example.helena.gamebook.db.adapter.CustomerDataSource;
 import com.example.helena.gamebook.db.adapter.GameDataSource;
 import com.example.helena.gamebook.db.object.Booking;
+import com.example.helena.gamebook.db.object.Customer;
 import com.example.helena.gamebook.db.object.Game;
 
 import org.w3c.dom.Text;
@@ -89,10 +91,14 @@ public class EditBooking extends AppCompatActivity {
         Booking booking = new Booking();
         BookingDataSource bds = new BookingDataSource(context);
         booking = bds.getBookingById(idBooking);
+        CustomerDataSource cds = new CustomerDataSource(context);
+        Customer c = cds.getCustomerById(idCustomer);
 
+        GameDataSource gds = new GameDataSource(context);
+        //Game g = gds.getGameById(etidGame)
 
         booking.setNum_seat(etidSeat.toString());
-        booking.setCustomer(booking.getCustomer());
+        booking.setCustomer(c);
         booking.setGame(booking.getGame());
 
 
