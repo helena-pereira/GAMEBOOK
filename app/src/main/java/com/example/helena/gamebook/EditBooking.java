@@ -39,6 +39,7 @@ public class EditBooking extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_booking);
 
+        // paramètres de la nav bar
         getSupportActionBar().setHomeButtonEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
@@ -46,6 +47,7 @@ public class EditBooking extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
 
+        // affichage des données déjà inscrites
         if(savedInstanceState == null){
             bundle2 = getIntent().getExtras();
             if(bundle2 == null){
@@ -80,10 +82,9 @@ public class EditBooking extends AppCompatActivity {
         }else{
             idBooking = (int) savedInstanceState.getSerializable("idBooking");
         }
-
     }
 
-
+    // enregistrement des modifications
     public void save(View view){
         etidSeat = (EditText)findViewById(R.id.idSeat);
 
@@ -100,12 +101,11 @@ public class EditBooking extends AppCompatActivity {
         startActivity(toListMatch);
     }
 
-
+    // sélection du menu adéquat
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_basic,menu);
         return super.onCreateOptionsMenu(menu);
-
     }
     
     // refresh pour le changement de langue ou redirection pour la déconnexion
@@ -159,10 +159,10 @@ public class EditBooking extends AppCompatActivity {
         return false;
     }
 
+    // redirection vers le match
     public void toTheMatch(View view) {
         Intent toTheMatch = new Intent(this,ListOfBooking.class);
         toTheMatch.putExtra("idBooking", idBooking);
-        //toTheMatch.putExtra("idCustomer", a);
         startActivity(toTheMatch);
     }
 }

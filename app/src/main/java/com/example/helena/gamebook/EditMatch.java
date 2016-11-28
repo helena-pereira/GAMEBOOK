@@ -39,13 +39,14 @@ public class EditMatch extends AppCompatActivity  {
 
         context = this;
 
+        // paramètres de la nav bar
         getSupportActionBar().setHomeButtonEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.football);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
-
+        // affichage des données déjà inscrites
         if(savedInstanceState == null){
             bundle = getIntent().getExtras();
             if(bundle == null){
@@ -71,6 +72,7 @@ public class EditMatch extends AppCompatActivity  {
         loadGameSelected();
     }
 
+    // chargement des données du match
     private void loadGameSelected() {
             GameDataSource gds = new GameDataSource(context);
             Game game = new Game();
@@ -93,38 +95,32 @@ public class EditMatch extends AppCompatActivity  {
 
     }
 
+    // sélection menu adéquat
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_basic,menu);
         return super.onCreateOptionsMenu(menu);
-
     }
 
+    // sauvegarder
     public void save(View view){
-        //SQLiteHelper helper = new SQLiteHelper(this);
-        //SQLiteDatabase db = helper.getWritableDatabase();
 
-        EditText Date, Heure, Stade, Resident, Visiteur, Quantite;
-        //ToggleButton Statut;
+        EditText Date, Heure, Resident, Visiteur, Quantite;
 
         Date = (EditText) findViewById(R.id.idEditDate);
         Heure = (EditText) findViewById(R.id.idEditHeure);
-        //Stade = (EditText) findViewById(R.id.idStade);
         Resident = (EditText) findViewById(R.id.idEditResident);
         Visiteur = (EditText) findViewById(R.id.idEditVisiteur);
         Quantite = (EditText) findViewById(R.id.idEditQuantite);
 
         Game game = new Game();
-        //Stade stade = new Stade();
 
         game.setId(idGame);
 
         game.setDate(Date.getText().toString());
         game.setHeure(Heure.getText().toString());
-        //game.setStade(Stade.getText().toString());
         game.setTeam_res(Resident.getText().toString());
         game.setTeam_ext(Visiteur.getText().toString());
-        //game.setStatut(Statut.getText().toString());
 
         game.setQuantity(Quantite.getText().toString());
 
@@ -190,6 +186,7 @@ public class EditMatch extends AppCompatActivity  {
         return false;
     }
 
+    // retour
     public void toTheMatch(View view) {
         Intent toTheMatch = new Intent(this,TheMatch.class);
         toTheMatch.putExtra("idGame", idGame);
