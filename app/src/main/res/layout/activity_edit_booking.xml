@@ -29,14 +29,16 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/LabelGame"
                 android:layout_weight="1"
-                style="@style/textView"/>
+                style="@style/textView"
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
                 android:id="@+id/idGame"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
@@ -46,14 +48,16 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/LabelClientName"
                 android:layout_weight="1"
-                style="@style/textView"/>
+                style="@style/textView"
+                android:textStyle="bold"                />
 
             <TextView
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
                 android:id="@+id/idClientName"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
@@ -63,14 +67,16 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/LabelSeat"
                 android:layout_weight="1"
-                style="@style/textView"/>
+                style="@style/textView"
+                android:textStyle="bold"/>
 
             <EditText
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
                 android:id="@+id/idSeat"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>

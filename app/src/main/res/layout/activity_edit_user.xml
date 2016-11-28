@@ -30,14 +30,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/LabelName"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"
+                android:textStyle="bold"/>
 
             <EditText
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
                 android:id="@+id/EditName"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
@@ -46,14 +49,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/LabelFirstName"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"
+                android:textStyle="bold"/>
 
             <EditText
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
                 android:id="@+id/EditFirstName"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
@@ -62,14 +68,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/LabelEmail"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"
+                android:textStyle="bold"/>
 
             <EditText
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
                 android:id="@+id/EditEmail"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
@@ -78,14 +87,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:id="@+id/LabelPassword"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"
+                android:textStyle="bold"/>
 
             <EditText
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="match_parent"
                 android:id="@+id/EditPassword"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
