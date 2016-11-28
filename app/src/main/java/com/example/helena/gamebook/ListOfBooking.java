@@ -33,7 +33,7 @@ public class ListOfBooking extends AppCompatActivity {
     List<Booking> bookings;
     Integer idCustomer;
     Bundle bundle;
-    
+
 
     Context context;
     @Override
@@ -49,6 +49,7 @@ public class ListOfBooking extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
 
+        
         if(savedInstanceState == null){
             bundle = getIntent().getExtras();
             if(bundle == null){
