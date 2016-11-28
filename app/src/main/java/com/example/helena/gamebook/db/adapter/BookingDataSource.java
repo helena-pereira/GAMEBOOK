@@ -69,6 +69,7 @@ public class BookingDataSource {
         booking.setGame(game);
         booking.setNum_seat(cursor.getString(cursor.getColumnIndex(tableBOOKING.BOOKING_NUM_SEAT)));
 
+        db.close();
         return booking;
     }
 
@@ -100,6 +101,7 @@ public class BookingDataSource {
             }
             while(cursor.moveToNext());
         }
+        db.close();
         return bookings;
     }
 

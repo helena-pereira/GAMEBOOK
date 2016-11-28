@@ -34,7 +34,6 @@ public class ListOfBooking extends AppCompatActivity {
     Integer idCustomer;
     Bundle bundle;
 
-
     Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
