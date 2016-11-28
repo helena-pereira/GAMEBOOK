@@ -25,6 +25,8 @@ import com.example.helena.gamebook.db.object.Game;
 
 import org.w3c.dom.Text;
 
+import java.util.Random;
+
 public class NewBooking extends AppCompatActivity {
     Integer idGame;
     Integer idCustomer;
@@ -133,7 +135,9 @@ public class NewBooking extends AppCompatActivity {
         GameDataSource gds = new GameDataSource(context);
         CustomerDataSource cds = new CustomerDataSource(context);
 
-        booking.setId(1);
+        Integer x = (int)(Math.random()* 5 + 3 );
+
+        booking.setId(x);
         booking.setNum_seat(idSeat.getText().toString());
         booking.setCustomer(customer);
         booking.setGame(game1);
