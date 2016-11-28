@@ -71,7 +71,7 @@
     <string name="idListBooking">Reservations</string>
     <string name="editBooking">Modification de la réservation</string>
     <string name="game">Le match</string>
-    <string name="ClientName">Nom complet du client</string>
+    <string name="ClientName">Client</string>
     <string name="seat">Siège</string>
     <string name="TheBooking">La réservation</string>
     <string name="addNewBooking">Ajouter une réservation</string>
