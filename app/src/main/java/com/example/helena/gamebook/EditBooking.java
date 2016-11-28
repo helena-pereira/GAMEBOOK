@@ -95,11 +95,8 @@ public class EditBooking extends AppCompatActivity {
         booking.setCustomer(booking.getCustomer());
         booking.setGame(booking.getGame());
 
-        //booking = bds.getBookingById(idBooking);
 
-        bds.createBooking(booking);
-        //BookingDataSource bds2 = new BookingDataSource(context);
-        //bds2.updateBooking(booking);
+        bds.updateBooking(booking);
 
         Intent toListMatch = new Intent(this,ListOfBooking.class);
             toListMatch.putExtra("idCustomer", idCustomer);
