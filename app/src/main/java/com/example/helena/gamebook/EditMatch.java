@@ -1,19 +1,17 @@
 package com.example.helena.gamebook;
 
+import android.app.DialogFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.example.helena.gamebook.db.SQLiteHelper;
 import com.example.helena.gamebook.db.adapter.GameDataSource;
@@ -24,12 +22,11 @@ import com.example.helena.gamebook.db.object.Game;
  * Cette classe permet de modifier les données d'un match
  */
 
-public class EditMatch extends AppCompatActivity {
+public class EditMatch extends AppCompatActivity  {
 
     Integer idGame ;
     Context context;
     Bundle bundle;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,8 +82,6 @@ public class EditMatch extends AppCompatActivity {
 
     }
 
-
-
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_basic,menu);
@@ -136,20 +131,22 @@ public class EditMatch extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch(item.getItemId()) {
+            case R.id.logout:
+                Intent toMain = new Intent(this, MainActivity.class);
+                startActivity(toMain);
+                break;
             case R.id.id_enFlag:
-                LocaleHelper.setLocale(this,"en");
-                updateViews();
+                LocaleHelper.setLocale(this, "en");
+                Intent toTheSame = new Intent(this, MatchList.class);
+                startActivity(toTheSame);
                 break;
             case R.id.id_frFlag:
-                LocaleHelper.setLocale(this,"fr");
-                updateViews();
-                break;
-            default:
-                LocaleHelper.setLocale(this,"en");
-                updateViews();
+                LocaleHelper.setLocale(this, "fr");
+                toTheSame = new Intent(this, MatchList.class);
+                startActivity(toTheSame);
                 break;
         }
-        return true;
+        return false;
     }
 
     public void toTheMatch(View view) {
@@ -158,8 +155,9 @@ public class EditMatch extends AppCompatActivity {
         startActivity(toTheMatch);
     }
 
-    private void updateViews() {
-        Resources resources = getResources();
-
-    }
+    // pour la date
+     /*public void showDatePickerDialog(View view){
+        DialogFragment fragment = new DatePickerFragment();
+        fragment.show(fragment.getFragmentManager(),"date");
+    }*/
 }

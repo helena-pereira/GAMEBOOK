@@ -64,6 +64,8 @@
     <string name="editMatch">Modify the game</string>
     <string name="addNewMatch">Add a new Game</string>
     <string name="newMatch">New Game</string>
+    <string name="pick_date">Choose the date</string>
+
 
     <!--Booking-->
     <string name="idListBooking">Booking</string>
@@ -86,6 +88,8 @@
     <string name="deleteUserMessage">Are you sure you want to delete your account ?</string>
     <string name="LogOutUserTitle">Log Out</string>
     <string name="LogOutUserMessage">Are you sure you want to log out ?</string>
+    <string name="RegisterUserTitle">Save the modifications</string>
+    <string name="RegisterUserMessage">Are you sure to want to save the last modifications ?</string>
 
     <!--Bouttons-->
     <string name="cancel">Cancel</string>
