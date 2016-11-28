@@ -114,29 +114,6 @@ public class TheMatch extends AppCompatActivity {
 
     }
 
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        switch(item.getItemId()) {
-            case R.id.logout:
-                Intent toMain = new Intent(this, MainActivity.class);
-                startActivity(toMain);
-                break;
-            case R.id.id_enFlag:
-                LocaleHelper.setLocale(this, "en");
-                Intent toTheSame = new Intent(this, TheMatch.class);
-                toTheSame.putExtra("idGame", idGame);
-                startActivity(toTheSame);
-                break;
-            case R.id.id_frFlag:
-                LocaleHelper.setLocale(this, "fr");
-                toTheSame = new Intent(this, TheMatch.class);
-                toTheSame.putExtra("idGame", idGame);
-                startActivity(toTheSame);
-                break;
-        }
-        return false;
-    }
-
     //Revenir MatchList
     public void goToAllMatch(View view){
         Intent goToAllMatch = new Intent(this,MatchList.class);
@@ -170,44 +147,55 @@ public class TheMatch extends AppCompatActivity {
     }
 
 
-    public void toDelete(View view){
-        AlertDialog.Builder alertDeleteBooking = new AlertDialog.Builder(this);
-        // Titre
-        alertDeleteBooking.setTitle(R.string.deleteBookingTitle);
+    // refresh pour le changement de langue ou redirection pour la déconnexion
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch(item.getItemId()) {
+            case R.id.logout:
+                AlertDialog.Builder alertDeleteBooking = new AlertDialog.Builder(this);
+                // Le titre du Dialog Alert
+                alertDeleteBooking.setTitle(R.string.LogOutUserTitle);
 
-        // Message
-        alertDeleteBooking.setMessage(R.string.deleteBookingMessage);
+                // Message du Dialog Alert
+                alertDeleteBooking.setMessage(R.string.LogOutUserMessage);
 
-        // Icon de suppression
-        alertDeleteBooking.setIcon(R.mipmap.delete);
+                // Icon de suppression
+                alertDeleteBooking.setIcon(R.mipmap.logout);
 
-        // Si on clique sur oui ça supprime un message
-        alertDeleteBooking.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog,int which) {
+                // si on clique oui
+                alertDeleteBooking.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int which) {
 
-                /*
-                Helena : suppression d'un match
-                 */
-                GameDataSource gds = new GameDataSource(context);
-                gds.deleteGame(idGame);
+                        Intent toMain = new Intent(TheMatch.this, MainActivity.class);
+                        toMain.putExtra("idCustomer", idCustomer);
+                        startActivity(toMain);
+                    }
+                });
 
-                dialog.cancel();
-                Intent toListMatch = new Intent(TheMatch.this,MatchList.class);
-                toListMatch.putExtra("idCustomer", idCustomer);
-                toListMatch.putExtra("idGame", idGame);
-                startActivity(toListMatch);
-            }
-        });
-
-        // Si on clique sous non ça ferme le dialog
-        alertDeleteBooking.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-        // Montrer le dialog
-        alertDeleteBooking.show();
+                // Si on clique sur non
+                alertDeleteBooking.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // ça ferme tout simplement le dialog
+                        dialog.cancel();
+                    }
+                });
+                // On montre l'alerte
+                alertDeleteBooking.show();
+                break;
+            case R.id.id_enFlag:
+                LocaleHelper.setLocale(this, "en");
+                Intent toTheSame = new Intent(TheMatch.this, TheMatch.class);
+                toTheSame.putExtra("idGame", idGame);
+                startActivity(toTheSame);
+                break;
+            case R.id.id_frFlag:
+                LocaleHelper.setLocale(this, "fr");
+                toTheSame = new Intent(TheMatch.this, TheMatch.class);
+                toTheSame.putExtra("idGame", idGame);
+                startActivity(toTheSame);
+                break;
+        }
+        return false;
     }
-
 
 }

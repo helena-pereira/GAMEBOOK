@@ -13,13 +13,12 @@
     <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
-        <TableRow>
+        <TableRow
+            android:gravity="center_horizontal">
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:text="@string/TheMatch"
                 android:id="@+id/idNameMatch"
-                android:textSize="24sp"
-                android:layout_marginBottom="50px"
+                style="@style/title"
                 />
         </TableRow>
 
@@ -29,14 +28,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/LabelDate"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
                 android:id="@+id/idDate"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
@@ -45,14 +47,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/LabelHeure"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
                 android:id="@+id/idHeure"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
@@ -61,14 +66,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/LabelStade"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
                 android:id="@+id/idStade"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
@@ -77,14 +85,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/LabelResident"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
                 android:id="@+id/idResident"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
@@ -93,76 +104,58 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:id="@+id/LabelVisiteur"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="match_parent"
                 android:id="@+id/idVisiteur"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
-        <TextView
-            android:text="@string/statut"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:id="@+id/LabelStatut"
-            android:layout_weight="1" />
-
         <TextView
             android:text="@string/quantite"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:id="@+id/LabelQuantite"
-            android:layout_weight="1" />
-    </TableRow>
-
-        <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:id="@+id/idStatut"
-                android:layout_weight="1" />
+            android:layout_weight="1"
+            style="@style/textView"
+            android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:id="@+id/idQuantite"
-                android:layout_weight="1" />
-        </TableRow>
+                android:layout_weight="1"
+                style="@style/textView"/>
+    </TableRow>
 
         <TableRow>
             <Button
                 android:text="@string/addNewBooking"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/button_add"
                 android:id="@+id/buttonNewBooking"
-                android:layout_weight="1"
                 android:onClick="toNewBooking"/>
         </TableRow>
         <TableRow>
             <Button
                 android:text="@string/delete"
                 style="@style/button_delete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/buttonDelete"
-                android:layout_weight="1"
-                android:background="@android:color/holo_red_dark"
                 android:onClick="toDelete"
                 />
+        </TableRow>
 
+        <TableRow>
             <Button
                 android:text="@string/edit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 style="@style/button_save"
                 android:id="@+id/buttonEdit"
-                android:layout_weight="1"
-                android:background="@android:color/holo_green_light"
                 android:onClick="toEditMatch"/>
         </TableRow>
 
@@ -170,12 +163,7 @@
 
     <Button
         android:text="Retour"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         style="@style/button_back"
         android:id="@+id/button"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="68dp"
         android:onClick="goToAllMatch"/>
 </RelativeLayout>

@@ -90,7 +90,7 @@
                 android:layout_weight="1"
                 style="@style/textView"
                 android:textStyle="bold"/>
- 
+
             <EditText
                 android:layout_width="274dp"
                 android:ems="10"
