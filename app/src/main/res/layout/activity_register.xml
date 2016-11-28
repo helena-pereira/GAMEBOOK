@@ -11,20 +11,19 @@
     tools:context="com.example.helena.gamebook.Register">
 
 
-
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true">
+
         <TableRow android:layout_width="wrap_content"
+            android:gravity="center_horizontal"
             android:layout_height="wrap_content">
             <TextView
                 android:text="@string/id_new_user"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/id_new_user"
-                android:textSize="24sp" />
+                style="@style/title"
+                android:id="@+id/id_new_user"/>
         </TableRow>
         <TableRow android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -127,27 +126,24 @@
                 android:layout_weight="1" />
         </TableRow>
 
-        <TableRow android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <TableRow>
             <Button
                 android:text="@string/enregistrer"
                 style="@style/button_save"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/buttonEdit"
-                android:layout_weight="1"
-                android:background="@android:color/holo_green_light"
                 android:onClick="onClickRegister"/>
+        </TableRow>
+
+        <TableRow>
+            <Button
+                android:text="@string/retour"
+                style="@style/button_back"
+                android:id="@+id/buttonReturn"
+                android:onClick="returnMainActivity"
+                />
         </TableRow>
 
     </TableLayout>
 
-    <Button
-        android:text="@string/retour"
-        style="@style/button_back"
-        android:id="@+id/buttonReturn"
-        android:onClick="returnMainActivity"
-        android:layout_width="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_height="wrap_content" />
+
 </RelativeLayout>

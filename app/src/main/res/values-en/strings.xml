@@ -24,7 +24,7 @@
     <string name="MessageLoginIncorrect">The login or the password is incorrect !</string>
 
     <!-- Pour l'enregistrement REGISTER -->
-    <string name="id_new_user">Registering</string>
+    <string name="id_new_user">Registration</string>
     <string name="enregistrer">Register</string>
     <string name="Confirmpassword">Confirm the Password</string>
     <string name="retour">Back</string>
