@@ -13,7 +13,7 @@ import com.example.helena.gamebook.db.object.Game;
 import java.util.List;
 
 /**
- * Created by Helena on 26.11.2016.
+ * Created by Helena on 20.11.2016.
  */
 
 public class GameAdapter extends ArrayAdapter<Game>{
@@ -22,6 +22,7 @@ public class GameAdapter extends ArrayAdapter<Game>{
     private final List<Game> games;
 
 
+    //constructor
     public GameAdapter(Context context, List<Game> games) {
         super(context, -1, games);
         this.context = context;
