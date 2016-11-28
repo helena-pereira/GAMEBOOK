@@ -153,7 +153,7 @@
 
         <TableRow>
             <Button
-                android:text="@string/edit"
+                android:text="@string/editMatch"
                 style="@style/button_save"
                 android:id="@+id/buttonEdit"
                 android:onClick="toEditMatch"/>

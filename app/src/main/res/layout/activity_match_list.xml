@@ -44,7 +44,7 @@
         <Button
             android:text="@string/AddNewGame"
             android:id="@+id/btn_AddNewUser"
-            android:onClick="onClickGoToAddNewBooking"
+            android:onClick="onClickGoToAddNewGame"
             style="@style/button_add"/>
     </LinearLayout>
 
