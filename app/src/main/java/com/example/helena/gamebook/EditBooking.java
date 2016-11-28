@@ -92,9 +92,6 @@ public class EditBooking extends AppCompatActivity {
         booking = bds.getBookingById(idBooking);
 
         booking.setNum_seat(etidSeat.getText().toString());
-        //booking.setCustomer(booking.getCustomer());
-        //booking.setGame(booking.getGame());
-
 
         bds.updateBooking(booking);
 

@@ -99,7 +99,9 @@ public class ListOfBooking extends AppCompatActivity {
     }
 
     public void onClickGoToAddNewBooking(View view){
-        // Coder pour ajouter un Booking
+        Intent backToHome = new Intent(this,MatchList.class);
+        backToHome.putExtra("idCustomer", idCustomer);
+        startActivity(backToHome);
     }
 
 
