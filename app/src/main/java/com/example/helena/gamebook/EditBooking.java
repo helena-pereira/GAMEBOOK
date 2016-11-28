@@ -114,7 +114,7 @@ public class EditBooking extends AppCompatActivity {
 
     }
 
-
+ 
     // refresh pour le changement de langue ou redirection pour la déconnexion
     public boolean onOptionsItemSelected(MenuItem item)
     {
