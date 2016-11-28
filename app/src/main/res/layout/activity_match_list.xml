@@ -54,29 +54,5 @@
             android:id="@+id/btn_backToSelectActionFromUW"
             android:onClick="onClickBackToSelectAction" />
 
-    <!--
-    <TextView
-        android:text="@string/idUser"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/idUser"
-        android:textSize="36sp"
-        tools:textAlignment="center" />
-
-    <Button
-        android:text="@string/addNewMatch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonNewMatch"
-        android:layout_weight="1"
-        android:background="@android:color/holo_blue_light"
-        android:onClick="ToNewMatch"/>
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/ListMatch"
-        android:onClick="toTheMatch"/>
--->
 </RelativeLayout>
 </ScrollView>

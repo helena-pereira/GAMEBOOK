@@ -16,11 +16,8 @@
         <TableRow>
             <TextView
                 android:text="@string/newBooking"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/idNameMatch"
-                android:textSize="24sp"
-                tools:textAlignment="center" />
+                style="@style/title"/>
         </TableRow>
 
         <TableRow>
@@ -29,14 +26,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/LabelGame"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"
+                android:layout_marginTop="20dp"/>
 
             <TextView
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
                 android:id="@+id/idEitTheGame"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
@@ -45,14 +45,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/LabelClientName"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"
+                android:layout_marginTop="20dp"/>
 
             <TextView
                 android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="wrap_content"
                 android:id="@+id/idClientName"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
@@ -61,7 +64,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/LabelSeat"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"
+                android:layout_marginTop="20dp"/>
 
             <EditText
                 android:layout_width="274dp"
@@ -69,28 +74,24 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/idEditSeat"
                 android:inputType="number"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
             <Button
                 android:text="@string/cancel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/buttonCancel"
-                android:layout_weight="1"
-                android:background="@android:color/holo_red_dark"
                 android:onClick="toTheMatch"
-                />
+                style="@style/button_cancel"/>
+        </TableRow>
 
+        <TableRow>
             <Button
                 android:text="@string/register"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/buttonEdit"
-                android:layout_weight="1"
-                android:background="@android:color/holo_green_light"
-                android:onClick="toTheMatch"/>
+                android:onClick="toTheMatch"
+                style="@style/button_save" />
         </TableRow>
 
     </TableLayout>
