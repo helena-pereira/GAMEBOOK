@@ -46,12 +46,14 @@ public class NewMatch extends AppCompatActivity {
         setContentView(R.layout.activity_new_match);
         context = this;
 
+        // paramètres de la nav bar
         this.getSupportActionBar().setHomeButtonEnabled(false);
         this.getSupportActionBar().setDisplayShowHomeEnabled(true);
         this.getSupportActionBar().setDisplayUseLogoEnabled(true);
         this.getSupportActionBar().setLogo(R.mipmap.football);
         this.getSupportActionBar().setDisplayShowTitleEnabled(true);
-        //this.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6C7CE2")));
+
+        // affichage du jeu et du Customer
         if(savedInstanceState == null){
             bundle = getIntent().getExtras();
             if(bundle == null){
@@ -73,9 +75,9 @@ public class NewMatch extends AppCompatActivity {
         }else{
             idCustomer = (int) savedInstanceState.getSerializable("idCustomer");
         }
-
     }
 
+    // sélection du menu adéquat
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_basic,menu);
@@ -135,17 +137,20 @@ public class NewMatch extends AppCompatActivity {
         return false;
     }
 
+    // redirection vers le match
     public void toTheMatch(View view) {
         Intent toTheMatch = new Intent(this,TheMatch.class);
         startActivity(toTheMatch);
     }
 
+    // redirection vers la liste des matchs
     public void toListMatch(View view) {
         Intent toListMatch = new Intent(this,MatchList.class);
         toListMatch.putExtra("idCustomer", idCustomer);
         startActivity(toListMatch);
     }
 
+    // Création d'un nouveau match
     public void onClickRegister(View view) {
 
             EditText Date, Heure, Stade, Resident, Visiteur, Quantite;

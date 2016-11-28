@@ -43,12 +43,14 @@ public class TheMatch extends AppCompatActivity {
 
         context = this;
 
+        // paramètres de la nav bar
         getSupportActionBar().setHomeButtonEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.football);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
+        // affichage du jeu
         if(savedInstanceState == null){
             bundle = getIntent().getExtras();
             if(bundle == null){
@@ -70,14 +72,10 @@ public class TheMatch extends AppCompatActivity {
         }else{
             idCustomer = (int) savedInstanceState.getSerializable("idCustomer");
         }
-
-
         loadGameSelected();
-
-
-
     }
 
+    // chargement des données du match selectionné
     private void loadGameSelected() {
 
         GameDataSource gds = new GameDataSource(context);
@@ -94,21 +92,19 @@ public class TheMatch extends AppCompatActivity {
 
         game = gds.getGameById(idGame);
 
-
         idDate.setText(game.getDate());
         idHeure.setText(game.getHeure());
         idResident.setText(game.getTeam_res());
         idVisiteur.setText(game.getTeam_ext());
         idQuantite.setText(game.getQuantity());
         idNameMatch.setText(game.getTeam_res() + " vs. "+ game.getTeam_ext());
-
     }
 
+    // sélection du menu adéquat
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_basic,menu);
         return super.onCreateOptionsMenu(menu);
-
     }
 
     //Revenir MatchList
@@ -231,5 +227,4 @@ public class TheMatch extends AppCompatActivity {
         }
         return false;
     }
-
 }
