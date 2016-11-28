@@ -13,8 +13,9 @@
     <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
-        <TableRow>
-            <TextView
+        <TableRow
+            android:gravity="center_horizontal">
+        <TextView
                 android:text="@string/newBooking"
                 android:id="@+id/idNameMatch"
                 style="@style/title"/>
@@ -25,16 +26,16 @@
                 android:text="@string/game"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/LabelGame"
                 android:layout_weight="1"
+                android:id="@+id/LabelGame"
                 style="@style/textView"
-                android:layout_marginTop="20dp"/>
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="274dp"
+                android:id="@+id/idEitTheGame"
                 android:ems="10"
                 android:layout_height="wrap_content"
-                android:id="@+id/idEitTheGame"
                 android:layout_weight="1"
                 style="@style/textView"/>
         </TableRow>
@@ -42,18 +43,18 @@
         <TableRow>
             <TextView
                 android:text="@string/ClientName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/LabelClientName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 style="@style/textView"
-                android:layout_marginTop="20dp"/>
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="274dp"
+                android:id="@+id/idClientName"
                 android:ems="10"
                 android:layout_height="wrap_content"
-                android:id="@+id/idClientName"
                 android:layout_weight="1"
                 style="@style/textView"/>
         </TableRow>
@@ -61,19 +62,18 @@
         <TableRow>
             <TextView
                 android:text="@string/seat"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/LabelSeat"
                 android:layout_weight="1"
+                android:id="@+id/LabelSeat"
                 style="@style/textView"
-                android:layout_marginTop="20dp"/>
+                android:textStyle="bold"/>
 
             <EditText
-                android:layout_width="274dp"
-                android:ems="10"
-                android:layout_height="wrap_content"
                 android:id="@+id/idEditSeat"
                 android:inputType="number"
+                android:ems="10"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 style="@style/textView"/>
         </TableRow>

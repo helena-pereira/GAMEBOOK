@@ -147,12 +147,14 @@ public class NewBooking extends AppCompatActivity {
             case R.id.id_enFlag:
                 LocaleHelper.setLocale(this, "en");
                 Intent toTheSame = new Intent(NewBooking.this, NewBooking.class);
+                toTheSame.putExtra("idGame", idGame);
                 toTheSame.putExtra("idCustomer", idCustomer);
                 startActivity(toTheSame);
                 break;
             case R.id.id_frFlag:
                 LocaleHelper.setLocale(this, "fr");
                 toTheSame = new Intent(NewBooking.this, NewBooking.class);
+                toTheSame.putExtra("idGame", idGame);
                 toTheSame.putExtra("idCustomer", idCustomer);
                 startActivity(toTheSame);
                 break;

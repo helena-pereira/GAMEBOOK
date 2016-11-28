@@ -89,7 +89,6 @@ public class TheMatch extends AppCompatActivity {
         //idStade = (TextView)findViewById(R.id.idStade);
         idResident = (TextView)findViewById(R.id.idResident);
         idVisiteur = (TextView)findViewById(R.id.idVisiteur);
-        idStatut = (TextView)findViewById(R.id.idStatut);
         idQuantite = (TextView)findViewById(R.id.idQuantite);
         idNameMatch = (TextView)findViewById(R.id.idNameMatch);
 

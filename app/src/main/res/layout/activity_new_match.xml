@@ -13,174 +13,120 @@
     <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
-        <TableRow>
+        <TableRow
+            android:gravity="center_horizontal">
            <TextView
                 android:text="@string/newMatch"
                style="@style/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/idNameMatch"
-                android:textSize="24sp"
-                tools:textAlignment="center"
-                android:layout_marginBottom="30px"
                />
         </TableRow>
 
         <TableRow>
             <TextView
                 android:text="@string/date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/LabelDate"
-                android:layout_weight="1" />
-            <!--
-            <Button
-                android:id="@+id/button_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pick_date"
-                android:onClick="showDatePickerDialog"
-                android:layout_centerVertical="true"
-                android:layout_weight="1"/> -->
+                android:layout_weight="1"
+                style="@style/textView"
+                android:textStyle="bold"/>
 
-            <!--c'est un champ spécialement pour sélectionner les dates
-            <DatePicker
-                android:text="BDD"
-                android:layout_width="274dp"
+            <EditText
                 android:ems="10"
-                android:layout_height="wrap_content"
-                android:id="@+id/idDate"
-                android:layout_weight="1" />-->
-        </TableRow>
-
-        <TableRow>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/idVide"
-                android:layout_weight="1" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/idEditDate"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
             <TextView
                 android:text="@string/heure"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/LabelHeure"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"
+                android:textStyle="bold"/>
 
             <EditText
-                android:layout_width="274dp"
                 android:ems="10"
-                android:layout_height="wrap_content"
                 android:id="@+id/idHeure"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
             <TextView
                 android:text="@string/stade"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/LabelStade"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"
+                android:textStyle="bold"/>
 
             <EditText
-                android:layout_width="274dp"
                 android:ems="10"
-                android:layout_height="wrap_content"
                 android:id="@+id/idStade"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView" />
         </TableRow>
 
         <TableRow>
             <TextView
                 android:text="@string/resident"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/LabelResident"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"
+                android:textStyle="bold"/>
 
             <EditText
-                android:layout_width="274dp"
                 android:ems="10"
-                android:layout_height="wrap_content"
                 android:id="@+id/idResident"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
             <TextView
                 android:text="@string/visiteur"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
                 android:id="@+id/LabelVisiteur"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"
+                android:textStyle="bold"/>
 
             <EditText
-                android:layout_width="274dp"
                 android:ems="10"
                 android:layout_height="match_parent"
                 android:id="@+id/idVisiteur"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
-            <TextView
-                android:text="@string/statut"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:id="@+id/LabelStatut"
-                android:layout_weight="1" />
-
             <TextView
                 android:text="@string/quantite"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
                 android:id="@+id/LabelQuantite"
-                android:layout_weight="1" />
-        </TableRow>
-
-        <TableRow>
-            <ToggleButton
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:id="@+id/idStatut"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"
+                android:textStyle="bold"/>
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:ems="10"
                 android:id="@+id/idQuantite"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/textView"/>
         </TableRow>
 
         <TableRow>
             <Button
                 android:text="@string/cancel"
                 style="@style/button_cancel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/buttonCancel"
-                android:layout_weight="1"
                 android:onClick="toListMatch"
                 />
-            <!--Etes vous sûre de vouloir supprimer le match?-->
+            </TableRow>
 
+        <TableRow>
             <Button
                 android:text="@string/register"
                 style="@style/button_save"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/buttonEdit"
-                android:layout_weight="1"
-                android:background="@android:color/holo_green_light"
                 android:onClick="onClickRegister"/>
         </TableRow>
 
