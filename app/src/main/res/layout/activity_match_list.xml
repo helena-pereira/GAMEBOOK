@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_match_list"
@@ -14,6 +18,7 @@
     <Button
         android:text="@string/retour"
         android:layout_height="wrap_content"
+        style="@style/button_back"
         android:id="@+id/btn_backToSelectActionFromUW"
         android:layout_width="wrap_content"
         android:onClick="onClickBackToSelectAction"/>
@@ -27,6 +32,7 @@
 
         <TextView
             android:text="@string/tv_titel"
+            style="@style/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_titel"
@@ -50,6 +56,7 @@
 
     <Button
         android:text="@string/AddNewGame"
+        style="@style/button_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btn_AddNewUser"
@@ -83,3 +90,4 @@
         android:onClick="toTheMatch"/>
 -->
 </RelativeLayout>
+</ScrollView>

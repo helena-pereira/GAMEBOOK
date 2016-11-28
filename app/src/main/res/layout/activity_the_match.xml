@@ -138,14 +138,15 @@
                 android:text="@string/addNewBooking"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/button_add"
                 android:id="@+id/buttonNewBooking"
                 android:layout_weight="1"
-                android:background="@android:color/holo_blue_light"
                 android:onClick="toNewBooking"/>
         </TableRow>
         <TableRow>
             <Button
                 android:text="@string/delete"
+                style="@style/button_delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/buttonDelete"
@@ -158,6 +159,7 @@
                 android:text="@string/edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/button_save"
                 android:id="@+id/buttonEdit"
                 android:layout_weight="1"
                 android:background="@android:color/holo_green_light"
@@ -170,6 +172,7 @@
         android:text="Retour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/button_back"
         android:id="@+id/button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"

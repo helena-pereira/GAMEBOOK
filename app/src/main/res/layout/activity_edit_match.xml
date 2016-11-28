@@ -12,7 +12,8 @@
 
     <TableLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        style="@style/tableau">
         <TableRow>
             <TextView
                 android:text="Modifier le match"
@@ -172,6 +173,7 @@
         <TableRow>
             <Button
                 android:text="@string/cancel"
+                style="@style/button_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/buttonCancel"
@@ -182,6 +184,7 @@
 
             <Button
                 android:text="@string/register"
+                style="@style/button_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/buttonEdit"

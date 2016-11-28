@@ -137,12 +137,12 @@ public class EditMatch extends AppCompatActivity  {
                 break;
             case R.id.id_enFlag:
                 LocaleHelper.setLocale(this, "en");
-                Intent toTheSame = new Intent(this, MatchList.class);
+                Intent toTheSame = new Intent(this, EditMatch.class);
                 startActivity(toTheSame);
                 break;
             case R.id.id_frFlag:
                 LocaleHelper.setLocale(this, "fr");
-                toTheSame = new Intent(this, MatchList.class);
+                toTheSame = new Intent(this, EditMatch.class);
                 startActivity(toTheSame);
                 break;
         }

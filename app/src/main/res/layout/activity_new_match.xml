@@ -16,6 +16,7 @@
         <TableRow>
            <TextView
                 android:text="@string/newMatch"
+               style="@style/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/idNameMatch"
@@ -163,17 +164,18 @@
         <TableRow>
             <Button
                 android:text="@string/cancel"
+                style="@style/button_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/buttonCancel"
                 android:layout_weight="1"
-                android:background="@android:color/holo_red_dark"
                 android:onClick="toListMatch"
                 />
             <!--Etes vous sûre de vouloir supprimer le match?-->
 
             <Button
                 android:text="@string/register"
+                style="@style/button_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/buttonEdit"

@@ -117,20 +117,24 @@ public class TheMatch extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item)
     {
         switch(item.getItemId()) {
+            case R.id.logout:
+                Intent toMain = new Intent(this, MainActivity.class);
+                startActivity(toMain);
+                break;
             case R.id.id_enFlag:
-                LocaleHelper.setLocale(this,"en");
-                updateViews();
+                LocaleHelper.setLocale(this, "en");
+                Intent toTheSame = new Intent(this, TheMatch.class);
+                toTheSame.putExtra("idGame", idGame);
+                startActivity(toTheSame);
                 break;
             case R.id.id_frFlag:
-                LocaleHelper.setLocale(this,"fr");
-                updateViews();
-                break;
-            default:
-                LocaleHelper.setLocale(this,"en");
-                updateViews();
+                LocaleHelper.setLocale(this, "fr");
+                toTheSame = new Intent(this, TheMatch.class);
+                toTheSame.putExtra("idGame", idGame);
+                startActivity(toTheSame);
                 break;
         }
-        return true;
+        return false;
     }
 
     public void goToAllMatch(View view){
@@ -200,34 +204,6 @@ public class TheMatch extends AppCompatActivity {
         });
         // Montrer le dialog
         alertDeleteBooking.show();
-    }
-
-
-    //STEPH CONTROLE CECI
-    private void updateViews() {
-        Resources resources = getResources();
-
-        TextView NameMatch = (TextView) findViewById(R.id.idNameMatch);
-        TextView LabelDate = (TextView) findViewById(R.id.LabelDate);
-        TextView LabelHeure = (TextView) findViewById(R.id.LabelHeure);
-        TextView LabelStade = (TextView) findViewById(R.id.LabelStade);
-        TextView LabelResident = (TextView) findViewById(R.id.LabelResident);
-        TextView LabelVisiteur = (TextView) findViewById(R.id.LabelVisiteur);
-        TextView LabelStatut = (TextView) findViewById(R.id.LabelStatut);
-        TextView LabelQuantite = (TextView) findViewById(R.id.LabelQuantite);
-        Button buttonDelete = (Button) findViewById(R.id.buttonDelete);
-        Button buttonEdit = (Button) findViewById(R.id.buttonEdit);
-
-        NameMatch.setContentDescription(resources.getString(R.string.TheMatch));
-        LabelDate.setContentDescription(resources.getString(R.string.date));
-        LabelHeure.setContentDescription(resources.getString(R.string.heure));
-        LabelStade.setContentDescription(resources.getString(R.string.stade));
-        LabelResident.setContentDescription(resources.getString(R.string.resident));
-        LabelVisiteur.setContentDescription(resources.getString(R.string.visiteur));
-        LabelStatut.setContentDescription(resources.getString(R.string.statut));
-        LabelQuantite.setContentDescription(resources.getString(R.string.quantite));
-        buttonDelete.setContentDescription(resources.getString(R.string.delete));
-        buttonEdit.setContentDescription(resources.getString(R.string.edit));
     }
 
 
