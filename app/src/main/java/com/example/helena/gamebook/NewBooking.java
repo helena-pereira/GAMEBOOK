@@ -26,13 +26,14 @@ import com.example.helena.gamebook.db.object.Game;
 import org.w3c.dom.Text;
 
 public class NewBooking extends AppCompatActivity {
-    Integer idGame ;
+    Integer idGame;
     Integer idCustomer;
-    Integer TheidBooking;
-    Integer idBooking;
     Bundle bundle;
-    Bundle bundle2, bundle3;
+    Bundle bundle2;
     Context context;
+
+    Customer customer;
+    Game game1;
 
     TextView idEditGame,idClientName;
     EditText idSeat;
@@ -75,19 +76,6 @@ public class NewBooking extends AppCompatActivity {
         }
 
 
-        if(savedInstanceState == null){
-            bundle3 = getIntent().getExtras();
-            if(bundle3 == null){
-                idBooking = null;
-            } else {
-                idBooking = bundle3.getInt("idBooking");
-            }
-        }else{
-            idBooking = (int) savedInstanceState.getSerializable("idBooking");
-        }
-
-
-
         load();
 
 
@@ -99,30 +87,14 @@ public class NewBooking extends AppCompatActivity {
         idSeat = (EditText)findViewById(R.id.idEditSeat);
         idEditGame = (TextView)findViewById(R.id.idEitTheGame);
 
-
         GameDataSource gds = new GameDataSource(context);
-        Game game1 = gds.getGameById(idGame);
+        game1 = gds.getGameById(idGame);
 
         CustomerDataSource cds = new CustomerDataSource(context);
-        Customer customer = cds.getCustomerById(idCustomer);
-
-        Booking booking = new Booking();
-        BookingDataSource bds = new BookingDataSource(context);
-        booking.setGame(game1);
-        booking.setCustomer(customer);
-
-        booking.setNum_seat(idSeat.getText().toString());
-
+        customer = cds.getCustomerById(idCustomer);
 
         idEditGame.setText(("N° :" + game1.getId() + " - " + game1.getTeam_res() + " vs. "+ game1.getTeam_ext()));
         idClientName.setText(customer.getNom() + " "+ customer.getPrenom());
-        //idSeat.setText(booking.getNum_seat());
-
-
-        bds.createBooking(booking);
-        TheidBooking = booking.getId();
-
-
 
     }
 
@@ -156,19 +128,21 @@ public class NewBooking extends AppCompatActivity {
         idSeat = (EditText)findViewById(R.id.idEditSeat);
 
         Booking booking = new Booking();
-        BookingDataSource bds = new BookingDataSource(context);
 
+        BookingDataSource bds = new BookingDataSource(context);
+        GameDataSource gds = new GameDataSource(context);
+        CustomerDataSource cds = new CustomerDataSource(context);
+
+        booking.setId(1);
         booking.setNum_seat(idSeat.getText().toString());
-        //booking.setCustomer(booking.getCustomer().getId());
-        booking.setGame(booking.getGame());
+        booking.setCustomer(customer);
+        booking.setGame(game1);
 
         bds.createBooking(booking);
 
-
-
         Intent toTheMatch = new Intent(this,MatchList.class);
         toTheMatch.putExtra("idCustomer", idCustomer);
-        toTheMatch.putExtra("idBooking", idBooking);
+        //toTheMatch.putExtra("idBooking", idBooking1);
         startActivity(toTheMatch);
     }
 

@@ -35,11 +35,13 @@ public class BookingDataSource {
     public long createBooking(Booking booking) {
         long id;
         ContentValues values = new ContentValues();
+        values.put(tableBOOKING.BOOKING_ID, booking.getId());
         values.put(tableBOOKING.BOOKING_FK_GAME, booking.getGame().getId());
         values.put(tableBOOKING.BOOKING_FK_CUSTOMER, booking.getCustomer().getId());
         values.put(tableBOOKING.BOOKING_NUM_SEAT, booking.getNum_seat());
 
-        id = this.db.insert(tableBOOKING.TABLE_NAME, null, values);
+        id = this.db.insert(FeedReaderContract.tableBOOKING.TABLE_NAME, null, values);
+        db.close();
 
         return id;
 

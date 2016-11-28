@@ -74,7 +74,7 @@ public class GameDataSource {
         game.setQuantity(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_QUANTITE)));
         //game.setStatut(cursor.getString(cursor.getColumnIndex(FeedReaderContract.tableGAME.GAME_STATUT)));
 
-
+        db.close();
         return game;
 
     }
